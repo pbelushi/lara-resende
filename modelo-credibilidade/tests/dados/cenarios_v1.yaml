@@ -1,0 +1,62 @@
+# Definição dos cenários. Tempos em trimestres a partir do início da simulação (t = 1).
+
+horizonte: 40
+
+comum:
+  # Investimento já contratado (concessões/PPP), % do PIB, igual nos três cenários.
+  capex_ppp:
+    pico: 0.3
+    inicio: 1
+    subida: 8      # trimestres até o pico
+    plato: 12
+    descida: 8
+
+# Pacote fiscal (cenários A e C). Cada medida: início, rampa linear e impacto final (% PIB).
+# Referência de ordem de grandeza: Demonstrativo de Gastos Tributários (RFB), que estima
+# as renúncias federais em torno de 4–5% do PIB. Ajustar à edição mais recente do DGT.
+pacote_fiscal:
+  - nome: Extinção programada de renúncias (sunset)
+    tipo: receita
+    inicio: 2
+    rampa: 8
+    impacto_final: 1.2
+  - nome: Limite para emendas
+    tipo: despesa
+    inicio: 1
+    rampa: 4
+    impacto_final: 0.3
+  - nome: Revisão de subsídios
+    tipo: despesa
+    inicio: 2
+    rampa: 6
+    impacto_final: 0.4
+  - nome: Nova regra dos pisos (inflação + componente real per capita)
+    tipo: despesa
+    inicio: 4
+    rampa: 20
+    impacto_final: 0.8
+
+cenarios:
+  A:
+    nome: A. Ortodoxo
+    cor: "#0072B2"
+    politica_monetaria: taylor
+    pacote_fiscal: true
+    venda_reservas: []
+  B:
+    nome: B. Lara Resende puro
+    cor: "#D55E00"
+    politica_monetaria: exogena
+    i_alvo: 7.5
+    T_corte: 6          # 18 meses
+    pacote_fiscal: false
+    venda_reservas: [25, 25, 25, 25]   # US$ bi por trimestre
+  C:
+    nome: C. Lara Resende condicionado
+    cor: "#009E73"
+    politica_monetaria: condicionada
+    i_alvo: 7.5
+    T_corte: 6
+    delta: 1.0          # tolerância de desvio em relação à regra de Taylor (p.p.)
+    pacote_fiscal: true
+    venda_reservas: [25, 25, 25, 25]

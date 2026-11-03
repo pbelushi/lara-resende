@@ -1,0 +1,85 @@
+especificacao,variante,cenario,lambda_star_det,det_monotonico,det_intervalos,lambda_star_50,lambda_star_80,lambda_star_80_teto5,p_sucesso_max,quedas_p_sucesso
+P1,base,A,,True,nenhum,,,,0.1640,0
+P1,base,B,,True,nenhum,,,,0.0110,0
+P1,base,C,0.3300,True,"[0.33, 1.00]",0.6600,,0.9300,0.7680,0
+P1,neutro_45,A,0.3500,True,"[0.35, 1.00]",0.5600,0.9000,0.7700,0.8370,0
+P1,neutro_45,B,,True,nenhum,,,,0.0030,0
+P1,neutro_45,C,0.2300,True,"[0.23, 1.00]",0.5700,0.9000,0.7900,0.8490,0
+P1,inercia_alta,A,,True,nenhum,,,,0.1090,0
+P1,inercia_alta,B,,True,nenhum,,,,0.0050,0
+P1,inercia_alta,C,0.3300,True,"[0.33, 1.00]",,,,0.4630,0
+P1,repasse_est,A,,True,nenhum,,,,0.1940,0
+P1,repasse_est,B,,True,nenhum,,,,0.0140,0
+P1,repasse_est,C,0.3400,True,"[0.34, 1.00]",0.5700,0.8500,0.7800,0.8690,0
+P1,C_lento,C,0.3600,True,"[0.36, 1.00]",0.8000,,,0.7020,0
+P1,C_sem_tolerancia,C,0.2500,True,"[0.25, 1.00]",0.7400,,,0.7260,0
+P1,tp_050,A,0.8500,True,"[0.85, 1.00]",,,,0.3890,0
+P1,tp_050,B,,True,nenhum,,,,0.0130,0
+P1,tp_050,C,0.3000,True,"[0.30, 1.00]",0.6200,1.0000,0.8800,0.8030,0
+P1,tp_100,A,,True,nenhum,,,,0.0450,0
+P1,tp_100,B,,True,nenhum,,,,0.0090,0
+P1,tp_100,C,0.3600,True,"[0.36, 1.00]",0.7100,,,0.7310,0
+P1,rolagem_0,A,,True,nenhum,,,,0.1640,0
+P1,rolagem_0,B,,True,nenhum,,,,0.0110,0
+P1,rolagem_0,C,0.3300,True,"[0.33, 1.00]",0.6600,,0.9300,0.7680,0
+P1,rolagem_2,A,,True,nenhum,,,,0.1620,0
+P1,rolagem_2,B,,True,nenhum,,,,0.0100,0
+P1,rolagem_2,C,0.3300,True,"[0.33, 1.00]",0.6600,,0.9300,0.7680,0
+P2,base,A,,True,nenhum,,,,0.0330,0
+P2,base,B,,True,nenhum,,,,0.0100,0
+P2,base,C,0.3600,True,"[0.36, 1.00]",0.6500,,0.9600,0.7690,0
+P2,neutro_45,A,0.4500,True,"[0.45, 1.00]",0.5900,0.9400,0.8000,0.8190,0
+P2,neutro_45,B,,True,nenhum,,,,0.0060,0
+P2,neutro_45,C,0.2600,True,"[0.26, 1.00]",0.5400,0.8600,0.7800,0.8710,0
+P2,inercia_alta,A,,True,nenhum,,,,0.0490,0
+P2,inercia_alta,B,,True,nenhum,,,,0.0060,0
+P2,inercia_alta,C,0.3600,True,"[0.36, 1.00]",1.0000,,,0.5010,0
+P2,repasse_est,A,,True,nenhum,,,,0.0500,0
+P2,repasse_est,B,,True,nenhum,,,,0.0220,0
+P2,repasse_est,C,0.3900,True,"[0.39, 1.00]",0.5500,0.8100,0.7600,0.8680,0
+P2,C_lento,C,0.4000,True,"[0.40, 1.00]",0.7800,,,0.6690,0
+P2,C_sem_tolerancia,C,0.3700,True,"[0.37, 1.00]",0.7300,,,0.7040,0
+P2,tp_050,A,,True,nenhum,,,,0.1630,0
+P2,tp_050,B,,True,nenhum,,,,0.0160,0
+P2,tp_050,C,0.3400,True,"[0.34, 1.00]",0.6100,1.0000,0.8900,0.8000,0
+P2,tp_100,A,,True,nenhum,,,,0.0260,0
+P2,tp_100,B,,True,nenhum,,,,0.0080,0
+P2,tp_100,C,0.3900,True,"[0.39, 1.00]",0.7100,,,0.7140,0
+P2,rolagem_0,A,,True,nenhum,,,,0.0340,0
+P2,rolagem_0,B,,True,nenhum,,,,0.0110,0
+P2,rolagem_0,C,0.3600,True,"[0.36, 1.00]",0.6500,,0.9600,0.7690,0
+P2,rolagem_2,A,,True,nenhum,,,,0.0320,0
+P2,rolagem_2,B,,True,nenhum,,,,0.0100,0
+P2,rolagem_2,C,0.3600,True,"[0.36, 1.00]",0.6500,,0.9600,0.7690,0
+P3,base,A,,True,nenhum,,,,0.1870,0
+P3,base,B,,True,nenhum,,,,0.0240,0
+P3,base,C,0.7600,True,"[0.76, 1.00]",0.8000,0.9100,0.9100,0.8610,0
+P3,neutro_45,A,0.6700,True,"[0.67, 1.00]",0.6800,0.7300,0.7300,0.8920,0
+P3,neutro_45,B,,True,nenhum,,,,0.0200,0
+P3,neutro_45,C,0.6800,True,"[0.68, 1.00]",0.7100,0.8000,0.8000,0.9560,0
+P3,repasse_est,A,,True,nenhum,,,,0.1990,0
+P3,repasse_est,B,,True,nenhum,,,,0.0150,0
+P3,repasse_est,C,0.7600,True,"[0.76, 1.00]",0.8000,0.9100,0.9100,0.8710,0
+P3,C_lento,C,0.8200,True,"[0.82, 1.00]",0.8600,0.9900,0.9900,0.8020,0
+P3,C_sem_tolerancia,C,0.8000,True,"[0.80, 1.00]",0.8400,0.9600,0.9600,0.8200,0
+P3,p2_zero,A,,True,nenhum,,,,0.0860,0
+P3,p2_zero,B,,True,nenhum,,,,0.0180,0
+P3,p2_zero,C,0.8100,True,"[0.81, 1.00]",0.8400,,,0.7860,0
+P3,p2_integral,A,,True,nenhum,,,,0.0440,0
+P3,p2_integral,B,,True,nenhum,,,,0.0230,0
+P3,p2_integral,C,0.7500,True,"[0.75, 1.00]",0.7800,0.8800,0.8800,0.8950,0
+P3,vt_perpetuidade,A,,True,nenhum,,,,0.1080,0
+P3,vt_perpetuidade,B,,True,nenhum,,,,0.0000,0
+P3,vt_perpetuidade,C,0.8100,True,"[0.81, 1.00]",0.9000,,,0.6230,1
+P3,tp_050,A,0.7500,False,"[0.75, 0.77]; [0.97, 1.00]",,,,0.3500,0
+P3,tp_050,B,,True,nenhum,,,,0.0230,0
+P3,tp_050,C,0.7400,True,"[0.74, 1.00]",0.7700,0.8800,0.8800,0.8970,0
+P3,tp_100,A,,True,nenhum,,,,0.0790,0
+P3,tp_100,B,,True,nenhum,,,,0.0150,0
+P3,tp_100,C,0.7900,True,"[0.79, 1.00]",0.8200,0.9600,0.9600,0.8230,0
+P3,rolagem_0,A,,True,nenhum,,,,0.1870,0
+P3,rolagem_0,B,,True,nenhum,,,,0.0180,0
+P3,rolagem_0,C,0.7600,True,"[0.76, 1.00]",0.8000,0.9100,0.9100,0.8610,0
+P3,rolagem_2,A,,True,nenhum,,,,0.1870,0
+P3,rolagem_2,B,,True,nenhum,,,,0.0220,0
+P3,rolagem_2,C,0.7600,True,"[0.76, 1.00]",0.8000,0.9100,0.9100,0.8610,0

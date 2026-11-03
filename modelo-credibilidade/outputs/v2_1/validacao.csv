@@ -1,0 +1,7 @@
+especificacao,episodio,inicio,fim,lambda_melhor_ajuste,theta,erro_normalizado_min,erro_lambda_0,erro_lambda_1,erro_theta_fixo_05,pico_observado,pico_simulado,reproduz_pico
+P1,2016–2019: âncora fiscal e queda da Selic,2016-06-30,2019-12-31,0.9000,,1.9092,35.8975,1.9516,,,,
+P1,"2020–2022: Selic a 2%, expansão fiscal e aperto",2020-06-30,2022-12-31,0.1000,,4.4842,4.6512,5.2442,,11.8867,5.3051,False
+P2,2016–2019: âncora fiscal e queda da Selic,2016-06-30,2019-12-31,0.9500,,1.7629,38.9975,1.7766,,,,
+P2,"2020–2022: Selic a 2%, expansão fiscal e aperto",2020-06-30,2022-12-31,0.4000,,4.0206,15.0058,4.9851,,11.8867,6.5374,False
+P3,2016–2019: âncora fiscal e queda da Selic,2016-06-30,2019-12-31,1.0000,0.2500,2.1674,31.0795,2.1674,2.2597,,,
+P3,"2020–2022: Selic a 2%, expansão fiscal e aperto",2020-06-30,2022-12-31,0.3000,0.0000,4.0053,26.6087,5.4540,5.9947,11.8867,9.1253,True

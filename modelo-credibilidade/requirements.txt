@@ -1,0 +1,10 @@
+numpy
+pandas
+scipy
+matplotlib
+pyyaml
+python-bcb
+requests
+openpyxl
+joblib
+pytest

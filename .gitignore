@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# rodadas: logs e resultados parciais (regeráveis)
+*.log
+modelo-credibilidade/outputs/**/parciais/
+
+# sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*

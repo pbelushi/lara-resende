@@ -1,0 +1,6 @@
+{
+ "N": 1000,
+ "R": 1000,
+ "seed_choques": 42,
+ "seed_bootstrap": 2026
+}

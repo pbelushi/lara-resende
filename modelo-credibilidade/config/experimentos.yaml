@@ -1,0 +1,92 @@
+# Matriz de experimentos (v2.2): especificação de inflação × cenário × variante.
+# Cada variante sobrescreve parâmetros da calibração; `cenario` e as chaves de cenário (T_corte, delta0, ...)
+# restringem e ajustam o cenário; `especificacoes` restringe a variante.
+# tp_lp é sempre derivado: r_long_neutro − r_neutro_base.
+
+especificacoes: [P1, P2, P3]
+cenarios: [A, B, C]
+
+variantes:
+  # obrigatórias
+  base: {r_long_neutro: 5.5, omega: 0.0}
+  rlong_45: {r_long_neutro: 4.5}
+  rlong_65: {r_long_neutro: 6.5}
+  neutro_45: {r_neutro_base: 4.5, r_long_neutro: 5.0}   # nível −0,5 p.p., mesma inclinação (tp_lp)
+  omega_05: {omega: 0.5}
+  omega_1: {omega: 1.0}
+  inercia_alta: {b1: 0.82, especificacoes: [P1, P2]}
+  repasse_est: {b3: 0.012}
+  C_lento: {cenario: C, T_corte: 12}
+  C_sem_tolerancia: {cenario: C, delta0: 0.0}
+  C_sem_piso: {cenario: C, politica_monetaria: condicionada_sem_piso}  # trajetória exógena como teto; sem piso depois de T_corte + T_δ
+  # testes do C_sem_piso (v2.2): reservas em A, decomposição piso/teto e estresse
+  A_reservas: {cenario: A, venda_reservas: [25, 25, 25, 25]}           # A com a mesma venda de US$ 100 bi
+  C_piso_corte: {cenario: C, piso_final: 2.0}                          # piso de 7,5% só durante o corte
+  C_sem_piso_inercia: {cenario: C, politica_monetaria: condicionada_sem_piso, b1: 0.82, especificacoes: [P1, P2], ref: inercia_alta}
+  phi_025: {phi: 0.25, especificacoes: [P3]}
+  phi_05: {phi: 0.5, especificacoes: [P3]}
+  theta_025: {theta: 0.25, especificacoes: [P3]}   # θ do melhor ajuste da validação 2016–2019
+  theta_0: {theta: 0.0, especificacoes: [P3]}      # θ do melhor ajuste da validação 2020–2022 (limite inferior)
+  pe_fiscal_0: {peso_fiscal_expect: 0.0, especificacoes: [P3]}    # sem inflação fiscal nas expectativas
+  pe_fiscal_05: {peso_fiscal_expect: 0.5, especificacoes: [P3]}   # metade do termo fiscal nas expectativas
+  # complementares
+  rolagem_0: {r_min_rolagem: 0.0}
+  rolagem_2: {r_min_rolagem: 2.0}
+  p2_zero: {p2_p3: 0.0, especificacoes: [P3]}
+  p2_integral: {p2_p3: 0.3, especificacoes: [P3]}
+  vt_perpetuidade: {escala_vt: 100.0, especificacoes: [P3]}
+  # alongamento da dívida (v2.2, Tarefa 2): teto para LFT + compromissadas, reduzindo só a LFT do Tesouro
+  along_20: {alongamento: true, w_lft_alvo: 0.40, T_along: 20, s_ipca: 0.7}
+  phi_025_along_20: {phi: 0.25, alongamento: true, w_lft_alvo: 0.40, T_along: 20, s_ipca: 0.7, especificacoes: [P3]}
+  phi_05_along_20: {phi: 0.5, alongamento: true, w_lft_alvo: 0.40, T_along: 20, s_ipca: 0.7, especificacoes: [P3]}
+  phi_025_along_12: {phi: 0.25, alongamento: true, w_lft_alvo: 0.40, T_along: 12, s_ipca: 0.7, especificacoes: [P3]}
+  phi_025_along_28: {phi: 0.25, alongamento: true, w_lft_alvo: 0.40, T_along: 28, s_ipca: 0.7, especificacoes: [P3]}
+  phi_025_along_pre: {phi: 0.25, alongamento: true, w_lft_alvo: 0.40, T_along: 20, s_ipca: 0.3, especificacoes: [P3]}
+  phi_025_along_50: {phi: 0.25, alongamento: true, w_lft_alvo: 0.50, T_along: 20, s_ipca: 0.7, especificacoes: [P3]}
+  # parada súbita (ano 2 = trimestre 8; ano 3 = trimestre 12): depreciação de 30%, prêmio +3 p.p. (decai 20%/tri),
+  # defesa de até US$ 50 bi limitada por R_min; o anúncio não antecipa o choque
+  A_choque2: {cenario: A, choque_t: 8}
+  A_reservas_choque2: {cenario: A, venda_reservas: [25, 25, 25, 25], choque_t: 8}
+  C_sem_piso_choque2: {cenario: C, politica_monetaria: condicionada_sem_piso, choque_t: 8, ref: A_choque2}
+  A_choque3: {cenario: A, choque_t: 12}
+  A_reservas_choque3: {cenario: A, venda_reservas: [25, 25, 25, 25], choque_t: 12}
+  C_sem_piso_choque3: {cenario: C, politica_monetaria: condicionada_sem_piso, choque_t: 12, ref: A_choque3}
+  # sensibilidade dos parâmetros das reservas (P1 e P3): efeito da intervenção (c3), piso (R_min) e carregamento
+  sens_A_reservas_c3_05: {cenario: A, venda_reservas: [25, 25, 25, 25], c3: 0.5, especificacoes: [P1, P3]}
+  sens_C_sem_piso_c3_05: {cenario: C, politica_monetaria: condicionada_sem_piso, c3: 0.5, especificacoes: [P1, P3], ref: base}
+  sens_A_reservas_c3_1: {cenario: A, venda_reservas: [25, 25, 25, 25], c3: 1.0, especificacoes: [P1, P3]}
+  sens_C_sem_piso_c3_1: {cenario: C, politica_monetaria: condicionada_sem_piso, c3: 1.0, especificacoes: [P1, P3], ref: base}
+  sens_A_reservas_c3_4: {cenario: A, venda_reservas: [25, 25, 25, 25], c3: 4.0, especificacoes: [P1, P3]}
+  sens_C_sem_piso_c3_4: {cenario: C, politica_monetaria: condicionada_sem_piso, c3: 4.0, especificacoes: [P1, P3], ref: base}
+  sens_A_reservas_rmin_250: {cenario: A, venda_reservas: [25, 25, 25, 25], R_min: 250.0, especificacoes: [P1, P3]}
+  sens_C_sem_piso_rmin_250: {cenario: C, politica_monetaria: condicionada_sem_piso, R_min: 250.0, especificacoes: [P1, P3], ref: base}
+  sens_A_reservas_rmin_350: {cenario: A, venda_reservas: [25, 25, 25, 25], R_min: 350.0, especificacoes: [P1, P3]}
+  sens_C_sem_piso_rmin_350: {cenario: C, politica_monetaria: condicionada_sem_piso, R_min: 350.0, especificacoes: [P1, P3], ref: base}
+  sens_A_rend_2: {cenario: A, rend_reservas: 2.0, especificacoes: [P1, P3]}
+  sens_A_reservas_rend_2: {cenario: A, venda_reservas: [25, 25, 25, 25], rend_reservas: 2.0, especificacoes: [P1, P3]}
+  sens_C_sem_piso_rend_2: {cenario: C, politica_monetaria: condicionada_sem_piso, rend_reservas: 2.0, especificacoes: [P1, P3], ref: sens_A_rend_2}
+  sens_A_rend_6: {cenario: A, rend_reservas: 6.0, especificacoes: [P1, P3]}
+  sens_A_reservas_rend_6: {cenario: A, venda_reservas: [25, 25, 25, 25], rend_reservas: 6.0, especificacoes: [P1, P3]}
+  sens_C_sem_piso_rend_6: {cenario: C, politica_monetaria: condicionada_sem_piso, rend_reservas: 6.0, especificacoes: [P1, P3], ref: sens_A_rend_6}
+  # variantes estimadas (Tarefa 3) e omega_038 (ω = 1 − b da verificação cruzada pelo juro longo): acrescentadas em
+  # tempo de execução a partir da estimação
+
+obrigatorias: [base, rlong_45, rlong_65, neutro_45, omega_05, omega_1, inercia_alta, repasse_est, C_lento,
+               C_sem_tolerancia, phi_025, phi_05, theta_025, theta_0, omega_038]
+
+# variantes que formam a grade de r_long_neutro (seção 2 do relatório)
+grade_rlong: {4.5: rlong_45, 5.5: base, 6.5: rlong_65}
+
+superficie:
+  variantes: [base, neutro_45, rlong_45, rlong_65, estimada, C_sem_piso, A_reservas]
+  passo: 0.05
+  N: 300
+
+sensibilidade:
+  N: 200
+  passo_lambda: 0.05
+  n_valores: 5
+  parametros:
+    P1: {a2: [0.05, 0.3], b3: [0.03, 0.12], kappa: [0.2, 1.0], p3: [0.15, 0.45]}
+    P2: {b2_p2: [0.0, 0.15], b3: [0.03, 0.12], kappa: [0.2, 1.0], p3: [0.15, 0.45]}
+    P3: {theta: [0.0, 1.0], phi: [0.0, 0.5], delta_min: [0.25, 1.0], p2_p3: [0.0, 0.3]}

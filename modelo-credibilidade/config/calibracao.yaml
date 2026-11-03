@@ -1,0 +1,234 @@
+# Calibração do modelo de credibilidade fiscal.
+#
+# A parte de cima (até o marcador AUTO) é editável: parâmetros estruturais,
+# critérios de sucesso e opções de estimação. Tudo abaixo do marcador é
+# reescrito por `python run.py --atualizar-dados` (src/dados.py) a partir da
+# última observação disponível das fontes públicas.
+
+parametros:
+  # Demanda agregada (IS)
+  a1: 0.7          # persistência do hiato (0,5–0,85)
+  a2: 0.15         # sensibilidade do hiato ao juro real longo (0,05–0,3)
+  a3: 0.4          # multiplicador fiscal (0,2–0,8)
+  a4: 0.8          # multiplicador do CAPEX (0,5–1,2)
+  a5: 0.03         # efeito da depreciação real sobre o hiato (exportações líquidas)
+  a6: 0.1          # perda de eficácia do CAPEX por p.p. de r_long acima de r_long_neutro
+  # Phillips
+  b1: 0.6          # inércia inflacionária (0,4–0,8)
+  b2: 0.15         # inclinação da Phillips (0,05–0,3)
+  b3: 0.06         # repasse cambial (0,03–0,12)
+  # Taylor
+  rho: 0.8         # suavização (0,6–0,9)
+  phi_pi: 1.5
+  phi_h: 0.5
+  r_neutro_base: 5.0   # juro real curto neutro: Selic real neutra (4,5 na variante neutro_45)
+  r_long_neutro: 5.5   # juro real longo neutro: NTN-B 10 anos em estado estacionário (grade 4,5; 5,5; 6,5)
+                       # tp_lp = r_long_neutro − r_neutro_base (derivado, pode ser negativo)
+  omega: 0.0           # fração dos desvios do prêmio que passa pela Taylor (0; 0,5; 1); 1 − ω vai ao juro longo
+  pi_meta: 3.0
+  i_min: 2.0       # piso nominal da Selic
+  # Expectativas e inconsistência
+  kappa: 0.5       # força da desancoragem (0,2–1,0)
+  mu: 0.25         # peso do hiato fiscal (p.p. do PIB) no índice de inconsistência
+  # Prêmio de risco (p.p. a.a.)
+  p0: 1.5          # prêmio médio (não entra no nível dos juros: já está nos juros neutros)
+  p1: 0.03         # por p.p. de dívida acima de d_ref
+  p2: 0.3          # por p.p. de primário abaixo do estabilizador
+  p3: 0.3          # por unidade do índice de inconsistência (ver README: índice em p.p.)
+  d_ref: 70.0      # dívida bruta de referência (% PIB)
+  prem_min: 0.3
+  # Câmbio (depreciação trimestral, %)
+  c1: 1.0          # por p.p. de variação da Selic
+  c2: 2.0          # por p.p. de variação do prêmio
+  c3: 2.0          # por % do PIB (US$) vendido em reservas no trimestre
+  c4: 0.5          # fuga por desconfiança, por unidade de inconsistência
+  eta: 1.0         # eficácia decrescente da intervenção: (R/R_inicial)^eta
+  i_ext: 4.0       # juro externo (% a.a.)
+  pi_ext: 2.0      # inflação externa (% a.a.), para o câmbio real
+  # Reservas
+  rend_reservas: 4.0   # rendimento das reservas (% a.a., em US$)
+  R_min: 300.0     # piso de adequação (US$ bi): 100% da métrica ARA do FMI (antes 250, ≈ 83% da ARA)
+  R_min_defesa: 0.0   # a defesa do câmbio na parada súbita pode romper R_min (limitada pelo tamanho da defesa)
+  R_adequado: 300.0   # canal reservas → prêmio (κ_R; 0 = inativo): 100% da ARA; 363 = caso pessimista
+  # Fiscal (governo central; regras de indexação, crescimento real % a.a.)
+  eps_rec: 1.0         # elasticidade da receita ao hiato (0,8–1,3)
+  g_salario_minimo: 1.0    # ganho real do salário mínimo
+  veg_previdencia: 2.0     # crescimento vegetativo de benefícios previdenciários
+  g_pessoal: 0.5           # crescimento real da folha
+  g_outras_obrig: 2.0      # BPC, abono etc. (indexados ao salário mínimo + vegetativo)
+  limite_min: 0.6          # arcabouço: crescimento real mínimo da despesa
+  limite_max: 2.5          # arcabouço: crescimento real máximo da despesa
+  limite_frac_receita: 0.7 # arcabouço: fração do crescimento real da receita
+  disc_min: 1.2            # piso de discricionárias (% PIB) para funcionamento da máquina
+  # Juros longos: term premium converge de tp_0 (calibrado no t0) para tp_lp = r_long_neutro − r_neutro_base
+  tau_tp: 6.0          # trimestres (4–12); meia-vida ≈ 4 trimestres
+  # Inflação: especificações P2 e P3 (P1 usa b1, b2, b3 acima)
+  b2_p2: 0.025         # P2, Phillips achatada (grade 0–0,15)
+  b2_p3: 0.025         # P3, inclinação residual (0–0,05)
+  peso_fiscal_expect: 1.0  # P3, peso de (1 − λ_π)·π_fiscal[t−1] nas expectativas (variantes 0 e 0,5)
+  theta: 0.5           # P3, fração da lacuna absorvida por inflação (0,25–1,0)
+  phi: 0.0             # P3, fração da lacuna inicial ainda não precificada (0–0,5)
+  delta_min: 0.5       # P3, piso de (r − g) no valor terminal, p.p. (0,25–1,0)
+  escala_vt: 1.0       # P3, valor terminal s/max(r−g, Δ_min): 1 = fórmula literal da especificação;
+                       # 100 = perpetuidade em unidades consistentes (variante vt_perpetuidade)
+  p2_p3: 0.15          # P3, p2 reduzido (metade) para não contar a lacuna duas vezes (0–0,3)
+  H_vp: 40             # P3, horizonte explícito do valor presente (trimestres)
+  dur_fx: 5.0          # P3, duração da dívida cambial (anos)
+  # Restrição de rolagem da LFT
+  rolagem: true
+  r_min_rolagem: 1.0   # juro real mínimo aceito para carregar LFT (0–2,0)
+  banda_rolagem: 2.0   # suavização da migração (p.p.)
+  monetizacao: false   # true: o excesso vira expansão monetária (flag --monetizacao)
+  psi_monet: 1.0       # p.p. de inflação por 1% da dívida monetizada
+  # Explosão inflacionária: trajetória encerrada acima deste nível (% a.a.)
+  pi_explosao: 50.0
+  # Guarda numérica
+  pi_min: -5.0
+
+criterios:
+  tolerancia_divida: 5.0     # p.p. do PIB acima da dívida inicial
+  janela_final: 8            # trimestres usados para inclinação e média
+  tolerancia_inflacao: 1.5   # p.p. acima da meta
+  tolerancia_inflacao_alt: 2.0   # sensibilidade do teto (meta + 2,0)
+  teto_explosivo: 20.0       # inflação em qualquer trimestre acima disto = inflação explosiva
+  reservas_janela: true      # R ≥ R_min só nos últimos 8 trimestres (a defesa pode romper o piso no choque)
+
+estimacao:
+  usar_estimados: true       # usa estimativas OLS quando passam nos testes de sinal/faixa
+  amostra_inicio: "2004-01-01"
+  excluir_inicio: "2020-01-01"
+  excluir_fim: "2020-12-31"
+  faixas:
+    a1: [0.5, 0.85]
+    a2: [0.05, 0.3]
+    b1: [0.4, 0.8]
+    b2: [0.05, 0.3]
+    b3: [0.03, 0.12]
+    c1: [0.2, 5.0]
+    c2: [0.2, 6.0]
+
+# >>> AUTO (gerado por src/dados.py; não editar abaixo desta linha)
+gerado_em: '2026-11-02'
+iniciais:
+  i0: 13.75
+  pi0: 4.576119675071877
+  pi_e0: 4.367486153846154
+  h0: -0.42243351596038536
+  g0: 1.9228791773778342
+  g_potencial: 2.8605468988972156
+  d_gross0: 82.93
+  d_net0: 69.98
+  R0: 362.821
+  E0: 5.13656
+  Y0: 13402.0237
+  s0: -0.52
+  s_gc0: -0.39
+  gamma0: 7.006468051292147
+  w_lft: 0.5913408659134086
+  w_pre: 0.1927807219278072
+  w_ipca: 0.2154784521547845
+  w_fx: 0.0003999600039996
+  w_oma: 0.1203879612038796
+  prazo_pre_meses: 22.98
+  prazo_ipca_meses: 90.63
+  prazo_lft_meses: 36.36
+  r_long0: 7.7521538461538455
+  r_long5_0: 8.057384615384615
+  i_pre_estoque0: 13.960833333333333
+  r_long_estoque0: 5.554710506821448
+  de_ult4: [-0.9791962751620531, -2.528017330506338, -3.9868518053830293, 1.7257823901147606]
+  ntnb10_media_2017_2019: 4.566057598855287
+  ntnb10_media_amostra: 6.106916999152518
+  ntnb10_amostra_inicio: 2004-12
+  duracao_mes_estoque: 2026-08
+  duracao_data_taxas: '2026-08-31'
+  dur_ipca_anos: 7.269196713780788
+  prazo_ipca_estoque_anos: 12.492528853167222
+  dur_pre_anos: 2.446116733542199
+  prazo_pre_estoque_anos: 2.8887924913649092
+  duracao_metodo: Macaulay (estoque da DPF por vencimento, taxas do Tesouro Direto)
+  data_base: '2026-09-30'
+  trimestre_base: 2026T3
+  selic_focus_8t: [13.5, 13.13013698630137, 12.756164383561645, 12.378082191780821, 12.0, 11.62704918032787, 11.254098360655737,
+    10.87704918032787]
+  focus_data_pesquisa: '2026-09-30'
+  focus_primario: {2026: -0.41, 2027: -0.4, 2028: -0.29, 2029: -0.15, 2030: -0.0475, 2031: 0.1, 2032: 0.3096, 2033: 0.6, 2034: 0.8,
+    2035: 0.8}
+  focus_dlsp: {2026: 70.0, 2027: 73.8, 2028: 76.48, 2029: 79.0728, 2030: 81.3, 2031: 83.3, 2032: 84.8143, 2033: 86.0, 2034: 87.1399,
+    2035: 89.1654}
+  rtn_rec_liq: 18.6612538276197
+  rtn_desp_total: 19.209101461034265
+  rtn_prev: 8.149831096619593
+  rtn_pessoal: 3.2315625422227257
+  rtn_outras_obrig: 3.101332367655466
+  rtn_fluxo: 2.841662951541639
+  rtn_disc: 1.884712502994842
+  rtn_data: '2026-07-01'
+  datas_observacao: {i0: '2026-09-30', pi0: '2026-09-01', pi_e0: '2026-09-30', h0: '2026-06-30', g0: '2026-06-30', g_potencial: '2026-06-30',
+    d_gross0: '2026-09-01', d_net0: '2026-09-01', R0: '2026-09-01', E0: '2026-09-30', Y0: '2026-09-01', s0: '2026-09-01',
+    s_gc0: '2026-09-01', gamma0: '2026-09-01', w_lft: '2026-09-01', w_pre: '2026-09-01', w_ipca: '2026-09-01', w_fx: '2026-09-01',
+    w_oma: '2026-09-01', prazo_pre_meses: '2026-09-01', prazo_ipca_meses: '2026-09-01', prazo_lft_meses: '2026-09-01', r_long0: '2026-09-30',
+    r_long5_0: '2026-09-30', rtn: '2026-07-01'}
+estimados:
+  a1: {estimado: 0.7771330371841251, aceito: true}
+  a2: {estimado: 0.18221252220316508, aceito: true}
+  b1: {estimado: 0.8196005359800984, aceito: false}
+  b2: {estimado: 0.1534849275982543, aceito: true}
+  b3: {estimado: 0.011589415996338615, aceito: false}
+  c1: {estimado: -3.042713411329566, aceito: false}
+  c2: {estimado: 3.7264095456983735, aceito: true}
+choques:
+  nomes: [eps_h, eps_pi, eps_e, eps_prem]
+  n: 82
+  matriz:
+  - [0.7825490908267372, -0.010013320763075154, -2.223460463950375, 0.10049190927878894]
+  - [-0.010013320763075154, 0.9250793832687199, -1.5761475423627225, -0.04572532658579516]
+  - [-2.223460463950375, -1.5761475423627225, 39.890265834646705, 0.2265411539514128]
+  - [0.10049190927878894, -0.04572532658579516, 0.2265411539514128, 0.7755758018965486]
+validacao_sgs:
+- {serie: meta_selic, codigo: 432, nome_oficial: Taxa de juros - Meta Selic definida pelo Copom, ok: true, erro: ''}
+- {serie: selic, codigo: 4189, nome_oficial: Taxa de juros - Selic acumulada no mês anualizada base 252, ok: true, erro: ''}
+- {serie: ipca_m, codigo: 433, nome_oficial: Índice nacional de preços ao consumidor-amplo (IPCA), ok: true, erro: ''}
+- {serie: dbgg, codigo: 13762, nome_oficial: Dívida bruta do governo geral (% PIB) - Metodologia utilizada a partir de 2008,
+  ok: true, erro: ''}
+- {serie: dlsp, codigo: 4513, nome_oficial: Dívida Líquida do Setor Público (% PIB) - Total - Setor público consolidado, ok: true,
+  erro: ''}
+- {serie: reservas, codigo: 3546, nome_oficial: Reservas internacionais - Total - mensal, ok: true, erro: ''}
+- {serie: cambio, codigo: 1, nome_oficial: Taxa de câmbio - Livre - Dólar americano (venda) - diário, ok: true, erro: ''}
+- {serie: nfsp_prim_spc, codigo: 5793, nome_oficial: NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado em 12 meses
+    - Resultado primário - Total - Setor público consolidado, ok: true, erro: ''}
+- {serie: nfsp_prim_gc, codigo: 5783, nome_oficial: NFSP sem desvalorização cambial (% PIB) - Fluxo acumulado em 12 meses
+    - Resultado primário - Total - Governo Federal e Banco Central, ok: true, erro: ''}
+- {serie: pib_12m, codigo: 4382, nome_oficial: PIB acumulado dos últimos 12 meses - Valores correntes (R$ milhões), ok: true,
+  erro: ''}
+- {serie: pib_real, codigo: 22109, nome_oficial: PIB trimestral - Dados dessazonalizados - Produto Interno Bruto a preços
+    de mercado, ok: true, erro: ''}
+- {serie: part_cambio, codigo: 10622, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - Câmbio, ok: true, erro: ''}
+- {serie: part_tr, codigo: 10623, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - TR, ok: true, erro: ''}
+- {serie: part_igpm, codigo: 10624, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - IGP-M, ok: true, erro: ''}
+- {serie: part_igpdi, codigo: 10625, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - IGP-DI, ok: true, erro: ''}
+- {serie: part_ipca, codigo: 10626, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - IPC-A, ok: true, erro: ''}
+- {serie: part_inpc, codigo: 10627, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - INPC, ok: true, erro: ''}
+- {serie: part_selic, codigo: 10628, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - Selic, ok: true, erro: ''}
+- {serie: part_pre, codigo: 10629, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - Prefixado, ok: true, erro: ''}
+- {serie: part_tjlp, codigo: 10630, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - TJLP, ok: true, erro: ''}
+- {serie: part_outros, codigo: 10631, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - Outros, ok: true, erro: ''}
+- {serie: part_oma, codigo: 10632, nome_oficial: Dívida mobiliária federal - Participação por indexador - Posição de custódia
+    explicitando operações de mercado aberto - Operações de mercado aberto, ok: true, erro: ''}
+- {serie: prazo_ltn, codigo: 10613, nome_oficial: Dívida mobiliária federal - Títulos do Tesouro Nacional - Emitidos em oferta
+    pública - Prazo e duração médios - LTN, ok: true, erro: ''}
+- {serie: prazo_ntnb, codigo: 10608, nome_oficial: Dívida mobiliária federal - Títulos do Tesouro Nacional - Emitidos em oferta
+    pública - Prazo e duração médios - NTN-B, ok: true, erro: ''}
+- {serie: prazo_lft, codigo: 10614, nome_oficial: Dívida mobiliária federal - Títulos do Tesouro Nacional - Emitidos em oferta
+    pública - Prazo médio - LFT, ok: true, erro: ''}
+erros_coleta: []

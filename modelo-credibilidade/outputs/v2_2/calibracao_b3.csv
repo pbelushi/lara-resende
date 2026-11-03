@@ -1,0 +1,4 @@
+especificacao,b3_pontual,obs_pontual,erpt_modelo_2t,erpt_modelo_4t,erpt_modelo_8t,erpt_lp_6m,erpt_lp_12m,erpt_lp_24m,b3_baixo,obs_baixo,b3_alto,obs_alto
+P1,0.04512,,0.03026,0.09220,0.17779,0.06116,0.09220,0.04908,0.00000,alvo abaixo do repasse gerado com b3 = 0,0.23987,
+P2,0.04638,,0.03111,0.09220,0.16707,0.06116,0.09220,0.04908,0.00000,alvo abaixo do repasse gerado com b3 = 0,0.24114,
+P3,0.07687,,0.04411,0.09220,0.04166,0.06116,0.09220,0.04908,0.00000,alvo abaixo do repasse gerado com b3 = 0,0.34675,

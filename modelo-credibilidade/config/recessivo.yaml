@@ -1,0 +1,80 @@
+# Módulo recessivo (efeito das estratégias sobre PIB, setores e emprego). Ver modelo_credibilidade_fiscal_efeito_recessivo.md.
+# Os multiplicadores por item substituem a3 = 0,4 só neste módulo: a lógica de sucesso já reportada não muda.
+
+# Multiplicadores por item, na mesma unidade de a3 (efeito do impulso de 1% do PIB sobre o hiato do trimestre, antes
+# da persistência a1). Valores iniciais da especificação; faixas ajustadas pela literatura brasileira:
+# - Sanches, Santos e Martins (2026), "Adjustment through revenue or spending?", Estudos Econômicos 56(1), SVAR
+#   1997–2023, multiplicadores acumulados em 12 meses: investimento público 2,4; benefícios sociais 1,81;
+#   subsídios 0,5; pessoal −1,14 (não significativo); receita total −0,53.
+# - SPE/Ministério da Fazenda, Boletim IEG 2024 (prévia de 2025), SVAR por tipo de gasto: investimento 3,45;
+#   transferências de renda 2,68; pessoal 0,74.
+# - Orair, Siqueira e Gobetti (2016), XXI Prêmio do Tesouro Nacional, e Orair e Siqueira: multiplicadores maiores na
+#   recessão, sobretudo de investimento (acima de 2) e de benefícios sociais; na expansão, investimento até 0,8.
+# No modelo, o multiplicador acumulado em 4 trimestres de uma medida permanente é ≈ m · (1 + a1 + a1² + a1³)/4 ≈ 0,7 m
+# (a1 = 0,78): os valores centrais abaixo correspondem a multiplicadores acumulados de 0,2 a 0,9, abaixo da faixa
+# alta da literatura; a faixa "alto" chega a 1,7 (investimento) e 1,3 (transferências).
+itens:
+  renuncias:      {nome: "Fim de renúncias regressivas (deduções do IRPF, isenções financeiras)", tipo: receita, canal: consumo_alta, m: 0.3, faixa: [0.1, 0.55]}
+  beneficios:     {nome: "Revisão de benefícios setoriais a empresas", tipo: receita, canal: fbcf_privada, m: 0.3, faixa: [0.1, 0.6]}
+  subsidios:      {nome: "Focalização de subsídios creditícios (grandes tomadores)", tipo: despesa, canal: fbcf_privada, m: 0.4, faixa: [0.2, 0.7]}
+  verbas_teto:    {nome: "Teto para verbas acima do teto remuneratório", tipo: despesa, canal: consumo_alta, m: 0.3, faixa: [0.1, 0.5]}
+  prev_militar:   {nome: "Previdência dos militares", tipo: despesa, canal: consumo_media, m: 0.5, faixa: [0.3, 0.8]}
+  emendas:        {nome: "Limite para emendas parlamentares", tipo: despesa, canal: municipal, m: 0.8, faixa: [0.5, 1.2]}
+  custeio:        {nome: "Custeio administrativo", tipo: despesa, canal: governo, m: 0.6, faixa: [0.4, 0.9]}
+  pisos:          {nome: "Nova regra dos pisos de saúde e educação", tipo: despesa, canal: governo, m: 0.8, faixa: [0.5, 1.2]}
+  investimento:   {nome: "Investimento público", tipo: despesa, canal: fbcf_publica, m: 1.2, faixa: [0.8, 2.4]}
+  transferencias: {nome: "Transferências a famílias de baixa renda", tipo: despesa, canal: consumo_baixa, m: 1.0, faixa: [0.7, 1.8]}
+
+# Composições com o mesmo valor total do pacote (2,7% do PIB) em todos os trimestres. pacote_base mantém as rampas de
+# cenarios.yaml; as outras distribuem a trilha total do pacote_base pelos itens, nas proporções abaixo.
+composicoes:
+  pacote_base:
+    renuncias: {inicio: 2, rampa: 8, impacto_final: 1.2}
+    emendas: {inicio: 1, rampa: 4, impacto_final: 0.3}
+    subsidios: {inicio: 2, rampa: 6, impacto_final: 0.4}
+    pisos: {inicio: 4, rampa: 20, impacto_final: 0.8}
+  pacote_qualidade: {renuncias: 1.2, beneficios: 0.6, subsidios: 0.4, verbas_teto: 0.2, prev_militar: 0.3}
+  pacote_linear: {investimento: 0.8, custeio: 0.9, emendas: 0.4, pisos: 0.4, transferencias: 0.2}
+
+# Dependência do ciclo (variante mult_ciclo): m · (1 + γ max(0, −hiato)); com hiato de −3%, o investimento (1,2) vai a
+# 1,8, perto do topo da faixa inicial da especificação (0,8–1,8).
+gamma_ciclo: 0.1667
+
+# Canais de demanda final → vetores da MIP 2015 (demanda final da produção nacional por atividade). Sem a POF por
+# faixa de renda, os três canais de consumo usam o vetor total das famílias (limitação registrada no relatório).
+canais:
+  consumo_alta: {familias: 1.0}
+  consumo_media: {familias: 1.0}
+  consumo_baixa: {familias: 1.0}
+  fbcf_privada: {fbcf: 1.0}
+  governo: {governo: 1.0}
+  municipal: {governo: 0.5, construcao: 0.5}
+  fbcf_publica: {construcao: 0.85, fbcf: 0.15}
+  capex: {construcao: 0.7, maquinas: 0.3}
+# Componentes macro da equação do hiato → canais. O juro real longo divide-se entre consumo e investimento.
+componentes_macro:
+  dem_juro: {familias: 0.5, fbcf: 0.5}
+  dem_capex: {construcao: 0.7, maquinas: 0.3}
+  dem_cambio: {exportacao: 1.0}
+  dem_choque: {absorcao: 1.0}
+  dem_fiscal_resto: {governo: 0.5, familias: 0.5}
+  outros: {absorcao: 1.0}
+
+estrategias:
+  S: {cenario: A, ajustes: {pacote_fiscal: false}, rotulo: "S. Referência sem ajuste"}
+  A: {cenario: A, ajustes: {}, rotulo: "A. Ortodoxo"}
+  A_res60: {cenario: A, ajustes: {venda_reservas: [15, 15, 15, 15]}, rotulo: "A com venda de US$ 60 bi"}
+  A_res100: {cenario: A, ajustes: {venda_reservas: [25, 25, 25, 25]}, rotulo: "A com venda de até US$ 100 bi"}
+  B: {cenario: B, ajustes: {}, rotulo: "B. Lara Resende puro"}
+  C: {cenario: C, ajustes: {}, rotulo: "C. Lara Resende condicionado"}
+  C_sem_piso: {cenario: C, ajustes: {politica_monetaria: condicionada_sem_piso}, rotulo: "C sem piso"}
+
+especificacoes:
+  P1: {especificacao: P1}
+  P2: {especificacao: P2}
+  P3_theta05: {especificacao: P3, theta: 0.5}
+  P3_theta025: {especificacao: P3, theta: 0.25}
+lambdas: [0.3, 0.5, 0.7, 0.9]
+janelas: {"1-8": [1, 8], "1-16": [1, 16], "1-40": [1, 40]}   # trimestre 16 = 2030T3 (eleição de outubro de 2030)
+pares: [[A, C], [A, C_sem_piso], [A, A_res60], [C_sem_piso, A_res100]]
+pib_2015: 5995787.0   # R$ milhões (IBGE, SCN referência 2010): converte o hiato em demanda final a preços de 2015

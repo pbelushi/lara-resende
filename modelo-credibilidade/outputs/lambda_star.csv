@@ -1,0 +1,4 @@
+cenario,lambda_star_det,det_monotonico,det_intervalos,lambda_star_50,lambda_star_80,p_sucesso_max,quedas_p_sucesso
+A,0.0800,True,"[0.08, 1.00]",0.3400,0.7100,0.8820,0
+B,0.7700,False,"[0.77, 0.84]",,,0.1640,0
+C,0.5700,True,"[0.57, 1.00]",0.4800,1.0000,0.8040,0
