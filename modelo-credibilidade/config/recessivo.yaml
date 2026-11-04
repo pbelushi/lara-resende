@@ -1,4 +1,4 @@
-# Módulo recessivo (efeito das estratégias sobre PIB, setores e emprego). Ver modelo_credibilidade_fiscal_efeito_recessivo.md.
+# Módulo recessivo (efeito das estratégias sobre PIB, setores e emprego). Ver docs/especificacoes/modelo_credibilidade_fiscal_efeito_recessivo.md.
 # Os multiplicadores por item substituem a3 = 0,4 só neste módulo: a lógica de sucesso já reportada não muda.
 
 # Multiplicadores por item, na mesma unidade de a3 (efeito do impulso de 1% do PIB sobre o hiato do trimestre, antes

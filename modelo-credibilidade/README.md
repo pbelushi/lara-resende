@@ -2,8 +2,8 @@
 
 Modelo semiestrutural trimestral que compara três estratégias para o Brasil e mede **qual depende de menor
 adesão do mercado** para estabilizar a dívida sem perder o controle da inflação. Especificações:
-`../modelo_credibilidade_fiscal.md` (v1), `../Modelo_credibilidade_fiscal_v2.md` (v2) e
-`../Modelo_credibilidade_fiscal_v2_1.md` (correções da v2.1) e `../Modelo_credibilidade_fiscal_v2_2.md` (v2.2,
+`../docs/especificacoes/modelo_credibilidade_fiscal.md` (v1), `../docs/especificacoes/Modelo_credibilidade_fiscal_v2.md` (v2) e
+`../docs/especificacoes/Modelo_credibilidade_fiscal_v2_1.md` (correções da v2.1) e `../docs/especificacoes/Modelo_credibilidade_fiscal_v2_2.md` (v2.2,
 implementada aqui).
 
 | Cenário | Política |

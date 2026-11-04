@@ -1,0 +1,35 @@
+{
+  "title": "Modelo de credibilidade fiscal: Selic, reservas e ajuste fiscal no Brasil",
+  "upload_type": "software",
+  "version": "1.0.0",
+  "publication_date": "2026-11-03",
+  "language": "por",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Silva, Paulo Roberto",
+      "orcid": "0000-0003-0997-4322"
+    }
+  ],
+  "description": "<p>Modelo semiestrutural trimestral para o Brasil que compara três estratégias de estabilização e mede a adesão do mercado (credibilidade) que cada uma exige para estabilizar a dívida pública com a inflação controlada:</p><ul><li><b>A. Ortodoxa:</b> pacote fiscal e Selic pela regra de Taylor.</li><li><b>B. Lara Resende puro:</b> corte exógeno da Selic e venda de reservas, sem ajuste fiscal.</li><li><b>C. Condicionada:</b> pacote fiscal, corte da Selic limitado pela regra de Taylor e venda de reservas.</li></ul><p>O repositório contém as especificações (docs/especificacoes), o código em Python, a configuração, os testes, os dados públicos usados (Banco Central, Tesouro Nacional, IBGE, FRED) e os relatórios e gráficos de cada versão do modelo (v1, v2, v2.1 e v2.2), incluindo a análise de reservas e parada súbita e o módulo de efeito recessivo (multiplicadores por item do pacote, matriz insumo-produto de 2015 e emprego pela PNAD Contínua).</p><p><b>English summary.</b> Quarterly semi-structural model of Brazil comparing three stabilization strategies (orthodox fiscal adjustment with a Taylor rule; exogenous rate cuts with reserve sales and no fiscal adjustment; and a conditioned version combining both) by the degree of market credibility each requires to stabilize public debt while keeping inflation under control. It includes three inflation theories (hybrid Phillips curve, flat Phillips curve, and a fiscal theory of the price level closure), Monte Carlo simulation with paired bootstrap, historical validation, a reserves and sudden-stop analysis, and a recessionary-effects module (item-level fiscal multipliers, 2015 input-output matrix, and employment from the Brazilian labour force survey). Code and reports are in Portuguese.</p><p>Dados de terceiros com redistribuição restrita (EMBI+ da J.P. Morgan, via Ipeadata, e VIX da Cboe, via FRED) não estão no depósito: o código os baixa das fontes originais quando ausentes.</p>",
+  "keywords": [
+    "credibilidade fiscal",
+    "política monetária",
+    "reservas internacionais",
+    "dívida pública",
+    "teoria fiscal do nível de preços",
+    "multiplicadores fiscais",
+    "matriz insumo-produto",
+    "Brasil",
+    "fiscal credibility",
+    "monetary policy",
+    "Brazil"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/pbelushi/lara-resende",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

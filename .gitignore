@@ -13,3 +13,10 @@ modelo-credibilidade/outputs/**/parciais/
 Thumbs.db
 desktop.ini
 ~$*
+
+# dados de terceiros com redistribuição restrita: baixados pelo código (src/estimacao.py) quando ausentes
+modelo-credibilidade/data/raw/ipea_JPM366_EMBI366.csv
+modelo-credibilidade/data/raw/fred_VIXCLS.csv
+
+# editor
+.vscode/

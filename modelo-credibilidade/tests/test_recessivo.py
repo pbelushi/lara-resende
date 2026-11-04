@@ -1,4 +1,4 @@
-"""Testes do módulo recessivo (seção 7 de modelo_credibilidade_fiscal_efeito_recessivo.md)."""
+"""Testes do módulo recessivo (seção 7 de docs/especificacoes/modelo_credibilidade_fiscal_efeito_recessivo.md)."""
 import copy
 import json
 from pathlib import Path
