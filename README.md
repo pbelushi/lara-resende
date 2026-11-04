@@ -1,5 +1,7 @@
 # Modelo de credibilidade fiscal: Selic, reservas e ajuste fiscal no Brasil
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23934618.svg)](https://doi.org/10.5281/zenodo.23934618)
+
 Modelo semiestrutural trimestral que compara três estratégias de estabilização para o Brasil e mede **quanta
 adesão do mercado (credibilidade) cada uma exige** para estabilizar a dívida pública com a inflação controlada.
 
@@ -92,7 +94,7 @@ terceiros em `modelo-credibilidade/data/raw/` continuam sujeitos aos termos de u
 
 ## Como citar
 
-Use o DOI do Zenodo da versão usada, ou os metadados de `CITATION.cff`:
+Use o DOI do Zenodo (metadados também em `CITATION.cff`):
 
 > Silva, Paulo Roberto (2026). *Modelo de credibilidade fiscal: Selic, reservas e ajuste fiscal no Brasil*
-> (versão 1.0.0) [software]. https://github.com/pbelushi/lara-resende
+> (versão 1.0.0) [software]. Zenodo. https://doi.org/10.5281/zenodo.23934618
