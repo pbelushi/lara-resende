@@ -46,7 +46,7 @@ def main():
     # o que explica o sucesso e a atividade a λ_f de referência
     att = d[d["lambda_fiscal"] == ref].set_index("id")
     num = att[["total_efetivo", "mult_medio"] + [f"x_{k}" for k in ITENS] +
-              [c for c in att.columns if c.startswith("c_") and att[c].dtype != object]].copy()
+              [c for c in att.columns if c.startswith("c_") and pd.api.types.is_numeric_dtype(att[c])]].copy()
     out["corr_sucesso_banda"] = num.corrwith(att["p_bil"]).dropna().sort_values().round(2).to_dict()
     out["corr_atividade"] = num.corrwith(att["dif_1-16"]).dropna().sort_values().round(2).to_dict()
     out["por_regra"] = att.groupby("c_regra")[["p_bil", "p", "dif_1-16"]].mean().round(3).to_dict()
