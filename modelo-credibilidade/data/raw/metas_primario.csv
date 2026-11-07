@@ -1,0 +1,42 @@
+ano_meta,data_efeito,ambito,tipo,meta_pct_pib,meta_efetiva_pct_pib,fonte_url
+2005,2004-08-11,consolidado,original,4.25,4.1,https://www2.camara.leg.br/orcamento-da-uniao/leis-orcamentarias/ldo/2007/tramitacao/proposta-do-poder-executivo/anexoiv02_ano%20anterior.pdf ; https://www2.camara.leg.br/orcamento-da-uniao/estudos/artigos/2005/nt342005.pdf
+2006,2005-09-20,consolidado,original,4.25,4.1,https://www2.camara.leg.br/legin/fed/lei/2005/lei-11178-20-setembro-2005-538610-publicacaooriginal-34593-pl.html ; https://www2.camara.leg.br/orcamento-da-uniao/leis-orcamentarias/ldo/2006/tramitacao/notas-tecnicas-e-informativos-conjuntos/ntc08_2005.pdf
+2007,2006-12-29,consolidado,original,4.25,4.05,https://www2.camara.leg.br/legin/fed/lei/2006/lei-11439-29-dezembro-2006-548923-publicacaooriginal-64160-pl.html ; https://www2.camara.leg.br/legin/fed/lei/2008/lei-11768-14-agosto-2008-579404-anexoiv.2-pl.pdf
+2007,2007-05-29,consolidado,revisao,3.53,3.12,https://www.legjur.com/legislacao/htm/lei_00114772007 ; https://www.congressoemfoco.com.br/noticia/96589/comissao-aprova-superavit-menor-para-contemplar-pac ; https://www2.camara.leg.br/legin/fed/lei/2008/lei-11768-14-agosto-2008-579404-anexoiv.2-pl.pdf
+2008,2007-08-13,consolidado,original,3.8,3.36,https://www2.camara.leg.br/legin/fed/lei/2007/lei-11514-13-agosto-2007-558083-normaatualizada-pl.html
+2008,2008-05-30,consolidado,anuncio,4.3,4.3,https://www.congressoemfoco.com.br/noticia/84387/governo-lanca-fundo-para-conter-processo-inflacionario
+2009,2008-08-14,consolidado,original,3.8,3.33,https://www.legjur.com/legislacao/htm/lei_00117682008 ; https://www.camara.gov.br/internet/comissao/index/mista/orca/ldo/LDO2011/rel_apres/07_AnexoIII_2.pdf
+2009,2009-05-14,consolidado,revisao,2.5,1.59,https://www2.camara.leg.br/legin/fed/lei/2009/lei-12053-9-outubro-2009-591714-publicacaooriginal-116757-pl.html ; https://www.camara.gov.br/internet/comissao/index/mista/orca/ldo/LDO2011/rel_apres/07_AnexoIII_2.pdf
+2010,2009-08-12,consolidado,original,3.3,2.72,https://www.legjur.com/legislacao/art/lei_00120172009-2 ; https://www.legjur.com/legislacao/art/lei_00120172009-3
+2010,2009-12-29,consolidado,revisao,3.3,2.53,https://www.legjur.com/legislacao/art/lei_00120172009-3
+2010,2010-11-16,consolidado,revisao,3.1,2.33,https://www.legjur.com/legislacao/art/lei_00120172009-2 ; https://www.camara.gov.br/internet/comissao/index/mista/orca/ldo/LDO2011-Alteracao/Relatorio.pdf
+2011,2010-08-09,consolidado,original,3.3,2.46,https://www2.camara.leg.br/legin/fed/lei/2010/lei-12309-9-agosto-2010-607826-publicacaooriginal-128786-pl.html ; https://www.camara.gov.br/internet/comissao/index/mista/orca/ldo/LDO2011-Alteracao/Relatorio.pdf
+2011,2010-11-16,consolidado,revisao,3.1,2.26,https://www2.camara.leg.br/legin/fed/lei/2010/lei-12309-9-agosto-2010-607826-normaatualizada-pl.html ; https://www.camara.gov.br/internet/comissao/index/mista/orca/ldo/LDO2011-Alteracao/Relatorio.pdf
+2012,2011-08-12,consolidado,original,3.1,2.2,https://www.camara.gov.br/internet/comissao/index/mista/orca/ldo/LDO2012/autografo/005_Autog_AnexoIII1.pdf ; https://www12.senado.leg.br/orcamento/documentos/ldo/2014/elaboracao/relatorio/parecer-da-cmo/anexos/anexo-iv.2-cumprimento-de-metas
+2013,2012-08-17,consolidado,original,3.1,2.2,https://www.legjur.com/legislacao/htm/lei_00127082012 ; https://www2.camara.leg.br/orcamento-da-uniao/estudos/2013/NOTA21_13AVALIAODEJULHONOVAMETAFISCALCONTINGENCIAMENTO2013VF.pdf
+2013,2013-04-02,consolidado,revisao,3.1,1.8,https://www.legjur.com/legislacao/htm/lei_00127082012 ; https://www2.camara.leg.br/orcamento-da-uniao/estudos/2013/NOTA21_13AVALIAODEJULHONOVAMETAFISCALCONTINGENCIAMENTO2013VF.pdf
+2013,2013-07-29,consolidado,anuncio,2.3,2.3,https://www2.camara.leg.br/orcamento-da-uniao/estudos/2013/NOTA21_13AVALIAODEJULHONOVAMETAFISCALCONTINGENCIAMENTO2013VF.pdf
+2014,2013-12-24,consolidado,original,3.1,1.86,https://www2.camara.leg.br/orcamento-da-uniao/estudos/2014/NOTA5_14CONTINGENCIAMENTO.pdf
+2014,2014-02-20,consolidado,anuncio,1.9,1.9,https://www2.camara.leg.br/orcamento-da-uniao/estudos/2014/NOTA5_14CONTINGENCIAMENTO.pdf
+2014,2014-11-11,central,suspensao,,,https://www.legjur.com/legislacao/htm/lei_00130532014 ; https://www.congressonacional.leg.br/materias/pesquisa/-/materia/118860
+2015,2015-01-02,consolidado,original,1.2,1.2,https://www.legjur.com/legislacao/htm/lei_00130802015 ; https://www12.senado.leg.br/noticias/materias/2014/12/08/relatorio-final-da-ldo-2015-confirma-superavit-menor
+2015,2015-07-22,consolidado,anuncio,0.15,0.15,https://vermelho.org.br/?p=333567 ; https://www2.camara.leg.br/orcamento-da-uniao/monitor-fiscal/monitorfiscal_dez2015
+2015,2015-10-27,consolidado,revisao,-0.82,-1.95,https://www.legjur.com/legislacao/art/lei_00131992015-1
+2016,2015-12-30,consolidado,original,0.49,0.49,https://www.legjur.com/legislacao/art/lei_00132422015-2
+2016,2016-05-20,consolidado,revisao,-2.61,-2.61,https://www.legjur.com/legislacao/art/lei_00132422015-2
+2017,2016-12-26,consolidado,original,-2.17,-2.17,https://www.legjur.com/legislacao/art/lei_00134082016-2
+2017,2017-08-15,consolidado,revisao,-2.48,-2.48,https://www.legjur.com/legislacao/htm/lei_00134802017
+2018,2017-08-08,consolidado,original,-1.87,-1.87,https://www.legjur.com/legislacao/art/lei_00134732017-2
+2018,2017-08-15,consolidado,revisao,-2.3,-2.3,https://www.legjur.com/legislacao/art/lei_00134732017-2 ; https://www.legjur.com/legislacao/htm/lei_00134802017
+2019,2018-08-14,consolidado,original,-1.79,-1.79,https://www.legjur.com/legislacao/art/lei_00137072018-2
+2020,2019-11-11,consolidado,original,-1.56,-1.56,https://www2.camara.leg.br/legin/fed/lei/2019/lei-13898-11-novembro-2019-789393-publicacaooriginal-159390-pl.html
+2020,2020-03-18,consolidado e central,suspensao,,,https://Abmes.Org.Br/arquivos/legislacoes/Decreto-legislativo-006-2020-03-20.pdf
+2021,2020-12-31,central,original,-2.74,-2.74,https://www.legjur.com/legislacao/art/lei_00141162020-2
+2021,2021-04-21,central,suspensao,-2.74,,https://www.legjur.com/legislacao/art/lei_00141162020-2
+2022,2021-08-20,central,original,-1.69,-1.69,https://www.legjur.com/legislacao/art/lei_00141942021-2
+2022,2022-07-14,central,revisao,-1.69,-2.1,https://www2.camara.leg.br/legin/fed/emecon/2022/emendaconstitucional-123-14-julho-2022-792985-normaatualizada-pl.html
+2023,2022-08-09,central,original,-0.6,-0.6,https://www.legjur.com/legislacao/art/lei_00144362022-2
+2023,2022-12-21,central,revisao,-0.6,-1.93,https://www2.camara.leg.br/legin/fed/emecon/2022/emendaconstitucional-126-21-dezembro-2022-793528-publicacaooriginal-166603-pl.html ; https://www12.senado.leg.br/ifi/pdf/raf84_jan2024.pdf
+2024,2023-12-29,central,original,0.0,-0.25,https://www.legjur.com/legislacao/art/lei_00147912023-2
+2025,2024-12-30,central,original,0.0,-0.25,https://www.legjur.com/legislacao/art/lei_00150802024-2
+2026,2025-12-31,central,original,0.25,0.0,https://www2.camara.leg.br/legin/fed/lei/2025/lei-15321-31-dezembro-2025-798617-publicacaooriginal-179567-pl.html ; https://www.congressoemfoco.com.br/noticia/115242/lula-sanciona-ldo-com-veto-ao-fundo-partidario-e-regra-para-emendas
