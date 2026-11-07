@@ -1,0 +1,1 @@
+{"n1": 6000, "n2": 2000, "N1": 200, "seed": 7, "tetos": {"renuncias": 2.5, "beneficios": 1.0, "subsidios": 0.6, "verbas_teto": 0.2, "prev_militar": 0.4, "emendas": 0.5, "custeio": 0.8, "pisos": 1.2, "investimento": 1.0, "transferencias": 1.5}, "lams_triagem": [0.1, 0.2, 0.3], "lams_final": [0.1, 0.15, 0.2, 0.25, 0.3]}

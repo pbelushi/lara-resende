@@ -238,7 +238,7 @@ def main():
     log.info("fase 3: %d finalistas em P1, P2, P3 com N = 1000", len(fin))
     lams_f = [0.1, 0.15, 0.2, 0.25, 0.3]
     d3 = pd.concat([rodar({i: combos[i] for i in fin}, p, cfg, e, choques, lams_f, a.jobs, lote=4)
-                    for e in ("P1", "P2", "P3")])
+                    for e in ("P1", "P2", "P3_theta05")])
     d3.to_csv(SAIDA / "fase3_finalistas.csv", index=False)
     (SAIDA / "combinacoes.json").write_text(json.dumps(combos), encoding="utf-8")
     (SAIDA / "execucao.json").write_text(json.dumps({"n1": a.n1, "n2": a.n2, "N1": a.N1, "seed": a.seed,
