@@ -407,6 +407,11 @@ def simular(p: dict, cen: dict, lam_pi, lam_fiscal=None, choques: np.ndarray | N
             # --- inflação (módulo da especificação)
             estado = {"pi_ant": pi_ant, "pi_e": pi_e, "h_ant": X["h"][:, t - 1], "de12": de12,
                       "pi_fiscal": pi_fiscal, "pi_monet": pi_monet}
+            # indexação à meta (opcional): parte da inércia (salário mínimo, benefícios, preços administrados,
+            # contratos do governo) passa a ser reajustada pela meta em vez da inflação passada, em rampa
+            if p.get("indexacao_meta"):
+                th = p["indexacao_meta"] * min(1.0, t / p.get("indexacao_rampa", 4))
+                estado["pi_ant_inercia"] = (1 - th) * pi_ant + th * p["pi_meta"]
             pi, comp = inflacao.inflacao(espec, estado, p, epi)
             pi = np.clip(pi, p["pi_min"], G["pi"])
             pi_fiscal_ant = pi_fiscal

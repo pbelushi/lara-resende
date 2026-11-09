@@ -15,7 +15,7 @@ COMPONENTES_PI = ("inercia", "expectativa", "hiato", "cambio", "fiscal", "choque
 def _phillips(estado: dict, p: dict, choque: np.ndarray, b2: float) -> tuple[np.ndarray, dict]:
     zeros = np.zeros_like(estado["pi_ant"])
     comp = {
-        "inercia": p["b1"] * estado["pi_ant"],
+        "inercia": p["b1"] * estado.get("pi_ant_inercia", estado["pi_ant"]),
         "expectativa": (1 - p["b1"]) * estado["pi_e"],
         "hiato": b2 * estado["h_ant"],
         "cambio": p["b3"] * estado["de12"],
