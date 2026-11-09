@@ -261,16 +261,16 @@ codigo,nivel,descricao,peso,classe,grupo,grau_baixo,grau_central,grau_alto
 4301004,subitem,Relógio de pulso,0.0471,bens: alimentos e industriais,fora,0.05,0.1,0.15
 4401001,subitem,Tecido,0.0412,bens: alimentos e industriais,fora,0.05,0.1,0.15
 4401002,subitem,Artigos de armarinho,0.0096,bens: alimentos e industriais,fora,0.05,0.1,0.15
-5101001,subitem,Ônibus urbano,1.1157,administrado: transporte público,fora,0.4,0.5,0.6
+5101001,subitem,Ônibus urbano,1.1157,administrado: transporte público,transporte,0.4,0.5,0.6
 5101002,subitem,Táxi,0.2046,serviço: outros,fora,0.2,0.3,0.4
-5101004,subitem,Trem,0.0372,administrado: transporte público,fora,0.4,0.5,0.6
-5101006,subitem,Ônibus intermunicipal,0.4175,administrado: transporte público,fora,0.4,0.5,0.6
-5101007,subitem,Ônibus interestadual,0.1178,administrado: transporte público,fora,0.4,0.5,0.6
+5101004,subitem,Trem,0.0372,administrado: transporte público,transporte,0.4,0.5,0.6
+5101006,subitem,Ônibus intermunicipal,0.4175,administrado: transporte público,transporte,0.4,0.5,0.6
+5101007,subitem,Ônibus interestadual,0.1178,administrado: transporte público,transporte,0.4,0.5,0.6
 5101010,subitem,Passagem aérea,0.7105,serviço: preços flexíveis,fora,0.05,0.1,0.2
-5101011,subitem,Metrô,0.065,administrado: transporte público,fora,0.4,0.5,0.6
+5101011,subitem,Metrô,0.065,administrado: transporte público,transporte,0.4,0.5,0.6
 5101026,subitem,Transporte escolar,0.127,serviço: pessoais e reparos,fora,0.4,0.5,0.6
 5101051,subitem,Transporte por aplicativo,0.2895,serviço: outros,fora,0.2,0.3,0.4
-5101053,subitem,Integração transporte público,0.0518,administrado: transporte público,fora,0.4,0.5,0.6
+5101053,subitem,Integração transporte público,0.0518,administrado: transporte público,transporte,0.4,0.5,0.6
 5102001,subitem,Automóvel novo,2.9494,bens: alimentos e industriais,fora,0.05,0.1,0.15
 5102004,subitem,Emplacamento e licença,2.5835,administrado: tributos e outros,fora,0.05,0.15,0.25
 5102005,subitem,Seguro voluntário de veículo,0.7117,serviço: outros,fora,0.2,0.3,0.4
@@ -369,10 +369,10 @@ codigo,nivel,descricao,peso,classe,grupo,grau_baixo,grau_central,grau_alto
 8104005,subitem,Autoescola,0.0519,serviço: pessoais e reparos,fora,0.4,0.5,0.6
 8104006,subitem,Atividades físicas,0.3908,serviço: pessoais e reparos,fora,0.4,0.5,0.6
 9101001,subitem,Correio,0.0672,administrado: taxas e tarifas,fora,0.5,0.65,0.8
-9101002,subitem,Plano de telefonia fixa,0.2054,administrado: taxas e tarifas,fora,0.5,0.65,0.8
-9101008,subitem,Plano de telefonia móvel,1.2821,serviço: outros,fora,0.2,0.3,0.4
+9101002,subitem,Plano de telefonia fixa,0.2054,telecom: telefonia fixa,telecom,0.5,0.65,0.8
+9101008,subitem,Plano de telefonia móvel,1.2821,telecom: telefonia móvel e internet (preço livre),telecom,0.2,0.3,0.4
 9101010,subitem,Tv por assinatura,0.3838,serviço: outros,fora,0.2,0.3,0.4
-9101018,subitem,Acesso à internet,0.3805,serviço: outros,fora,0.2,0.3,0.4
+9101018,subitem,Acesso à internet,0.3805,telecom: telefonia móvel e internet (preço livre),telecom,0.2,0.3,0.4
 9101019,subitem,Aparelho telefônico,0.6872,bens: alimentos e industriais,fora,0.05,0.1,0.15
 9101115,subitem,Serviços de streaming,0.0771,serviço: outros,fora,0.2,0.3,0.4
-9101116,subitem,"Combo de telefonia, internet e tv por assinatura",1.4278,serviço: outros,fora,0.2,0.3,0.4
+9101116,subitem,"Combo de telefonia, internet e tv por assinatura",1.4278,telecom: telefonia móvel e internet (preço livre),telecom,0.2,0.3,0.4

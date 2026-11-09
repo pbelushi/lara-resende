@@ -7,8 +7,9 @@ Grau de indexação: quanto o reajuste do subitem segue a inflação passada, fo
 explícitas, com faixas baixa/central/alta, atribuídas por regra em CLASSES abaixo; a tabela subitem a subitem fica
 em outputs/.../theta_subitens.csv).
 
-Cenário pedido: tarifas de concessões com regulação discricionária (energia elétrica, água e esgoto, gás encanado)
-passam a ser reajustadas pela meta; salário mínimo segue a regra atual (INPC + crescimento do PIB, que preserva a
+Cenário pedido: tarifas de concessões com regulação discricionária (energia elétrica, água e esgoto, gás encanado),
+transporte público (ônibus urbano, intermunicipal e interestadual, trem, metrô, integração) e telefonia e internet
+(telefonia fixa e móvel, acesso à internet, combo) passam a ser reajustados pela meta; salário mínimo segue a regra atual (INPC + crescimento do PIB, que preserva a
 indexação dos serviços ligados a ele, como o emprego doméstico); aluguéis seguem os contratos. Extensões avaliadas
 à parte: planos de saúde (teto anual da ANS, regulação discricionária) e medicamentos (fórmula da CMED, que exige
 mudança da Lei 10.742/2003).
@@ -34,10 +35,13 @@ CLASSES = [
     (r"^Aluguel residencial$", "contrato: aluguel", "fora", (0.90, 1.00, 1.00)),
     (r"^Pedágio$", "contrato: pedágio", "fora", (0.80, 0.90, 1.00)),
     (r"^(Ônibus urbano|Ônibus intermunicipal|Ônibus interestadual|Trem|Metrô|Integração transporte público)$",
-     "administrado: transporte público", "fora", (0.40, 0.50, 0.60)),
+     "administrado: transporte público", "transporte", (0.40, 0.50, 0.60)),
+    (r"^Plano de telefonia fixa$", "telecom: telefonia fixa", "telecom", (0.50, 0.65, 0.80)),
+    (r"^(Plano de telefonia móvel|Acesso à internet|Combo de telefonia, internet e tv por assinatura)$",
+     "telecom: telefonia móvel e internet (preço livre)", "telecom", (0.20, 0.30, 0.40)),
     (r"^(Gasolina|Etanol|Óleo diesel|Gás veicular|Gás de botijão|Carvão vegetal)$",
      "administrado/mercado: combustíveis", "fora", (0.00, 0.05, 0.10)),
-    (r"^(Cartório|Conselho de classe|Correio|Plano de telefonia fixa)$", "administrado: taxas e tarifas", "fora",
+    (r"^(Cartório|Conselho de classe|Correio)$", "administrado: taxas e tarifas", "fora",
      (0.50, 0.65, 0.80)),
     (r"^(Emplacamento e licença|Multa|Jogos de azar|Cigarro)$", "administrado: tributos e outros", "fora",
      (0.05, 0.15, 0.25)),
@@ -49,14 +53,15 @@ CLASSES = [
     (r"^(Mão de obra|Mudança|Costureira|Manicure|Cabeleireiro e barbeiro|Depilação|Sobrancelha|Despachante|Transporte escolar|Conserto de automóvel|Pintura de veículo|Estacionamento|Autoescola|Curso preparatório|Curso de idioma|Curso de informática|Atividades físicas)$|^Conserto|^Reforma",
      "serviço: pessoais e reparos", "fora", (0.40, 0.50, 0.60)),
     ("cod:1201", "serviço: alimentação fora do domicílio", "fora", (0.30, 0.40, 0.50)),
-    (r"^(Serviço bancário|Táxi|Transporte por aplicativo|Seguro voluntário de veículo|Aluguel de veículo|Clube|Casa noturna|Tratamento de animais \(clínica\)|Serviço de higiene para animais|Cinema, teatro e concertos|Plano de telefonia móvel|Tv por assinatura|Acesso à internet|Serviços de streaming|Combo de telefonia, internet e tv por assinatura)$",
+    (r"^(Serviço bancário|Táxi|Transporte por aplicativo|Seguro voluntário de veículo|Aluguel de veículo|Clube|Casa noturna|Tratamento de animais \(clínica\)|Serviço de higiene para animais|Cinema, teatro e concertos|Tv por assinatura|Serviços de streaming)$",
      "serviço: outros", "fora", (0.20, 0.30, 0.40)),
     (r"^(Passagem aérea|Hospedagem|Pacote turístico)$", "serviço: preços flexíveis", "fora", (0.05, 0.10, 0.20)),
 ]
 PADRAO = ("bens: alimentos e industriais", "fora", (0.05, 0.10, 0.15))
 CENARIOS = {"concessões (energia, saneamento, gás encanado)": {"concessao"},
-            "+ planos de saúde (ANS)": {"concessao", "ans"},
-            "+ planos de saúde e medicamentos (CMED)": {"concessao", "ans", "cmed"}}
+            "concessões + transporte público + telefonia e internet": {"concessao", "transporte", "telecom"},
+            "+ planos de saúde (ANS)": {"concessao", "transporte", "telecom", "ans"},
+            "+ planos de saúde e medicamentos (CMED)": {"concessao", "transporte", "telecom", "ans", "cmed"}}
 
 
 def classificar(codigo: str, desc: str):

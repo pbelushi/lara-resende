@@ -112,3 +112,17 @@ classe em `theta_massa_por_classe.csv`); sucesso em `curva_theta_pesos_set2026.c
 | + medicamentos (CMED) | 13,7% | 0,26 (0,25–0,30) | 56% / 57% | 51% / 54% |
 
 Substitui a tabela do adendo anterior, que usava pesos aproximados.
+
+### Atualização: transporte público, telefonia e internet incluídos (pesos de set/2026)
+
+Sucesso em `curva_theta_pesos_set2026_v2.csv`. Substitui a tabela anterior.
+
+| Reindexação à meta | Peso no IPCA | θ (faixa) | Híbrido 5,5%, Taylor (P2 / P1) | Híbrido 4,1%, alívio condicionado (P2 / P1) |
+|---|---|---|---|---|
+| Energia, saneamento e gás encanado | 6,0% | 0,08 (0,08–0,09) | 32% / 35% | 26% / 31% |
+| + transporte público, telefonia e internet | 11,1% | 0,14 (0,14–0,15) | 41% / 43% | 36% / 39% |
+| + planos de saúde (ANS) | 15,3% | 0,24 (0,23–0,26) | 53% / 55% | 48% / 51% |
+| + medicamentos (CMED) | 18,8% | 0,32 (0,31–0,35) | 61% / 62% | 57% / 60% |
+
+Transporte público: ônibus urbano, intermunicipal e interestadual, trem, metrô e integração (grau 0,5). Telefonia e
+internet: telefonia fixa (0,65) e telefonia móvel, acesso à internet e combo (0,3, preço livre).
