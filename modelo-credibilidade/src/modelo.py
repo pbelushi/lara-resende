@@ -181,6 +181,27 @@ def simular(p: dict, cen: dict, lam_pi, lam_fiscal=None, choques: np.ndarray | N
     else:
         lam_f = np.broadcast_to(np.asarray(lam_fiscal, dtype=float), lam_pi.shape)
     P = lam_pi.size
+    # λ endógeno (opcional): revisão anual pela regra p["dinamica_lambda"] (ver atualizar_lambda)
+    din = p.get("dinamica_lambda")
+    if din:
+        lam_pi = lam_pi.astype(float).copy()
+        lam_f = np.array(lam_f, dtype=float, copy=True)
+        LAM = {"lam_pi": np.full((P, T + 1), np.nan), "lam_f": np.full((P, T + 1), np.nan)}
+        LAM["lam_pi"][:, 0], LAM["lam_f"][:, 0] = lam_pi, lam_f
+        buf_s, buf_s_plano, buf_pi = [], [], []
+    # canal de fundamentos (opcional): λ efetivo = logística(logit(λ reputação) + β·Δfundamentos), com os
+    # fundamentos do trimestre anterior em desvio do ponto de partida (λ efetivo = λ inicial em t = 0)
+    fund = p.get("fundamentos_lambda")
+    if fund and not any(abs(fund.get(k, 0.0)) > 0 for k in ("b_s_f", "b_d_f", "b_s_pi", "b_d_pi")):
+        fund = None
+    if fund or din:
+        lam_pi_rep = np.array(lam_pi, dtype=float, copy=True)
+        lam_f_rep = np.array(lam_f, dtype=float, copy=True)
+    if fund:
+        gap0, d0 = p["ini"]["s0"] - p["s_estab0"], p["ini"]["d_gross0"]
+        s_prev, s_estab_prev = np.full(P, p["ini"]["s0"]), np.full(P, p["s_estab0"])
+        LAMF = {"lam_pi_ef": np.full((P, T + 1), np.nan), "lam_f_ef": np.full((P, T + 1), np.nan)}
+        LAMF["lam_pi_ef"][:, 0], LAMF["lam_f_ef"][:, 0] = lam_pi, lam_f
     if choques is None:
         choques = np.zeros((P, T, 4))
     override = override or {}
@@ -256,6 +277,12 @@ def simular(p: dict, cen: dict, lam_pi, lam_fiscal=None, choques: np.ndarray | N
     with np.errstate(over="ignore", invalid="ignore", divide="ignore"):
         for t in range(1, T + 1):
             eh, epi, ee, eprem = (choques[:, t - 1, j] for j in range(4))
+            if fund:
+                dgap = (s_prev - s_estab_prev) - gap0
+                dd = X["d_gross"][:, t - 1] - d0
+                lam_pi = canal_fundamentos(lam_pi_rep, fund.get("b_s_pi", 0.0) * dgap + fund.get("b_d_pi", 0.0) * dd)
+                lam_f = canal_fundamentos(lam_f_rep, fund.get("b_s_f", 0.0) * dgap + fund.get("b_d_f", 0.0) * dd)
+                LAMF["lam_pi_ef"][:, t], LAMF["lam_f_ef"][:, t] = lam_pi, lam_f
             g_ant = X["g"][:, t - 1]
             # --- fiscal estrutural (regras de indexação e arcabouço)
             cresc = lambda real: (1 + real / 400) / (1 + g_ant / 400)  # noqa: E731
@@ -380,6 +407,11 @@ def simular(p: dict, cen: dict, lam_pi, lam_fiscal=None, choques: np.ndarray | N
             # --- inflação (módulo da especificação)
             estado = {"pi_ant": pi_ant, "pi_e": pi_e, "h_ant": X["h"][:, t - 1], "de12": de12,
                       "pi_fiscal": pi_fiscal, "pi_monet": pi_monet}
+            # indexação à meta (opcional): parte da inércia (salário mínimo, benefícios, preços administrados,
+            # contratos do governo) passa a ser reajustada pela meta em vez da inflação passada, em rampa
+            if p.get("indexacao_meta"):
+                th = p["indexacao_meta"] * min(1.0, t / p.get("indexacao_rampa", 4))
+                estado["pi_ant_inercia"] = (1 - th) * pi_ant + th * p["pi_meta"]
             pi, comp = inflacao.inflacao(espec, estado, p, epi)
             pi = np.clip(pi, p["pi_min"], G["pi"])
             pi_fiscal_ant = pi_fiscal
@@ -471,6 +503,20 @@ def simular(p: dict, cen: dict, lam_pi, lam_fiscal=None, choques: np.ndarray | N
                 **{f"comp_{k}": v * um for k, v in comp.items()},
                 **dem,
             }
+            if din:
+                buf_s.append(s * um)
+                buf_s_plano.append(float(plano["s_mat"][t - 1, 0]))
+                buf_pi.append(pi)
+                if t % int(din.get("periodo", 4)) == 0:
+                    lam_pi_rep, lam_f_rep = atualizar_lambda(din, lam_pi_rep, lam_f_rep, np.mean(buf_pi, axis=0),
+                                                             np.mean(buf_s, axis=0) - np.mean(buf_s_plano),
+                                                             p["pi_meta"])
+                    if not fund:
+                        lam_pi, lam_f = lam_pi_rep, lam_f_rep
+                    buf_s, buf_s_plano, buf_pi = [], [], []
+                LAM["lam_pi"][:, t], LAM["lam_f"][:, t] = lam_pi_rep, lam_f_rep
+            if fund:
+                s_prev, s_estab_prev = s * um, s_estab
             for nome in guardar:
                 X[nome][:, t] = np.where(morto, np.nan, valores[nome])
             # estados lidos no trimestre seguinte precisam existir mesmo quando não são guardados
@@ -481,7 +527,37 @@ def simular(p: dict, cen: dict, lam_pi, lam_fiscal=None, choques: np.ndarray | N
 
     saida = {k: X[k] for k in guardar}
     saida["ruptura"] = ruptura
+    if din:
+        saida.update(LAM)
+    if fund:
+        saida.update(LAMF)
     return saida
+
+
+def canal_fundamentos(lam_rep, z):
+    """λ efetivo = logística(logit(λ_reputação) + z); z = 0 devolve λ_reputação exatamente."""
+    lr = np.clip(lam_rep, 1e-3, 1 - 1e-3)
+    ef = 1 / (1 + np.exp(-(np.log(lr / (1 - lr)) + z)))
+    return np.where(z == 0, lam_rep, ef)
+
+
+def atualizar_lambda(din: dict, lam_pi, lam_f, pi_ano, gap_s, pi_meta):
+    """Revisão das credibilidades ao fim de cada período (padrão: 4 trimestres).
+
+    g_π = tol − |π média do ano − meta| (> 0: inflação dentro do intervalo; < 0: fora)
+    g_f = primário médio do ano − primário anunciado no plano (p.p. do PIB)
+    Δλ_π = b_pi_pos·max(g_π, 0) + b_pi_neg·min(g_π, 0) + b_cruzado·min(g_f, 0)
+    Δλ_f = b_f_pos·max(g_f, 0) + b_f_neg·min(g_f, 0)
+    Coeficientes estimados/calibrados em lambda_dinamico_estimacao.py.
+    """
+    g_pi = din.get("tol", 1.5) - np.abs(pi_ano - pi_meta)
+    g_pi = np.where(np.isfinite(g_pi), g_pi, -din.get("tol", 1.5))
+    g_f = np.where(np.isfinite(gap_s), gap_s, 0.0)
+    d_pi = (din["b_pi_pos"] * np.maximum(g_pi, 0) + din["b_pi_neg"] * np.minimum(g_pi, 0)
+            + din.get("b_cruzado", 0.0) * np.minimum(g_f, 0))
+    d_f = din["b_f_pos"] * np.maximum(g_f, 0) + din["b_f_neg"] * np.minimum(g_f, 0)
+    lo, hi = din.get("min", 0.0), din.get("max", 1.0)
+    return np.clip(lam_pi + d_pi, lo, hi), np.clip(lam_f + d_f, lo, hi)
 
 
 def plano_anunciado(p: dict, cen: dict, iteracoes: int = 4) -> dict:
@@ -502,7 +578,8 @@ def plano_anunciado(p: dict, cen: dict, iteracoes: int = 4) -> dict:
     plano = {"F": p["prem0"] - p["p0"], "i": np.concatenate([i_path, np.full(8, i_path[-1])])}
     # o anúncio não antecipa a parada súbita
     cen = {**cen, **{k: np.zeros(T + 1) for k in ("choque_de", "choque_prem", "defesa")}}
-    q = {**p, "_plano_sem_fiscal": True}  # o anúncio supõe credibilidade total: sem inflação fiscal
+    q = {**p, "_plano_sem_fiscal": True,  # o anúncio supõe credibilidade total: sem inflação fiscal
+         "dinamica_lambda": None, "fundamentos_lambda": None}   # e credibilidade fixa
     for _ in range(iteracoes):
         tr = simular(q, cen, 1.0, plano=plano, guardar=("d_gross", "s", "s_estab", "i", "fracao"))
         F = (p["p1"] * (tr["d_gross"][0, -1] - p["d_ref"])

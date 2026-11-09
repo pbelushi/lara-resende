@@ -1,0 +1,1 @@
+{"regra": {"b_pi_pos": 0.028, "b_pi_neg": 0.071, "b_f_pos": 0.1, "b_f_neg": 0.1, "tol": 1.5}, "lambda_fiscal": [0.2, 0.35, 0.5], "lambda_pi": "U(0,2; 0,5)", "baixo_multiplicador": ["renuncias", "beneficios", "subsidios", "verbas_teto", "prev_militar", "custeio"], "n_hib": 3000, "n_irr": 1500, "n2": 1500, "N1": 200, "jobs": 2, "seed": 23}

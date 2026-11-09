@@ -1,0 +1,13 @@
+componente,peso,grau_baixo,grau_central,grau_alto,grupo
+Energia elétrica residencial,3.95,0.25,0.3,0.4,concessao
+Água e esgoto,1.6,0.7,0.8,0.9,concessao
+Gás canalizado,0.1,0.4,0.5,0.6,concessao
+Plano de saúde (ANS),3.9,0.7,0.8,0.9,ans
+Produtos farmacêuticos (CMED),3.49,0.7,0.8,0.9,cmed
+Transporte público e pedágio (contratos e municípios),2.5,0.4,0.5,0.6,fora
+Combustíveis e gás de botijão (preço de mercado),7.0,0.0,0.05,0.1,fora
+"Demais administrados (impostos, taxas, jogos, telefonia)",3.29,0.4,0.5,0.6,fora
+Aluguel residencial (contratos),4.0,0.9,1.0,1.0,fora
+Demais serviços (salários; salário mínimo pela regra atual),31.5,0.4,0.5,0.6,fora
+Alimentação no domicílio,15.75,0.05,0.1,0.15,fora
+Bens industriais,22.92,0.05,0.1,0.15,fora

@@ -1,0 +1,32 @@
+[
+ {
+  "hipotese": "fiscal -> meta",
+  "defasagens": 1,
+  "p_valor_F": 0.3585
+ },
+ {
+  "hipotese": "fiscal -> meta",
+  "defasagens": 3,
+  "p_valor_F": 0.6049
+ },
+ {
+  "hipotese": "fiscal -> meta",
+  "defasagens": 6,
+  "p_valor_F": 0.9279
+ },
+ {
+  "hipotese": "meta -> fiscal",
+  "defasagens": 1,
+  "p_valor_F": 0.5779
+ },
+ {
+  "hipotese": "meta -> fiscal",
+  "defasagens": 3,
+  "p_valor_F": 0.1109
+ },
+ {
+  "hipotese": "meta -> fiscal",
+  "defasagens": 6,
+  "p_valor_F": 0.0121
+ }
+]

@@ -1,0 +1,378 @@
+codigo,nivel,descricao,peso,classe,grupo,grau_baixo,grau_central,grau_alto
+1101002,subitem,Arroz,0.5101,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1101051,subitem,Feijão - mulatinho,0.0136,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1101052,subitem,Feijão - preto,0.0433,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1101053,subitem,Feijão - macáçar (fradinho),0.0162,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1101073,subitem,Feijão - carioca (rajado),0.1375,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1101079,subitem,Milho (em grão),0.0124,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102001,subitem,Farinha de arroz,0.0029,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102006,subitem,Macarrão,0.1374,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102008,subitem,Fubá de milho,0.0074,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102010,subitem,Flocos de milho,0.0092,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102012,subitem,Farinha de trigo,0.0464,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102023,subitem,Farinha de mandioca,0.1109,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102029,subitem,Massa semipreparada,0.124,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1102061,subitem,Macarrão instantâneo,0.0318,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103002,subitem,Batata-doce,0.0368,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103003,subitem,Batata-inglesa,0.1845,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103004,subitem,Inhame,0.0021,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103005,subitem,Mandioca (aipim),0.0198,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103020,subitem,Abobrinha,0.0083,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103025,subitem,Pepino,0.0036,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103026,subitem,Pimentão,0.0252,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103028,subitem,Tomate,0.2196,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103043,subitem,Cebola,0.1634,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1103044,subitem,Cenoura,0.0746,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104003,subitem,Açúcar refinado,0.0926,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104004,subitem,Açúcar cristal,0.0975,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104018,subitem,Balas,0.0168,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104023,subitem,Chocolate em barra e bombom,0.2485,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104032,subitem,Sorvete,0.1638,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104052,subitem,Chocolate e achocolatado em pó,0.1493,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104060,subitem,Doce de frutas em pasta,0.0011,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1104067,subitem,Açúcar demerara,0.0005,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105001,subitem,Alface,0.1266,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105004,subitem,Coentro,0.0086,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105005,subitem,Couve,0.0182,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105006,subitem,Couve-flor,0.003,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105010,subitem,Repolho,0.0197,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105012,subitem,Cheiro-verde,0.0517,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1105019,subitem,Brócolis,0.0301,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106001,subitem,Banana-da-terra,0.019,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106003,subitem,Abacaxi,0.0216,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106004,subitem,Abacate,0.0008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106005,subitem,Banana - d'água,0.1103,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106006,subitem,Banana - maçã,0.0058,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106008,subitem,Banana - prata,0.2018,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106011,subitem,Laranja - baía,0.0038,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106012,subitem,Laranja - lima,0.0054,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106015,subitem,Limão,0.0302,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106017,subitem,Maçã,0.1545,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106018,subitem,Mamão,0.1242,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106019,subitem,Manga,0.0872,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106020,subitem,Maracujá,0.01,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106021,subitem,Melancia,0.0416,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106022,subitem,Melão,0.0243,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106023,subitem,Pera,0.0264,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106027,subitem,Tangerina,0.0886,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106028,subitem,Uva,0.0796,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106039,subitem,Laranja - pera,0.0953,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106051,subitem,Morango,0.0153,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1106084,subitem,Goiaba,0.0048,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107009,subitem,Fígado,0.017,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107018,subitem,Carne de porco,0.3083,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107031,subitem,Carne de carneiro,0.0023,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107081,subitem,Cupim,0.0102,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107084,subitem,Contrafilé,0.4927,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107085,subitem,Filé-mignon,0.0271,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107087,subitem,Chã de dentro,0.3263,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107088,subitem,Alcatra,0.3631,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107089,subitem,Patinho,0.1857,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107090,subitem,Lagarto redondo,0.0087,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107091,subitem,Lagarto comum,0.0776,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107093,subitem,Músculo,0.1639,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107094,subitem,Pá,0.1214,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107095,subitem,Acém,0.2861,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107096,subitem,Peito,0.0163,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107097,subitem,Capa de filé,0.0362,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107099,subitem,Costela,0.3705,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1107208,subitem,Picanha,0.0415,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108002,subitem,Peixe - anchova,0.0005,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108004,subitem,Peixe - corvina,0.0184,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108011,subitem,Peixe - tainha,0.0017,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108012,subitem,Peixe - sardinha,0.0047,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108013,subitem,Camarão,0.0223,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108019,subitem,Peixe - cavala,0.0008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108029,subitem,Peixe - cação,0.0056,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108031,subitem,Peixe - merluza,0.0125,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108032,subitem,Peixe - serra,0.0009,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108038,subitem,Peixe - pescada,0.0219,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108045,subitem,Caranguejo,0.0044,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108049,subitem,Peixe - castanha,0.0008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108052,subitem,Peixe - palombeta,0.0006,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108072,subitem,Peixe - curimatã,0.0007,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108075,subitem,Peixe - salmão,0.0142,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108080,subitem,Peixe - tilápia,0.0414,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108087,subitem,Peixe - tambaqui,0.0188,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108088,subitem,Peixe - dourada,0.005,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108092,subitem,Peixe - filhote,0.0042,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108096,subitem,Peixe - peroá,0.0007,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108112,subitem,Peixe - pintado,0.0004,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1108125,subitem,Peixe - aruanã,0.0005,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109002,subitem,Presunto,0.0892,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109007,subitem,Salsicha,0.0393,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109008,subitem,Linguiça,0.287,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109010,subitem,Mortadela,0.0436,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109012,subitem,Salame,0.008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109023,subitem,Bacalhau,0.011,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109056,subitem,Carne-seca e de sol,0.1067,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1109058,subitem,Carne de porco salgada e defumada,0.0069,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1110009,subitem,Frango inteiro,0.3552,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1110010,subitem,Frango em pedaços,0.6064,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1110044,subitem,Ovo de galinha,0.2379,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111004,subitem,Leite longa vida,0.8048,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111008,subitem,Leite condensado,0.0218,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111009,subitem,Leite em pó,0.2129,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111011,subitem,Queijo,0.5557,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111019,subitem,Iogurte e bebidas lácteas,0.1909,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111021,subitem,Requeijão,0.0608,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111031,subitem,Manteiga,0.0588,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1111038,subitem,Leite fermentado,0.0125,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1112003,subitem,Biscoito,0.4663,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1112015,subitem,Pão francês,0.8575,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1112017,subitem,Pão doce,0.0907,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1112018,subitem,Pão de forma,0.1101,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1112019,subitem,Bolo,0.1463,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1112025,subitem,Pão de queijo,0.0309,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1113013,subitem,Óleo de soja,0.2364,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1113014,subitem,Azeite de oliva,0.0676,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1113040,subitem,Margarina,0.1043,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114001,subitem,Suco de frutas,0.1307,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114003,subitem,Polpa de fruta (congelada),0.0139,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114004,subitem,Açaí (emulsão),0.0595,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114022,subitem,Café moído,0.53,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114023,subitem,Café solúvel,0.0101,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114083,subitem,Refrigerante e água mineral,0.5419,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114084,subitem,Cerveja,0.4106,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114085,subitem,Outras bebidas alcoólicas,0.0368,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114087,subitem,Vinho,0.0582,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114090,subitem,Suco em pó,0.0448,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1114091,subitem,Chá mate (erva mate),0.026,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115013,subitem,Alimento infantil,0.0025,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115016,subitem,Palmito em conserva,0.0183,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115017,subitem,Pepino em conserva,0.0045,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115039,subitem,Sardinha em conserva,0.0471,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115050,subitem,Salsicha em conserva,0.0013,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115056,subitem,Sopa desidratada,0.0019,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115057,subitem,Azeitona,0.0342,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115058,subitem,Milho-verde em conserva,0.0288,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1115075,subitem,Atum em conserva,0.0231,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116001,subitem,Leite de coco,0.0023,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116005,subitem,Atomatado,0.1219,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116010,subitem,Alho,0.1033,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116013,subitem,Sal,0.0043,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116022,subitem,Colorau,0.0007,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116023,subitem,Caldo de tucupi,0.0008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116026,subitem,Fermento,0.0062,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116033,subitem,Maionese,0.0532,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116041,subitem,Vinagre,0.0168,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116048,subitem,Caldo concentrado,0.011,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1116071,subitem,Tempero misto,0.0609,bens: alimentos e industriais,fora,0.05,0.1,0.15
+1201001,subitem,Refeição,3.6337,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201003,subitem,Lanche,1.9568,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201007,subitem,Refrigerante e água mineral,0.1233,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201009,subitem,Cafezinho,0.0505,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201048,subitem,Cerveja,0.2815,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201051,subitem,Outras bebidas alcoólicas,0.0071,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201052,subitem,Vinho,0.0075,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201061,subitem,Doces,0.0048,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+1201088,subitem,Sorvete,0.0636,serviço: alimentação fora do domicílio,fora,0.3,0.4,0.5
+2101001,subitem,Aluguel residencial,3.6608,contrato: aluguel,fora,0.9,1.0,1.0
+2101002,subitem,Condomínio,2.245,serviço: condomínio,fora,0.5,0.6,0.7
+2101004,subitem,Taxa de água e esgoto,1.8968,concessão: saneamento,concessao,0.7,0.8,0.9
+2101012,subitem,Mudança,0.0018,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+2103005,subitem,Ferragens,0.009,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103008,subitem,Material de eletricidade,0.012,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103012,subitem,Vidro,0.0025,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103014,subitem,Tinta,0.2932,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103032,subitem,Revestimento de piso e parede,0.2305,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103038,subitem,Madeira e taco,0.0122,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103039,subitem,Cimento,0.0272,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103040,subitem,Tijolo,0.0242,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103041,subitem,Material hidráulico,0.0411,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103042,subitem,Mão de obra,0.6353,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+2103048,subitem,Areia,0.014,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103049,subitem,Pedras,0.0004,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2103055,subitem,Telha,0.0399,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104003,subitem,Saco para lixo,0.0041,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104005,subitem,Água sanitária,0.0606,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104008,subitem,Detergente,0.1551,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104009,subitem,Sabão em pó,0.2205,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104012,subitem,Desinfetante,0.0607,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104015,subitem,Sabão em barra,0.0262,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104016,subitem,Esponja de limpeza,0.0041,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104019,subitem,Sabão líquido,0.0059,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104020,subitem,Limpador multiuso,0.0276,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104041,subitem,Papel toalha,0.0043,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2104085,subitem,Amaciante e alvejante,0.1679,bens: alimentos e industriais,fora,0.05,0.1,0.15
+2201003,subitem,Carvão vegetal,0.0061,administrado/mercado: combustíveis,fora,0.0,0.05,0.1
+2201004,subitem,Gás de botijão,1.242,administrado/mercado: combustíveis,fora,0.0,0.05,0.1
+2201005,subitem,Gás encanado,0.149,concessão: gás canalizado,concessao,0.4,0.5,0.6
+2202003,subitem,Energia elétrica residencial,3.981,concessão: energia (só a parcela B segue a inflação),concessao,0.25,0.3,0.4
+3101002,subitem,Móvel para sala,0.3712,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3101003,subitem,Móvel para quarto,0.54,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3101015,subitem,Móvel para copa e cozinha,0.2397,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3101016,subitem,Móvel infantil,0.0219,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3101017,subitem,Colchão,0.0143,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102001,subitem,Artigos de iluminação,0.0469,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102005,subitem,Tapete,0.0404,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102006,subitem,Cortina,0.0712,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102007,subitem,Utensílios de metal,0.1413,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102009,subitem,Utensílios de vidro e louça,0.0423,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102010,subitem,Utensílios de plástico,0.0082,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102035,subitem,Flores naturais,0.0062,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3102337,subitem,Utensílios para bebê,0.0145,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3103001,subitem,Roupa de cama,0.1639,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3103003,subitem,Roupa de banho,0.0049,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3201001,subitem,Refrigerador,0.3046,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3201002,subitem,Ar-condicionado,0.0952,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3201006,subitem,Máquina de lavar roupa,0.2129,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3201013,subitem,Ventilador,0.0161,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3201021,subitem,Fogão,0.1528,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3201050,subitem,Chuveiro elétrico,0.0083,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3202001,subitem,Televisor,0.3554,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3202003,subitem,Aparelho de som,0.0087,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3202008,subitem,Videogame (console),0.0028,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3202028,subitem,Computador pessoal,0.2516,bens: alimentos e industriais,fora,0.05,0.1,0.15
+3301002,subitem,Conserto de refrigerador,0.0161,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+3301006,subitem,Conserto de televisor,0.0019,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+3301015,subitem,Conserto de máquina de lavar roupa,0.0046,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+3301022,subitem,Reforma de estofado,0.0485,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+3301088,subitem,Conserto de aparelho celular,0.0545,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+3301130,subitem,Conserto de bicicleta,0.2231,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+4101002,subitem,Calça comprida masculina,0.3053,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4101005,subitem,Agasalho masculino,0.0225,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4101006,subitem,Bermuda/short masculino,0.1812,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4101008,subitem,Cueca,0.0067,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4101009,subitem,Camisa/camiseta masculina,0.6459,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102002,subitem,Calça comprida feminina,0.3169,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102003,subitem,Agasalho feminino,0.0257,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102004,subitem,Saia,0.0087,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102005,subitem,Vestido,0.2817,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102008,subitem,Blusa,0.5081,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102010,subitem,Lingerie,0.1062,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4102013,subitem,Bermuda/short feminino,0.069,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103001,subitem,Uniforme escolar,0.0879,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103002,subitem,Calça comprida infantil,0.0744,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103005,subitem,Agasalho infantil,0.008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103007,subitem,Vestido infantil,0.0519,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103008,subitem,Bermuda/short infantil,0.049,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103011,subitem,Camisa/camiseta infantil,0.1749,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4103031,subitem,Conjunto infantil,0.1313,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201002,subitem,Sapato masculino,0.169,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201003,subitem,Sapato feminino,0.285,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201004,subitem,Sapato infantil,0.0294,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201015,subitem,Bolsa,0.0607,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201040,subitem,Mochila,0.0092,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201063,subitem,Tênis,0.4832,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4201098,subitem,Sandália/chinelo,0.1945,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4301001,subitem,Bijuteria,0.0191,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4301002,subitem,Joia,0.214,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4301004,subitem,Relógio de pulso,0.0471,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4401001,subitem,Tecido,0.0412,bens: alimentos e industriais,fora,0.05,0.1,0.15
+4401002,subitem,Artigos de armarinho,0.0096,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5101001,subitem,Ônibus urbano,1.1157,administrado: transporte público,transporte,0.4,0.5,0.6
+5101002,subitem,Táxi,0.2046,serviço: outros,fora,0.2,0.3,0.4
+5101004,subitem,Trem,0.0372,administrado: transporte público,transporte,0.4,0.5,0.6
+5101006,subitem,Ônibus intermunicipal,0.4175,administrado: transporte público,transporte,0.4,0.5,0.6
+5101007,subitem,Ônibus interestadual,0.1178,administrado: transporte público,transporte,0.4,0.5,0.6
+5101010,subitem,Passagem aérea,0.7105,serviço: preços flexíveis,fora,0.05,0.1,0.2
+5101011,subitem,Metrô,0.065,administrado: transporte público,transporte,0.4,0.5,0.6
+5101026,subitem,Transporte escolar,0.127,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+5101051,subitem,Transporte por aplicativo,0.2895,serviço: outros,fora,0.2,0.3,0.4
+5101053,subitem,Integração transporte público,0.0518,administrado: transporte público,transporte,0.4,0.5,0.6
+5102001,subitem,Automóvel novo,2.9494,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5102004,subitem,Emplacamento e licença,2.5835,administrado: tributos e outros,fora,0.05,0.15,0.25
+5102005,subitem,Seguro voluntário de veículo,0.7117,serviço: outros,fora,0.2,0.3,0.4
+5102006,subitem,Multa,0.0836,administrado: tributos e outros,fora,0.05,0.15,0.25
+5102007,subitem,Óleo lubrificante,0.1415,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5102009,subitem,Acessórios e peças,0.1721,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5102010,subitem,Pneu,0.2008,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5102011,subitem,Conserto de automóvel,1.8726,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+5102013,subitem,Estacionamento,0.0645,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+5102015,subitem,Pedágio,0.0891,contrato: pedágio,fora,0.8,0.9,1.0
+5102020,subitem,Automóvel usado,1.4677,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5102037,subitem,Pintura de veículo,0.0171,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+5102051,subitem,Aluguel de veículo,0.0211,serviço: outros,fora,0.2,0.3,0.4
+5102053,subitem,Motocicleta,0.6017,bens: alimentos e industriais,fora,0.05,0.1,0.15
+5104001,subitem,Gasolina,5.1285,administrado/mercado: combustíveis,fora,0.0,0.05,0.1
+5104002,subitem,Etanol,0.5975,administrado/mercado: combustíveis,fora,0.0,0.05,0.1
+5104003,subitem,Óleo diesel,0.2562,administrado/mercado: combustíveis,fora,0.0,0.05,0.1
+5104005,subitem,Gás veicular,0.0655,administrado/mercado: combustíveis,fora,0.0,0.05,0.1
+6101001,subitem,Anti-infeccioso e antibiótico,0.242,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101002,subitem,Analgésico e antitérmico,0.6109,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101003,subitem,Anti-inflamatório e antirreumático,0.1632,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101004,subitem,Antigripal e antitussígeno,0.2242,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101006,subitem,Dermatológico,0.1505,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101007,subitem,Antialérgico e broncodilatador,0.1713,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101009,subitem,Gastroprotetor,0.1511,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101010,subitem,Vitamina e fortificante,0.2331,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101011,subitem,Hormonal,0.2007,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101013,subitem,Psicotrópico e anorexígeno,0.3172,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101014,subitem,Hipotensor e hipocolesterolêmico,0.5958,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101051,subitem,Oftalmológico,0.1182,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101064,subitem,Antidiabético,0.177,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6101148,subitem,Neurológico,0.1346,regulado: medicamentos (CMED),cmed,0.7,0.8,0.9
+6102012,subitem,Óculos de grau,0.2426,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6201002,subitem,Médico,0.566,serviço: saúde,fora,0.5,0.6,0.7
+6201003,subitem,Dentista,0.5906,serviço: saúde,fora,0.5,0.6,0.7
+6201005,subitem,Aparelho ortodôntico,0.0193,serviço: saúde,fora,0.5,0.6,0.7
+6201007,subitem,Fisioterapeuta,0.0004,serviço: saúde,fora,0.5,0.6,0.7
+6201010,subitem,Psicólogo,0.0468,serviço: saúde,fora,0.5,0.6,0.7
+6202003,subitem,Exame de laboratório,0.1083,serviço: saúde,fora,0.5,0.6,0.7
+6202004,subitem,Hospitalização e cirurgia,0.3653,serviço: saúde,fora,0.5,0.6,0.7
+6202006,subitem,Exame de imagem,0.127,serviço: saúde,fora,0.5,0.6,0.7
+6203001,subitem,Plano de saúde,4.1703,regulado: plano de saúde (ANS),ans,0.7,0.8,0.9
+6301001,subitem,Produto para cabelo,0.6664,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301002,subitem,Fralda descartável,0.2248,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301004,subitem,Produto para barba,0.1292,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301006,subitem,Produto para pele,0.4201,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301007,subitem,Produto para higiene bucal,0.2897,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301010,subitem,Produto para unha,0.0037,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301011,subitem,Perfume,1.1473,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301014,subitem,Desodorante,0.4104,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301015,subitem,Absorvente higiênico,0.1101,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301016,subitem,Sabonete,0.3465,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301017,subitem,Papel higiênico,0.201,bens: alimentos e industriais,fora,0.05,0.1,0.15
+6301020,subitem,Artigos de maquiagem,0.1652,bens: alimentos e industriais,fora,0.05,0.1,0.15
+7101001,subitem,Costureira,0.0138,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+7101005,subitem,Manicure,0.4481,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+7101010,subitem,Empregado doméstico,2.7708,serviço ligado ao salário mínimo,fora,0.6,0.7,0.8
+7101011,subitem,Cabeleireiro e barbeiro,1.1297,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+7101014,subitem,Depilação,0.0642,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+7101034,subitem,Cartório,0.0233,administrado: taxas e tarifas,fora,0.5,0.65,0.8
+7101036,subitem,Despachante,0.0828,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+7101076,subitem,Serviço bancário,1.6987,serviço: outros,fora,0.2,0.3,0.4
+7101090,subitem,Conselho de classe,0.0483,administrado: taxas e tarifas,fora,0.5,0.65,0.8
+7101144,subitem,Sobrancelha,0.1131,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+7201006,subitem,Clube,0.0828,serviço: outros,fora,0.2,0.3,0.4
+7201010,subitem,Instrumento musical,0.0162,bens: alimentos e industriais,fora,0.05,0.1,0.15
+7201015,subitem,Tratamento de animais (clínica),0.2749,serviço: outros,fora,0.2,0.3,0.4
+7201019,subitem,Bicicleta,0.0854,bens: alimentos e industriais,fora,0.05,0.1,0.15
+7201020,subitem,Alimento para animais,0.3437,bens: alimentos e industriais,fora,0.05,0.1,0.15
+7201023,subitem,Brinquedo,0.2004,bens: alimentos e industriais,fora,0.05,0.1,0.15
+7201054,subitem,Casa noturna,0.038,serviço: outros,fora,0.2,0.3,0.4
+7201063,subitem,Jogos de azar,0.4846,administrado: tributos e outros,fora,0.05,0.15,0.25
+7201067,subitem,Material de caça e pesca,0.0078,bens: alimentos e industriais,fora,0.05,0.1,0.15
+7201090,subitem,Hospedagem,0.6514,serviço: preços flexíveis,fora,0.05,0.1,0.2
+7201095,subitem,Pacote turístico,0.4843,serviço: preços flexíveis,fora,0.05,0.1,0.2
+7201256,subitem,Serviço de higiene para animais,0.1486,serviço: outros,fora,0.2,0.3,0.4
+7201266,subitem,"Cinema, teatro e concertos",0.5027,serviço: outros,fora,0.2,0.3,0.4
+7202041,subitem,Cigarro,0.6939,administrado: tributos e outros,fora,0.05,0.15,0.25
+8101001,subitem,Creche,0.2065,serviço: educação regular,fora,0.6,0.7,0.8
+8101002,subitem,Pré-escola,0.3569,serviço: educação regular,fora,0.6,0.7,0.8
+8101003,subitem,Ensino fundamental,1.744,serviço: educação regular,fora,0.6,0.7,0.8
+8101004,subitem,Ensino médio,0.4386,serviço: educação regular,fora,0.6,0.7,0.8
+8101005,subitem,Ensino superior,1.6781,serviço: educação regular,fora,0.6,0.7,0.8
+8101006,subitem,Pós-graduação,0.2237,serviço: educação regular,fora,0.6,0.7,0.8
+8101008,subitem,Educação de jovens e adultos,0.0369,serviço: educação regular,fora,0.6,0.7,0.8
+8101045,subitem,Curso técnico,0.0294,serviço: educação regular,fora,0.6,0.7,0.8
+8102001,subitem,Jornal diário,0.0395,bens: alimentos e industriais,fora,0.05,0.1,0.15
+8102004,subitem,Revista,0.0337,bens: alimentos e industriais,fora,0.05,0.1,0.15
+8102007,subitem,Livro didático,0.3671,bens: alimentos e industriais,fora,0.05,0.1,0.15
+8102008,subitem,Livro não didático,0.106,bens: alimentos e industriais,fora,0.05,0.1,0.15
+8103001,subitem,Caderno,0.0505,bens: alimentos e industriais,fora,0.05,0.1,0.15
+8103014,subitem,Artigos de papelaria,0.0897,bens: alimentos e industriais,fora,0.05,0.1,0.15
+8104001,subitem,Curso preparatório,0.072,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+8104003,subitem,Curso de idioma,0.2917,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+8104004,subitem,Curso de informática,0.0013,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+8104005,subitem,Autoescola,0.0519,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+8104006,subitem,Atividades físicas,0.3908,serviço: pessoais e reparos,fora,0.4,0.5,0.6
+9101001,subitem,Correio,0.0672,administrado: taxas e tarifas,fora,0.5,0.65,0.8
+9101002,subitem,Plano de telefonia fixa,0.2054,telecom: telefonia fixa,telecom,0.5,0.65,0.8
+9101008,subitem,Plano de telefonia móvel,1.2821,telecom: telefonia móvel e internet (preço livre),telecom,0.2,0.3,0.4
+9101010,subitem,Tv por assinatura,0.3838,serviço: outros,fora,0.2,0.3,0.4
+9101018,subitem,Acesso à internet,0.3805,telecom: telefonia móvel e internet (preço livre),telecom,0.2,0.3,0.4
+9101019,subitem,Aparelho telefônico,0.6872,bens: alimentos e industriais,fora,0.05,0.1,0.15
+9101115,subitem,Serviços de streaming,0.0771,serviço: outros,fora,0.2,0.3,0.4
+9101116,subitem,"Combo de telefonia, internet e tv por assinatura",1.4278,telecom: telefonia móvel e internet (preço livre),telecom,0.2,0.3,0.4

@@ -1,0 +1,4 @@
+episodio,especificacao,lambda_pi,lambda_fiscal,erro_min,lambda_diagonal,erro_diagonal,faixa_lambda_pi_5pct,faixa_lambda_fiscal_5pct
+2015–16: recessão e crise fiscal,P2,0.5,0.0,4.657101850371026,0.5,5.460295014533332,0.45–0.50,0.00–0.15
+2016–2019: âncora fiscal e queda da Selic,P2,1.0,0.75,1.6202086798784787,0.95,1.7628573210223828,0.90–1.00,0.60–0.90
+"2020–2022: Selic a 2%, expansão fiscal e aperto",P2,0.35,0.0,3.7863282139978978,0.4,4.020559364448382,0.30–0.45,0.00–0.35
