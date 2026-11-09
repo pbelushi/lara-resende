@@ -1,0 +1,458 @@
+codigo,nivel,descricao,peso
+,geral,Índice geral,100.0
+1,grupo,Alimentação e bebidas,21.509
+11,subgrupo,Alimentação no domicílio,15.3802
+1101,item,"Cereais, leguminosas e oleaginosas",0.7331
+1101002,subitem,Arroz,0.5101
+1101051,subitem,Feijão - mulatinho,0.0136
+1101052,subitem,Feijão - preto,0.0433
+1101053,subitem,Feijão - macáçar (fradinho),0.0162
+1101073,subitem,Feijão - carioca (rajado),0.1375
+1101079,subitem,Milho (em grão),0.0124
+1102,item,"Farinhas, féculas e massas",0.4701
+1102001,subitem,Farinha de arroz,0.0029
+1102006,subitem,Macarrão,0.1374
+1102008,subitem,Fubá de milho,0.0074
+1102010,subitem,Flocos de milho,0.0092
+1102012,subitem,Farinha de trigo,0.0464
+1102023,subitem,Farinha de mandioca,0.1109
+1102029,subitem,Massa semipreparada,0.124
+1102061,subitem,Macarrão instantâneo,0.0318
+1103,item,"Tubérculos, raízes e legumes",0.7379
+1103002,subitem,Batata-doce,0.0368
+1103003,subitem,Batata-inglesa,0.1845
+1103004,subitem,Inhame,0.0021
+1103005,subitem,Mandioca (aipim),0.0198
+1103020,subitem,Abobrinha,0.0083
+1103025,subitem,Pepino,0.0036
+1103026,subitem,Pimentão,0.0252
+1103028,subitem,Tomate,0.2196
+1103043,subitem,Cebola,0.1634
+1103044,subitem,Cenoura,0.0746
+1104,item,Açúcares e derivados,0.77
+1104003,subitem,Açúcar refinado,0.0926
+1104004,subitem,Açúcar cristal,0.0975
+1104018,subitem,Balas,0.0168
+1104023,subitem,Chocolate em barra e bombom,0.2485
+1104032,subitem,Sorvete,0.1638
+1104052,subitem,Chocolate e achocolatado em pó,0.1493
+1104060,subitem,Doce de frutas em pasta,0.0011
+1104067,subitem,Açúcar demerara,0.0005
+1105,item,Hortaliças e verduras,0.2579
+1105001,subitem,Alface,0.1266
+1105004,subitem,Coentro,0.0086
+1105005,subitem,Couve,0.0182
+1105006,subitem,Couve-flor,0.003
+1105010,subitem,Repolho,0.0197
+1105012,subitem,Cheiro-verde,0.0517
+1105019,subitem,Brócolis,0.0301
+1106,item,Frutas,1.1504
+1106001,subitem,Banana-da-terra,0.019
+1106003,subitem,Abacaxi,0.0216
+1106004,subitem,Abacate,0.0008
+1106005,subitem,Banana - d'água,0.1103
+1106006,subitem,Banana - maçã,0.0058
+1106008,subitem,Banana - prata,0.2018
+1106011,subitem,Laranja - baía,0.0038
+1106012,subitem,Laranja - lima,0.0054
+1106015,subitem,Limão,0.0302
+1106017,subitem,Maçã,0.1545
+1106018,subitem,Mamão,0.1242
+1106019,subitem,Manga,0.0872
+1106020,subitem,Maracujá,0.01
+1106021,subitem,Melancia,0.0416
+1106022,subitem,Melão,0.0243
+1106023,subitem,Pera,0.0264
+1106027,subitem,Tangerina,0.0886
+1106028,subitem,Uva,0.0796
+1106039,subitem,Laranja - pera,0.0953
+1106051,subitem,Morango,0.0153
+1106084,subitem,Goiaba,0.0048
+1107,item,Carnes,2.8547
+1107009,subitem,Fígado,0.017
+1107018,subitem,Carne de porco,0.3083
+1107031,subitem,Carne de carneiro,0.0023
+1107081,subitem,Cupim,0.0102
+1107084,subitem,Contrafilé,0.4927
+1107085,subitem,Filé-mignon,0.0271
+1107087,subitem,Chã de dentro,0.3263
+1107088,subitem,Alcatra,0.3631
+1107089,subitem,Patinho,0.1857
+1107090,subitem,Lagarto redondo,0.0087
+1107091,subitem,Lagarto comum,0.0776
+1107093,subitem,Músculo,0.1639
+1107094,subitem,Pá,0.1214
+1107095,subitem,Acém,0.2861
+1107096,subitem,Peito,0.0163
+1107097,subitem,Capa de filé,0.0362
+1107099,subitem,Costela,0.3705
+1107208,subitem,Picanha,0.0415
+1108,item,Pescados,0.1808
+1108002,subitem,Peixe - anchova,0.0005
+1108004,subitem,Peixe - corvina,0.0184
+1108011,subitem,Peixe - tainha,0.0017
+1108012,subitem,Peixe - sardinha,0.0047
+1108013,subitem,Camarão,0.0223
+1108019,subitem,Peixe - cavala,0.0008
+1108029,subitem,Peixe - cação,0.0056
+1108031,subitem,Peixe - merluza,0.0125
+1108032,subitem,Peixe - serra,0.0009
+1108038,subitem,Peixe - pescada,0.0219
+1108045,subitem,Caranguejo,0.0044
+1108049,subitem,Peixe - castanha,0.0008
+1108052,subitem,Peixe - palombeta,0.0006
+1108072,subitem,Peixe - curimatã,0.0007
+1108075,subitem,Peixe - salmão,0.0142
+1108080,subitem,Peixe - tilápia,0.0414
+1108087,subitem,Peixe - tambaqui,0.0188
+1108088,subitem,Peixe - dourada,0.005
+1108092,subitem,Peixe - filhote,0.0042
+1108096,subitem,Peixe - peroá,0.0007
+1108112,subitem,Peixe - pintado,0.0004
+1108125,subitem,Peixe - aruanã,0.0005
+1109,item,Carnes e peixes industrializados,0.5917
+1109002,subitem,Presunto,0.0892
+1109007,subitem,Salsicha,0.0393
+1109008,subitem,Linguiça,0.287
+1109010,subitem,Mortadela,0.0436
+1109012,subitem,Salame,0.008
+1109023,subitem,Bacalhau,0.011
+1109056,subitem,Carne-seca e de sol,0.1067
+1109058,subitem,Carne de porco salgada e defumada,0.0069
+1110,item,Aves e ovos,1.1994
+1110009,subitem,Frango inteiro,0.3552
+1110010,subitem,Frango em pedaços,0.6064
+1110044,subitem,Ovo de galinha,0.2379
+1111,item,Leites e derivados,1.9182
+1111004,subitem,Leite longa vida,0.8048
+1111008,subitem,Leite condensado,0.0218
+1111009,subitem,Leite em pó,0.2129
+1111011,subitem,Queijo,0.5557
+1111019,subitem,Iogurte e bebidas lácteas,0.1909
+1111021,subitem,Requeijão,0.0608
+1111031,subitem,Manteiga,0.0588
+1111038,subitem,Leite fermentado,0.0125
+1112,item,Panificados,1.702
+1112003,subitem,Biscoito,0.4663
+1112015,subitem,Pão francês,0.8575
+1112017,subitem,Pão doce,0.0907
+1112018,subitem,Pão de forma,0.1101
+1112019,subitem,Bolo,0.1463
+1112025,subitem,Pão de queijo,0.0309
+1113,item,Óleos e gorduras,0.4083
+1113013,subitem,Óleo de soja,0.2364
+1113014,subitem,Azeite de oliva,0.0676
+1113040,subitem,Margarina,0.1043
+1114,item,Bebidas e infusões,1.8625
+1114001,subitem,Suco de frutas,0.1307
+1114003,subitem,Polpa de fruta (congelada),0.0139
+1114004,subitem,Açaí (emulsão),0.0595
+1114022,subitem,Café moído,0.53
+1114023,subitem,Café solúvel,0.0101
+1114083,subitem,Refrigerante e água mineral,0.5419
+1114084,subitem,Cerveja,0.4106
+1114085,subitem,Outras bebidas alcoólicas,0.0368
+1114087,subitem,Vinho,0.0582
+1114090,subitem,Suco em pó,0.0448
+1114091,subitem,Chá mate (erva mate),0.026
+1115,item,Enlatados e conservas,0.1617
+1115013,subitem,Alimento infantil,0.0025
+1115016,subitem,Palmito em conserva,0.0183
+1115017,subitem,Pepino em conserva,0.0045
+1115039,subitem,Sardinha em conserva,0.0471
+1115050,subitem,Salsicha em conserva,0.0013
+1115056,subitem,Sopa desidratada,0.0019
+1115057,subitem,Azeitona,0.0342
+1115058,subitem,Milho-verde em conserva,0.0288
+1115075,subitem,Atum em conserva,0.0231
+1116,item,Sal e condimentos,0.3813
+1116001,subitem,Leite de coco,0.0023
+1116005,subitem,Atomatado,0.1219
+1116010,subitem,Alho,0.1033
+1116013,subitem,Sal,0.0043
+1116022,subitem,Colorau,0.0007
+1116023,subitem,Caldo de tucupi,0.0008
+1116026,subitem,Fermento,0.0062
+1116033,subitem,Maionese,0.0532
+1116041,subitem,Vinagre,0.0168
+1116048,subitem,Caldo concentrado,0.011
+1116071,subitem,Tempero misto,0.0609
+12,subgrupo,Alimentação fora do domicílio,6.1288
+1201,item,Alimentação fora do domicílio,6.1288
+1201001,subitem,Refeição,3.6337
+1201003,subitem,Lanche,1.9568
+1201007,subitem,Refrigerante e água mineral,0.1233
+1201009,subitem,Cafezinho,0.0505
+1201048,subitem,Cerveja,0.2815
+1201051,subitem,Outras bebidas alcoólicas,0.0071
+1201052,subitem,Vinho,0.0075
+1201061,subitem,Doces,0.0048
+1201088,subitem,Sorvete,0.0636
+2,grupo,Habitação,15.2611
+21,subgrupo,Encargos e manutenção,9.883
+2101,item,Aluguel e taxas,7.8044
+2101001,subitem,Aluguel residencial,3.6608
+2101002,subitem,Condomínio,2.245
+2101004,subitem,Taxa de água e esgoto,1.8968
+2101012,subitem,Mudança,0.0018
+2103,item,Reparos,1.3416
+2103005,subitem,Ferragens,0.009
+2103008,subitem,Material de eletricidade,0.012
+2103012,subitem,Vidro,0.0025
+2103014,subitem,Tinta,0.2932
+2103032,subitem,Revestimento de piso e parede,0.2305
+2103038,subitem,Madeira e taco,0.0122
+2103039,subitem,Cimento,0.0272
+2103040,subitem,Tijolo,0.0242
+2103041,subitem,Material hidráulico,0.0411
+2103042,subitem,Mão de obra,0.6353
+2103048,subitem,Areia,0.014
+2103049,subitem,Pedras,0.0004
+2103055,subitem,Telha,0.0399
+2104,item,Artigos de limpeza,0.737
+2104003,subitem,Saco para lixo,0.0041
+2104005,subitem,Água sanitária,0.0606
+2104008,subitem,Detergente,0.1551
+2104009,subitem,Sabão em pó,0.2205
+2104012,subitem,Desinfetante,0.0607
+2104015,subitem,Sabão em barra,0.0262
+2104016,subitem,Esponja de limpeza,0.0041
+2104019,subitem,Sabão líquido,0.0059
+2104020,subitem,Limpador multiuso,0.0276
+2104041,subitem,Papel toalha,0.0043
+2104085,subitem,Amaciante e alvejante,0.1679
+22,subgrupo,Combustíveis e energia,5.3781
+2201,item,Combustíveis (domésticos),1.397
+2201003,subitem,Carvão vegetal,0.0061
+2201004,subitem,Gás de botijão,1.242
+2201005,subitem,Gás encanado,0.149
+2202,item,Energia elétrica residencial,3.981
+2202003,subitem,Energia elétrica residencial,3.981
+3,grupo,Artigos de residência,3.4843
+31,subgrupo,Móveis e utensílios,1.727
+3101,item,Mobiliário,1.1871
+3101002,subitem,Móvel para sala,0.3712
+3101003,subitem,Móvel para quarto,0.54
+3101015,subitem,Móvel para copa e cozinha,0.2397
+3101016,subitem,Móvel infantil,0.0219
+3101017,subitem,Colchão,0.0143
+3102,item,Utensílios e enfeites,0.3711
+3102001,subitem,Artigos de iluminação,0.0469
+3102005,subitem,Tapete,0.0404
+3102006,subitem,Cortina,0.0712
+3102007,subitem,Utensílios de metal,0.1413
+3102009,subitem,Utensílios de vidro e louça,0.0423
+3102010,subitem,Utensílios de plástico,0.0082
+3102035,subitem,Flores naturais,0.0062
+3102337,subitem,Utensílios para bebê,0.0145
+3103,item,"Cama, mesa e banho",0.1688
+3103001,subitem,Roupa de cama,0.1639
+3103003,subitem,Roupa de banho,0.0049
+32,subgrupo,Aparelhos eletroeletrônicos,1.4085
+3201,item,Eletrodomésticos e equipamentos,0.79
+3201001,subitem,Refrigerador,0.3046
+3201002,subitem,Ar-condicionado,0.0952
+3201006,subitem,Máquina de lavar roupa,0.2129
+3201013,subitem,Ventilador,0.0161
+3201021,subitem,Fogão,0.1528
+3201050,subitem,Chuveiro elétrico,0.0083
+3202,item,"Tv, som e informática",0.6186
+3202001,subitem,Televisor,0.3554
+3202003,subitem,Aparelho de som,0.0087
+3202008,subitem,Videogame (console),0.0028
+3202028,subitem,Computador pessoal,0.2516
+33,subgrupo,Consertos e manutenção,0.3487
+3301,item,Consertos e manutenção,0.3487
+3301002,subitem,Conserto de refrigerador,0.0161
+3301006,subitem,Conserto de televisor,0.0019
+3301015,subitem,Conserto de máquina de lavar roupa,0.0046
+3301022,subitem,Reforma de estofado,0.0485
+3301088,subitem,Conserto de aparelho celular,0.0545
+3301130,subitem,Conserto de bicicleta,0.2231
+4,grupo,Vestuário,4.6171
+41,subgrupo,Roupas,3.0551
+4101,item,Roupa masculina,1.1615
+4101002,subitem,Calça comprida masculina,0.3053
+4101005,subitem,Agasalho masculino,0.0225
+4101006,subitem,Bermuda/short masculino,0.1812
+4101008,subitem,Cueca,0.0067
+4101009,subitem,Camisa/camiseta masculina,0.6459
+4102,item,Roupa feminina,1.3162
+4102002,subitem,Calça comprida feminina,0.3169
+4102003,subitem,Agasalho feminino,0.0257
+4102004,subitem,Saia,0.0087
+4102005,subitem,Vestido,0.2817
+4102008,subitem,Blusa,0.5081
+4102010,subitem,Lingerie,0.1062
+4102013,subitem,Bermuda/short feminino,0.069
+4103,item,Roupa infantil,0.5774
+4103001,subitem,Uniforme escolar,0.0879
+4103002,subitem,Calça comprida infantil,0.0744
+4103005,subitem,Agasalho infantil,0.008
+4103007,subitem,Vestido infantil,0.0519
+4103008,subitem,Bermuda/short infantil,0.049
+4103011,subitem,Camisa/camiseta infantil,0.1749
+4103031,subitem,Conjunto infantil,0.1313
+42,subgrupo,Calçados e acessórios,1.231
+4201,item,Calçados e acessórios,1.231
+4201002,subitem,Sapato masculino,0.169
+4201003,subitem,Sapato feminino,0.285
+4201004,subitem,Sapato infantil,0.0294
+4201015,subitem,Bolsa,0.0607
+4201040,subitem,Mochila,0.0092
+4201063,subitem,Tênis,0.4832
+4201098,subitem,Sandália/chinelo,0.1945
+43,subgrupo,Joias e bijuterias,0.2803
+4301,item,Joias e bijuterias,0.2803
+4301001,subitem,Bijuteria,0.0191
+4301002,subitem,Joia,0.214
+4301004,subitem,Relógio de pulso,0.0471
+44,subgrupo,Tecidos e armarinho,0.0508
+4401,item,Tecidos e armarinho,0.0508
+4401001,subitem,Tecido,0.0412
+4401002,subitem,Artigos de armarinho,0.0096
+5,grupo,Transportes,20.1607
+51,subgrupo,Transportes,20.1607
+5101,item,Transporte público,3.1365
+5101001,subitem,Ônibus urbano,1.1157
+5101002,subitem,Táxi,0.2046
+5101004,subitem,Trem,0.0372
+5101006,subitem,Ônibus intermunicipal,0.4175
+5101007,subitem,Ônibus interestadual,0.1178
+5101010,subitem,Passagem aérea,0.7105
+5101011,subitem,Metrô,0.065
+5101026,subitem,Transporte escolar,0.127
+5101051,subitem,Transporte por aplicativo,0.2895
+5101053,subitem,Integração transporte público,0.0518
+5102,item,Veículo próprio,10.9765
+5102001,subitem,Automóvel novo,2.9494
+5102004,subitem,Emplacamento e licença,2.5835
+5102005,subitem,Seguro voluntário de veículo,0.7117
+5102006,subitem,Multa,0.0836
+5102007,subitem,Óleo lubrificante,0.1415
+5102009,subitem,Acessórios e peças,0.1721
+5102010,subitem,Pneu,0.2008
+5102011,subitem,Conserto de automóvel,1.8726
+5102013,subitem,Estacionamento,0.0645
+5102015,subitem,Pedágio,0.0891
+5102020,subitem,Automóvel usado,1.4677
+5102037,subitem,Pintura de veículo,0.0171
+5102051,subitem,Aluguel de veículo,0.0211
+5102053,subitem,Motocicleta,0.6017
+5104,item,Combustíveis (veículos),6.0477
+5104001,subitem,Gasolina,5.1285
+5104002,subitem,Etanol,0.5975
+5104003,subitem,Óleo diesel,0.2562
+5104005,subitem,Gás veicular,0.0655
+6,grupo,Saúde e cuidados pessoais,13.8408
+61,subgrupo,Produtos farmacêuticos e óticos,3.7324
+6101,item,Produtos farmacêuticos,3.4898
+6101001,subitem,Anti-infeccioso e antibiótico,0.242
+6101002,subitem,Analgésico e antitérmico,0.6109
+6101003,subitem,Anti-inflamatório e antirreumático,0.1632
+6101004,subitem,Antigripal e antitussígeno,0.2242
+6101006,subitem,Dermatológico,0.1505
+6101007,subitem,Antialérgico e broncodilatador,0.1713
+6101009,subitem,Gastroprotetor,0.1511
+6101010,subitem,Vitamina e fortificante,0.2331
+6101011,subitem,Hormonal,0.2007
+6101013,subitem,Psicotrópico e anorexígeno,0.3172
+6101014,subitem,Hipotensor e hipocolesterolêmico,0.5958
+6101051,subitem,Oftalmológico,0.1182
+6101064,subitem,Antidiabético,0.177
+6101148,subitem,Neurológico,0.1346
+6102,item,Produtos óticos,0.2426
+6102012,subitem,Óculos de grau,0.2426
+62,subgrupo,Serviços de saúde,5.994
+6201,item,Serviços médicos e dentários,1.2232
+6201002,subitem,Médico,0.566
+6201003,subitem,Dentista,0.5906
+6201005,subitem,Aparelho ortodôntico,0.0193
+6201007,subitem,Fisioterapeuta,0.0004
+6201010,subitem,Psicólogo,0.0468
+6202,item,Serviços laboratoriais e hospitalares,0.6005
+6202003,subitem,Exame de laboratório,0.1083
+6202004,subitem,Hospitalização e cirurgia,0.3653
+6202006,subitem,Exame de imagem,0.127
+6203,item,Plano de saúde,4.1703
+6203001,subitem,Plano de saúde,4.1703
+63,subgrupo,Cuidados pessoais,4.1143
+6301,item,Higiene pessoal,4.1143
+6301001,subitem,Produto para cabelo,0.6664
+6301002,subitem,Fralda descartável,0.2248
+6301004,subitem,Produto para barba,0.1292
+6301006,subitem,Produto para pele,0.4201
+6301007,subitem,Produto para higiene bucal,0.2897
+6301010,subitem,Produto para unha,0.0037
+6301011,subitem,Perfume,1.1473
+6301014,subitem,Desodorante,0.4104
+6301015,subitem,Absorvente higiênico,0.1101
+6301016,subitem,Sabonete,0.3465
+6301017,subitem,Papel higiênico,0.201
+6301020,subitem,Artigos de maquiagem,0.1652
+7,grupo,Despesas pessoais,10.4075
+71,subgrupo,Serviços pessoais,6.3928
+7101,item,Serviços pessoais,6.3928
+7101001,subitem,Costureira,0.0138
+7101005,subitem,Manicure,0.4481
+7101010,subitem,Empregado doméstico,2.7708
+7101011,subitem,Cabeleireiro e barbeiro,1.1297
+7101014,subitem,Depilação,0.0642
+7101034,subitem,Cartório,0.0233
+7101036,subitem,Despachante,0.0828
+7101076,subitem,Serviço bancário,1.6987
+7101090,subitem,Conselho de classe,0.0483
+7101144,subitem,Sobrancelha,0.1131
+72,subgrupo,Recreação e fumo,4.0147
+7201,item,Recreação,3.3208
+7201006,subitem,Clube,0.0828
+7201010,subitem,Instrumento musical,0.0162
+7201015,subitem,Tratamento de animais (clínica),0.2749
+7201019,subitem,Bicicleta,0.0854
+7201020,subitem,Alimento para animais,0.3437
+7201023,subitem,Brinquedo,0.2004
+7201054,subitem,Casa noturna,0.038
+7201063,subitem,Jogos de azar,0.4846
+7201067,subitem,Material de caça e pesca,0.0078
+7201090,subitem,Hospedagem,0.6514
+7201095,subitem,Pacote turístico,0.4843
+7201256,subitem,Serviço de higiene para animais,0.1486
+7201266,subitem,"Cinema, teatro e concertos",0.5027
+7202,item,Fumo,0.6939
+7202041,subitem,Cigarro,0.6939
+8,grupo,Educação,6.2085
+81,subgrupo,"Cursos, leitura e papelaria",6.2085
+8101,item,Cursos regulares,4.7141
+8101001,subitem,Creche,0.2065
+8101002,subitem,Pré-escola,0.3569
+8101003,subitem,Ensino fundamental,1.744
+8101004,subitem,Ensino médio,0.4386
+8101005,subitem,Ensino superior,1.6781
+8101006,subitem,Pós-graduação,0.2237
+8101008,subitem,Educação de jovens e adultos,0.0369
+8101045,subitem,Curso técnico,0.0294
+8102,item,Leitura,0.5464
+8102001,subitem,Jornal diário,0.0395
+8102004,subitem,Revista,0.0337
+8102007,subitem,Livro didático,0.3671
+8102008,subitem,Livro não didático,0.106
+8103,item,Papelaria,0.1402
+8103001,subitem,Caderno,0.0505
+8103014,subitem,Artigos de papelaria,0.0897
+8104,item,Cursos diversos,0.8077
+8104001,subitem,Curso preparatório,0.072
+8104003,subitem,Curso de idioma,0.2917
+8104004,subitem,Curso de informática,0.0013
+8104005,subitem,Autoescola,0.0519
+8104006,subitem,Atividades físicas,0.3908
+9,grupo,Comunicação,4.5111
+91,subgrupo,Comunicação,4.5111
+9101,item,Comunicação,4.5111
+9101001,subitem,Correio,0.0672
+9101002,subitem,Plano de telefonia fixa,0.2054
+9101008,subitem,Plano de telefonia móvel,1.2821
+9101010,subitem,Tv por assinatura,0.3838
+9101018,subitem,Acesso à internet,0.3805
+9101019,subitem,Aparelho telefônico,0.6872
+9101115,subitem,Serviços de streaming,0.0771
+9101116,subitem,"Combo de telefonia, internet e tv por assinatura",1.4278

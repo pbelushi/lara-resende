@@ -99,3 +99,16 @@ a massa inercial está nos serviços (salários) e nos aluguéis, que ficam de f
 sem mexer no salário mínimo nem nos contratos de aluguel, é preciso incluir também os planos de saúde (teto
 anual da ANS, regulação discricionária) e os medicamentos (fórmula da CMED, que depende de mudança na Lei
 10.742/2003), e usar o híbrido de 5,5% do PIB com regra de Taylor.
+
+### Atualização com os pesos do IPCA de setembro de 2026 (IBGE, Tabela 7060, 377 subitens)
+
+θ recalculado subitem a subitem (`src/indexacao_theta.py`; tabela em `theta_subitens.csv`, massa inercial por
+classe em `theta_massa_por_classe.csv`); sucesso em `curva_theta_pesos_set2026.csv`.
+
+| Reindexação à meta | Peso no IPCA | θ (faixa) | Híbrido 5,5%, Taylor (P2 / P1) | Híbrido 4,1%, alívio condicionado (P2 / P1) |
+|---|---|---|---|---|
+| Energia, saneamento e gás encanado | 6,0% | 0,08 (0,08–0,09) | 32% / 35% | 26% / 31% |
+| + planos de saúde (ANS) | 10,2% | 0,18 (0,17–0,20) | 46% / 48% | 40% / 43% |
+| + medicamentos (CMED) | 13,7% | 0,26 (0,25–0,30) | 56% / 57% | 51% / 54% |
+
+Substitui a tabela do adendo anterior, que usava pesos aproximados.
