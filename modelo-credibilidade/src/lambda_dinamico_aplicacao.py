@@ -13,7 +13,8 @@ Regras (coeficientes por p.p.; ver lambda_dinamico_estimacao.py e o relatório):
 - fiscal forte: λ_fiscal com 0,30 por p.p. nos dois sentidos (ordem de grandeza da recuperação de 2016–19);
 - cruzado: central + o descumprimento fiscal também reduz λ_π (−0,05 por p.p.; Montes, Oliveira e Nicolay,
   2019 — não confirmado nos dados do Focus);
-- dobro e metade: central com todos os coeficientes ×2 e ×0,5.
+- dobro e metade: central com todos os coeficientes ×2 e ×0,5;
+- simétrico: λ_π sobe na mesma taxa em que cai (0,071 por p.p.), para separar o efeito da assimetria.
 
 Uso: python -m src.lambda_dinamico_aplicacao
 """
@@ -44,6 +45,7 @@ REGRAS = {
     "cruzado": {**CENTRAL, "b_cruzado": 0.05},
     "dobro": {k: (v * 2 if k.startswith("b_") else v) for k, v in CENTRAL.items()},
     "metade": {k: (v * 0.5 if k.startswith("b_") else v) for k, v in CENTRAL.items()},
+    "simetrico": {**CENTRAL, "b_pi_pos": 0.071},
 }
 MARCOS = {"ano1": 4, "ano2": 8, "ano4": 16, "ano10": 40}
 
@@ -103,6 +105,10 @@ def _lote(tarefas, p, cfg, choques, lp_draw):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--regras", default=",".join(REGRAS))
+    regras = ap.parse_args().regras.split(",")
     SAIDA.mkdir(parents=True, exist_ok=True)
     p = modelo.carregar_calibracao(RAIZ / "config" / "calibracao.yaml")
     cfg = yaml.safe_load((RAIZ / "config" / "cenarios.yaml").read_text(encoding="utf-8"))
@@ -110,12 +116,16 @@ def main():
     lp_draw = np.random.default_rng(2027).uniform(0.2, 0.5, 1000)
     combos = json.loads((ORIGEM / "combinacoes.json").read_text())
     fin = pd.read_csv(ORIGEM / "fase3_finalistas.csv")["id"].unique()
-    tarefas = [(cid, combos[cid], e, r) for cid in fin for e in ("P1", "P2", "P3_theta05") for r in REGRAS]
+    tarefas = [(cid, combos[cid], e, r) for cid in fin for e in ("P1", "P2", "P3_theta05") for r in regras]
     res = Parallel(n_jobs=2)(delayed(_lote)(tarefas[i:i + 6], p, cfg, choques, lp_draw)
                              for i in range(0, len(tarefas), 6))
     d = pd.DataFrame([x for r in res for x in r])
     d["familia"] = d.apply(familia, axis=1)
-    d.to_csv(SAIDA / "finalistas_lambda_dinamico.csv", index=False)
+    arq = SAIDA / "finalistas_lambda_dinamico.csv"
+    if arq.exists() and set(regras) != set(REGRAS):   # rodada parcial: substitui só as regras rodadas
+        velho = pd.read_csv(arq)
+        d = pd.concat([velho[~velho["regra"].isin(regras)], d])
+    d.to_csv(arq, index=False)
     print(d.groupby(["especificacao", "familia", "regra"])[["p_bil", "p", "dif_1-16", "lam_pi_ano4", "lam_pi_ano10"]]
           .mean().round(3).to_string())
 
