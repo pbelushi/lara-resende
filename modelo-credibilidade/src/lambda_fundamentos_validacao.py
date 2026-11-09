@@ -32,12 +32,12 @@ G = validacao.GRADE_LAMBDA
 CENTRAL = {"b_s_f": 0.12, "b_d_f": -0.13, "b_s_pi": 0.0, "b_d_pi": 0.0}
 
 
-def preparar_episodios(p: dict, espec: str = "P2") -> list[dict]:
+def preparar_episodios(p: dict, espec: str = "P2", epis: dict | None = None) -> list[dict]:
     painel = pd.read_csv(validacao.PROC / "trimestral.csv", index_col=0, parse_dates=True)
     arq = validacao.RAW / "focus_anuais_historico.csv"
     anuais = pd.read_csv(arq, parse_dates=["Data"]) if arq.exists() else None
     eps = []
-    for nome, (ini, fim) in EPIS.items():
+    for nome, (ini, fim) in (epis or EPIS).items():
         ini, fim = pd.Timestamp(ini), pd.Timestamp(fim)
         jan = painel.loc[ini:fim]
         T = len(jan) - 1
