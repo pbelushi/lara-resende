@@ -73,3 +73,29 @@ percentil 90, de 5% a 17%.
   inflação está acima dela) nem a perda de consumo dos beneficiários; ambos os sinais ajudariam e pesariam,
   respectivamente.
 - A regra hostil supõe que o mercado nunca premia; o λ_π de pesquisa e o efetivo divergem (seções 2.6–2.7).
+
+## Adendo: reindexação só das tarifas reguladas (salário mínimo e aluguéis pela regra atual)
+
+Código: `src/indexacao_theta.py` (θ a partir da composição do IPCA) e
+`python -m src.busca_contra_mercado_theta --thetas 0.04,0.07,0.10,0.16,0.24 --saida curva_theta_regulados.csv`.
+
+θ = parcela da "massa inercial" do IPCA (peso × grau de indexação ao passado) que passa a ser reajustada pela
+meta. Pesos: energia elétrica residencial 3,95% e produtos farmacêuticos 3,49% (Ministério da Fazenda,
+informativo IPCA set/2025); segmentos (serviços 35,50%, administrados 25,83%) do BCB (RPM mar/2026, boxe 10);
+água e esgoto (1,6%), gás canalizado (0,1%), planos de saúde (3,9%) e aluguel (4,0%) aproximados, a conferir com
+o IBGE. Na energia, só a parcela B da tarifa (distribuição) segue a inflação; a parcela A repassa custos.
+
+| Reindexação à meta | Peso no IPCA | θ (faixa) | Híbrido 5,5%, Taylor (P2 / P1) | Híbrido 4,1%, alívio condicionado (P2 / P1) |
+|---|---|---|---|---|
+| Energia, saneamento e gás canalizado | 5,7% | 0,07 (0,07–0,08) | 30% / 33% | 25% / 30% |
+| + planos de saúde (teto da ANS) | 9,6% | 0,16 (0,16–0,18) | 44% / 46% | 38% / 41% |
+| + medicamentos (fórmula da CMED) | 13,0% | 0,24 (0,23–0,26) | 53% / 55% | 48% / 51% |
+
+Sem reindexação: 21% / 22% e 18% / 21%.
+
+Leitura: reindexar só as tarifas de energia e saneamento eleva o sucesso de cerca de 20% para 25%–33%, insuficiente
+para dispensar o mercado. As tarifas reguladas pesam pouco na inércia: a energia tem só a parcela B indexada, e
+a massa inercial está nos serviços (salários) e nos aluguéis, que ficam de fora por escolha. Para passar de 50%
+sem mexer no salário mínimo nem nos contratos de aluguel, é preciso incluir também os planos de saúde (teto
+anual da ANS, regulação discricionária) e os medicamentos (fórmula da CMED, que depende de mudança na Lei
+10.742/2003), e usar o híbrido de 5,5% do PIB com regra de Taylor.

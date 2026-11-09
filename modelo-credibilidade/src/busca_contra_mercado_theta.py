@@ -27,6 +27,12 @@ THETAS = [0.0, 0.1, 0.2, 0.3, 0.4]
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--thetas", default=",".join(str(t) for t in THETAS))
+    ap.add_argument("--saida", default="curva_theta.csv")
+    a = ap.parse_args()
+    thetas = [float(t) for t in a.thetas.split(",")]
     A.LF = LF
     A.REGRAS["hostil"] = HOSTIL
     if "R" not in R.GUARDAR:
@@ -39,7 +45,7 @@ def main():
     combos.update({"ref_C_sem_piso": REF["C_sem_piso"], "ref_A_reservas": REF["A_reservas"]})
     linhas = []
     for cid in PACOTES:
-        for th in THETAS:
+        for th in thetas:
             q = copy.deepcopy(p)
             q["indexacao_meta"] = th
             for e in ("P1", "P2"):
@@ -56,7 +62,7 @@ def main():
                            "perda_real_acum_p90": float(np.nanpercentile(perda, 90)),
                            "inflacao_media_2027_30_p50": float(np.nanmedian(np.mean(anos, axis=0)))})
     d = pd.DataFrame(linhas)
-    d.to_csv(SAIDA / "curva_theta.csv", index=False)
+    d.to_csv(SAIDA / a.saida, index=False)
     s = d[d.especificacao != "custo"].groupby(["pacote", "especificacao", "theta"])[["p_bil", "p", "dif_1-16"]].mean()
     pd.set_option("display.width", 220)
     print(s.round(3).unstack("especificacao").to_string())
