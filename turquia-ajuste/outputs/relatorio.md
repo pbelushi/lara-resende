@@ -156,6 +156,42 @@ modelo estima, a linha rende mais. Não há efeito do investimento sobre a capac
 importações. O subsídio é de equalização (os bancos emprestam, o Tesouro paga a diferença); com funding do Tesouro,
 a dívida bruta subiria também pelo estoque da linha.
 
+## Choque de juros (`src/turmodel/choque.py`, `outputs/choque/`)
+
+Pergunta: um choque de juros nos primeiros 6 ou 12 meses, com redução gradual depois, concentraria o custo no
+primeiro ano e permitiria retomar o ritmo nos seguintes?
+
+Grade sobre o melhor cenário (240 combinações): juro real do choque de 15% a 30%, mantido por 6 ou 12 meses, queda
+em 12 ou 24 meses até um juro real final de 2% (neutro) a 11%; com corte por calendário (reação 0) ou condicionado
+à queda da inflação (reação 0,5 e 0,95).
+
+| Cenário (inércia baixa / alta) | Sucesso | Inflação dez/23 | Inflação set/26 | PIB 2022 / 2023 / 2024 / 2025 | Nível do PIB vs. observado: dez/22, dez/24, set/26 | Juro real no último ano | Reservas set/26 |
+|---|---|---|---|---|---|---|---|
+| Política observada | 0% | 67% / 63% | 21% / 24% | 5,9 / 3,9 / 3,7 / 3,8 | 0 | 14% / 11% | — |
+| Melhor da busca (juro real de 17% a 11% em 27 meses) | 25% / 57% | 7% / 7% | 6% / 6% | 4,9 / 3,5 / 4,3 / 4,5 | −1,5 / −0,7 / 0,0 | 15% / 14% | +46 / +50 |
+| Choque de 30% por 12 meses, volta a 11% | 26% / 58% | 5% / 5% | 6% / 6% | 4,8 / 3,4 / 4,3 / 4,6 | −1,6 / −0,8 / 0,0 | 15% / 14% | +59 / +67 |
+| Choque de 30% por 12 meses, corte até 4% condicionado à inflação | 20% / 44% | 6% / 6% | 9% / 9% | 4,8 / 3,5 / 4,4 / 4,6 | −1,6 / −0,6 / +0,1 | 12% / 10% | +49 / +55 |
+| Choque de 30% por 12 meses, corte até 4% por calendário | 13% / 26% | 6% / 6% | 16% / 14% | 4,8 / 3,5 / 4,4 / 4,8 | −1,6 / −0,5 / +0,4 | 5% / 4% | +34 / +41 |
+| Choque de 30% por 12 meses, corte até o neutro por calendário | 8% / 13% | 6% / 6% | 43% / explosiva | 4,8 / 3,5 / 4,5 / 5,0 | −1,6 / −0,5 / +0,7 | 0% / negativo | +29 / +34 |
+
+1. **O perfil de PIB que o choque buscaria já é o do melhor cenário**: a perda fica em 2022–23 (nível 1,5% abaixo
+   do observado no fim de 2022), o crescimento de 2024–25 supera o observado (4,3%–4,5% contra 3,7%–3,8%) e o nível
+   do PIB empata em 2026. Os "4 pontos" de custo são a área entre as trajetórias, não uma perda permanente.
+2. **O choque acelera a desinflação** (5% em vez de 7% no fim de 2023) e as reservas, mas não eleva o sucesso
+   (26%/58% contra 25%/57%) nem reduz o custo: o primeiro ano é quase igual, porque a atividade turca reage pouco ao juro.
+3. **O que não funciona é a segunda metade da proposta, cortar depois por calendário.** A inflação volta: 14%–16%
+   com juro real final de 4% e descontrole com o neutro. A credibilidade não se recompõe com a desinflação
+   (λ continua perto de zero em 2026), então é o juro real, via câmbio, que segura a inflação.
+4. Corte condicionado à inflação é o meio-termo: o juro só cai se a inflação cair. Ele entrega 9% em 2026 com
+   sucesso de 20%/44%, e o juro real acaba em 10%–12%.
+5. Sensibilidade: se o choque comprasse um salto imediato de credibilidade de 0,6, o corte por calendário até 4%
+   daria sucesso de 24%/33% e inflação de 12% em 2026: melhor, mas ainda abaixo de manter o juro alto. O salto se
+   perde porque a inflação do primeiro ano fica longe da meta de 5%.
+
+Limitação central: a conclusão depende da regra de credibilidade (ganho lento, estimado no Brasil; na calibração
+turca, a guinada de 2023 também não elevou λ). Se um choque bem executado reancorasse as expectativas de forma
+duradoura, o corte posterior seria viável; o modelo não tem evidência de que isso aconteça.
+
 ## Comparação com Brasil e Argentina
 
 Nos três países, o ajuste só funciona quando ataca a fonte da instabilidade nominal: a dívida e a indexação no

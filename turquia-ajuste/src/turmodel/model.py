@@ -163,7 +163,8 @@ def simulate(p: dict, pol: dict, n: int = 1, seed: int = 7, stochastic: bool = T
             i = np.full(n, pol["i"][t])
         else:
             rr = pol["real"]
-            frac = min(1.0, t / max(1, rr["meses"]))
+            # `plato`: meses em que o juro real fica em r0 antes de começar a convergir para r1
+            frac = float(np.clip((t - rr.get("plato", 0)) / max(1, rr["meses"]), 0.0, 1.0))
             yoy_prev = (np.exp(np.sum(np.log1p(pi_hist[-12:]), axis=0)) - 1) * 100
             # juro real ex ante: trajetória anunciada + reação ao desvio da inflação em relação à âncora
             r_traj = rr["r0"] + (rr["r1"] - rr["r0"]) * frac
