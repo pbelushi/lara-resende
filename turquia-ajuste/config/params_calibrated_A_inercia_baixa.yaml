@@ -1,0 +1,60 @@
+# Gerado por turmodel.calibrate; não edite.
+inflacao:
+  b1: 0.3
+  beta: 0.33940589020700884
+  beta_dn: 0.31269985484732293
+  kappa: 0.5
+  gamma_w: 0.1
+  p_imposto: 0.7
+cambio:
+  phi: 2.0
+  eta: 0.02
+  sinal: 4.746839773853043
+  omega: 2.548056044701659
+  k_kkm: 4.474798975252616e-16
+  nu: 1.9647712638367576
+atividade:
+  y0: 2.0
+  potencial: 4.5
+  rho: 0.9
+  r_n: 2.0
+  alpha_r: 0.0353735098323247
+  alpha_q: 0.01
+reservas:
+  R0: -35.0
+  piso: -80.0
+  a0: 5.3138062150194365
+  a_q: 0.5
+  a_r: 6.0926248286182314e-40
+cred:
+  lambda0: 0.12158307307935544
+  salto_2023: 2.6269335889061176e-36
+  tol_frac: 0.5
+  tol_min: 0.003
+  g_min: -4.0
+  b_up: 0.0105
+  b_dn: 0.0266
+fiscal:
+  d0: 39.0
+  fx: 0.55
+  i_peso: 0.5
+  ciclico: 0.25
+  kkm_custo: 0.6
+  s_obs:
+    '2021': -0.2
+    '2022': 1.2
+    '2023': -2.6
+    '2024': -2.0
+    '2025': 0.5
+    '2026': 0.5
+exo:
+  energia: 0.004
+  intervencao_dez21: 25.0
+  terremoto_fiscal: 1.5
+  politico: 0.03
+  demanda_2021_22: 0.1
+  imposto_2023: 1.5
+choques:
+  pi: 0.0162
+  e: 0.02
+  y: 0.25

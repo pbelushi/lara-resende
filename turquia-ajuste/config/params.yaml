@@ -1,0 +1,56 @@
+# Parâmetros do modelo turco. Edite este arquivo; params_calibrated.yaml é gerado por turmodel.calibrate.
+inflacao:
+  b1: 0.4          # peso da inércia de contratos anuais; define as variantes A (0,3) e B (0,8) da calibração
+  beta: 0.4        # repasse da depreciação real
+  beta_dn: 0.2     # repasse da apreciação real (assimétrico)
+  kappa: 0.5       # hiato → inflação (por ponto de hiato, a.a.); fixo: a calibração o leva a zero (não identificado)
+  gamma_w: 0.10    # repasse do reajuste do mínimo acima/abaixo da inflação acumulada (fixo: 10% de reajuste real
+                   # ≈ 1 p.p. de inflação; a calibração não o identifica)
+  p_imposto: 0.7   # efeito no nível de preços de 1% do PIB em impostos indiretos (fixo)
+cambio:
+  phi: 2.0         # depreciação anual (p.p.) por ponto de juro real abaixo do neutro; fixo: a calibração o leva ao
+                   # teto para reproduzir o 4º tri/2021, papel que cabe à corrida (omega)
+  eta: 0.02        # reversão do câmbio real (fixo; não identificado)
+  sinal: 3.0       # depreciação (%) por ponto de corte da taxa com juro real abaixo do neutro
+  omega: 0.8       # realimentação da corrida cambial com juro real abaixo do neutro
+  k_kkm: 0.5       # fração da pressão cambial contida pelos depósitos protegidos (KKM)
+  nu: 0.5          # p.p. de depreciação mensal evitados por US$ 1 bi vendido
+atividade:
+  y0: 2.0          # hiato em ago/2021 (fixo)
+  potencial: 4.5   # crescimento potencial, % a.a. (fixo)
+  rho: 0.9         # persistência mensal do hiato (fixo)
+  r_n: 2.0         # juro real neutro (fixo)
+  alpha_r: 0.10    # efeito do juro real sobre o hiato
+  alpha_q: 0.01    # efeito do câmbio real sobre o hiato (fixo; não identificado)
+reservas:
+  R0: -35.0        # reservas líquidas ex-swaps em ago/2021, US$ bi (aproximado)
+  piso: -80.0      # abaixo disso, o câmbio administrado se rompe
+  a0: 0.0
+  a_q: 0.5
+  a_r: 1.0
+cred:
+  lambda0: 0.3
+  salto_2023: 0.3  # troca da equipe econômica em jun/2023
+  tol_frac: 0.5
+  tol_min: 0.003
+  g_min: -4.0
+  b_up: 0.0105
+  b_dn: 0.0266
+fiscal:
+  d0: 39.0
+  fx: 0.55         # parcela da dívida em moeda estrangeira
+  i_peso: 0.5      # parcela do custo em liras que acompanha a taxa básica
+  ciclico: 0.25
+  kkm_custo: 0.6   # custo anual do KKM para o Tesouro, % do PIB, enquanto ativo
+  s_obs: {"2021": -0.2, "2022": 1.2, "2023": -2.6, "2024": -2.0, "2025": 0.5, "2026": 0.5}
+exo:
+  energia: 0.004           # choque mensal de energia e alimentos, mar–ago/2022 (fixo)
+  intervencao_dez21: 25.0  # US$ bi vendidos em dez/2021 (aproximado)
+  terremoto_fiscal: 1.5    # % do PIB a.a. (já contido em s_obs; usado só como referência)
+  politico: 0.03           # pressão cambial em mar/2025
+  demanda_2021_22: 0.10    # reabertura e crédito, p.p. de hiato por mês até jun/2022 (fixo)
+  imposto_2023: 1.5        # % do PIB em impostos indiretos em jul/2023
+choques:
+  pi: 0.006
+  e: 0.02
+  y: 0.25
