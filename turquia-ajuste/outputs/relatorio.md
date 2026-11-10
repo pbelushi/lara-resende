@@ -115,6 +115,47 @@ Limitações específicas: não há custo de esterilização das compras; a efic
 nas vendas de 2022–23 e aplicada de forma simétrica às compras; o modelo não tem prêmio de risco que caia com as
 reservas, o que subestima o ganho de recompô-las.
 
+## Crédito direcionado para investimento (`src/turmodel/credito.py`, `outputs/credito/`)
+
+Pergunta: dá para manter o aperto monetário que funciona e sustentar o PIB com uma linha de crédito subsidiado
+para investimento, como o ajuste de baixo multiplicador fez no caso brasileiro?
+
+Alavanca: uma fração ψ do gasto sensível a juros toma crédito ao juro real neutro (2%); o Tesouro paga a diferença
+para o juro de mercado sobre o estoque da linha (desembolso de ψ × 12% do PIB por ano, amortização de 25% ao ano);
+25% do crédito vaza para a compra de dólares e enfraquece o efeito do juro sobre o câmbio. Sem efeito do
+investimento sobre o PIB potencial.
+
+Melhor cenário da busca, com a linha (inércia baixa / alta):
+
+| ψ (desembolso anual) | Sucesso | Inflação set/26 | PIB vs. observado | Subsídio médio / pico (% do PIB ao ano) | Dívida set/26 (% do PIB) | Reservas set/26 |
+|---|---|---|---|---|---|---|
+| 0 (sem linha) | 25% / 57% | 6,0% / 6,2% | −4,2 / −4,0 | 0 | 48 / 47 | +46 / +50 |
+| 0,2 (2,4% do PIB) | 25% / 56% | 6,2% / 6,3% | −3,7 / −3,6 | 0,6 / 1,9 e 0,5 / 1,6 | 51 / 49 | +42 / +46 |
+| 0,4 (4,8% do PIB) | 24% / 56% | 6,4% / 6,4% | −3,3 / −3,2 | 1,2 / 3,8 e 1,0 / 3,2 | 54 / 52 | +39 / +43 |
+| 0,6 (7,2% do PIB) | 24% / 55% | 6,5% / 6,6% | −2,9 / −2,9 | 1,8 / 5,8 e 1,6 / 4,8 | 57 / 55 | +35 / +40 |
+| 0,8 (9,6% do PIB) | 23% / 55% | 6,7% / 6,8% | −2,5 / −2,5 | 2,4 / 7,7 e 2,1 / 6,5 | 60 / 58 | +32 / +36 |
+
+1. **A linha funciona no sentido pedido**: quase não mexe na desinflação nem na probabilidade de sucesso, porque a
+   desinflação turca vem do câmbio e das expectativas, não da demanda. Isso vale com o canal de demanda três vezes
+   mais forte (sucesso cai 1 a 4 pontos).
+2. **Mas recupera só uma parte do PIB, e caro**: cada 0,2 de ψ devolve 0,4 ponto de PIB e custa cerca de 3 pontos
+   de dívida em cinco anos. Com ψ = 0,4, recuperam-se 0,8 ponto dos 4, com subsídio médio de 1,1% do PIB ao ano.
+3. **A razão**: a maior parte da diferença de PIB em relação ao observado não é contração causada pelo juro
+   acima do neutro; é o estímulo do juro real de −40% que deixa de existir. No melhor cenário, sem linha, o PIB
+   cresce 3,5% ao ano em 2022–23 (4,0%–4,1% no observado) e o hiato mínimo é de −1,2%: não há recessão. Uma linha
+   ao juro neutro não repõe o superaquecimento; uma linha abaixo do neutro seria a política observada com outro nome.
+4. **O vazamento é o risco**: com 50% do crédito indo para o dólar e ψ = 0,8, o sucesso cai de 25%/57% para
+   20%/51% e as reservas de +46/+50 para +19/+24.
+5. A busca com a linha (3.000 combinações) não desloca o ótimo: o juro real continua em 9%–11% e o melhor sucesso
+   não sobe. Entre as combinações com sucesso médio acima de 30%, as de menor custo de PIB (−2,1 a −2,5) usam
+   ψ de 0,7 a 0,8 e juro real final de 7% a 10%.
+
+Limitações específicas: o volume da linha (12% do PIB de gasto sensível a juros) e a sensibilidade da atividade ao
+juro (calibrada, baixa) determinam a relação custo-benefício; se a atividade for mais sensível ao juro do que o
+modelo estima, a linha rende mais. Não há efeito do investimento sobre a capacidade produtiva nem sobre as
+importações. O subsídio é de equalização (os bancos emprestam, o Tesouro paga a diferença); com funding do Tesouro,
+a dívida bruta subiria também pelo estoque da linha.
+
 ## Comparação com Brasil e Argentina
 
 Nos três países, o ajuste só funciona quando ataca a fonte da instabilidade nominal: a dívida e a indexação no

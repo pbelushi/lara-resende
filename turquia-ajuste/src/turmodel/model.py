@@ -152,6 +152,8 @@ def simulate(p: dict, pol: dict, n: int = 1, seed: int = 7, stochastic: bool = T
     ly = np.zeros((n, T + 1))
     ly[:, 0] = act["y0"] / 100
     i_prev = X["i"][:, 0].copy()
+    estoque = 0.0
+    X["sub"] = np.zeros((n, T + 1))
 
     for t in range(1, T + 1):
         pibar = np.mean(pi_hist[-3:], axis=0)
@@ -172,15 +174,26 @@ def simulate(p: dict, pol: dict, n: int = 1, seed: int = 7, stochastic: bool = T
         r = ((1 + i / 100) / (1 + pie) ** 12 - 1) * 100
         r_c = np.clip(r, -60, 40)
         q_prev, y_prev, R_prev = X["q"][:, t - 1], X["y"][:, t - 1], X["R"][:, t - 1]
+        # ---- crédito direcionado: uma fração psi do gasto sensível a juros (investimento) toma crédito ao juro
+        # real neutro; o Tesouro paga a diferença (equalização); uma parte `vaz` do crédito vaza para a compra de
+        # dólares e enfraquece o efeito do juro sobre o câmbio
+        cd_ = pol.get("credito")
+        psi = float(cd_["psi"][t]) if cd_ else 0.0
+        excesso = np.maximum(r_c - act["r_n"], 0.0)
+        r_y = r_c - psi * excesso
+        r_fx = r_c - (cd_["vaz"] * psi * excesso if cd_ else 0.0)
+        if cd_:
+            estoque = estoque * (1 - cd_["amort"] / 12) + psi * cd_["volume"] / 12      # % do PIB
+        subsidio = estoque * excesso / 100                                              # % do PIB por ano
         # ---- câmbio
         # corrida: com juro real abaixo do neutro, a depreciação do mês anterior acima da inflação esperada
         # realimenta a dolarização (omega); o KKM contém parte da pressão
         # intensidade da fuga: 0 com juro real no neutro, 1 com juro real 10 pontos ou mais abaixo dele
-        abaixo = np.clip((act["r_n"] - r_c) / 10.0, 0.0, 1.0)
+        abaixo = np.clip((act["r_n"] - r_fx) / 10.0, 0.0, 1.0)
         corrida = fxp["omega"] * np.maximum(de_hist[-1] - pie, 0.0) * abaixo
         # sinal: cada ponto de corte da taxa nominal com o juro real abaixo do neutro é lido como abandono da meta
         sinal = fxp["sinal"] * np.maximum(i_prev - i, 0.0) / 100 * abaixo
-        de_float = (pie - PI_US + (-fxp["phi"] * (r_c - act["r_n"]) / 1200 + corrida + sinal) * (1 - fxp["k_kkm"] * pol["kkm"][t])
+        de_float = (pie - PI_US + (-fxp["phi"] * (r_fx - act["r_n"]) / 1200 + corrida + sinal) * (1 - fxp["k_kkm"] * pol["kkm"][t])
                     - fxp["eta"] * q_prev + ex["politico"][t] + eps["e"][:, t])
         crawl = pol["crawl"][t] if "crawl" in pol else np.nan
         if np.isnan(crawl):
@@ -238,7 +251,7 @@ def simulate(p: dict, pol: dict, n: int = 1, seed: int = 7, stochastic: bool = T
         cum_anc = cum_anc + np.log1p(anc_m[t])
         w_real = w_real - np.log1p(pi)
         # ---- atividade
-        y = (act["rho"] * y_prev - act["alpha_r"] * (r_c - act["r_n"]) / 12 + act["alpha_q"] * q_prev * 100 / 12
+        y = (act["rho"] * y_prev - act["alpha_r"] * (r_y - act["r_n"]) / 12 + act["alpha_q"] * q_prev * 100 / 12
              - pol.get("mult", 0.6) * dadj + ex["demanda"][t] + eps["y"][:, t])
         ly[:, t] = pot * t + y / 100
         q = q_prev + de - pi + PI_US
@@ -248,6 +261,7 @@ def simulate(p: dict, pol: dict, n: int = 1, seed: int = 7, stochastic: bool = T
                 + fis["kkm_custo"] * (base["kkm"][t] - pol["kkm"][t])
         else:
             s = np.full(n, fis["s_obs"][str(MESES[t].year)]) + adj
+        s = s - subsidio
         g_m = pot + (y - y_prev) / 100
         i_ef = fis["i_peso"] * i + (1 - fis["i_peso"]) * 15.0
         fator = ((1 - fis["fx"]) * (1 + i_ef / 1200) + fis["fx"] * (1 + de + I_US / 1200)) / ((1 + pi) * (1 + g_m))
@@ -265,6 +279,7 @@ def simulate(p: dict, pol: dict, n: int = 1, seed: int = 7, stochastic: bool = T
         for k, v in (("pi", pi), ("pie", pie), ("e", X["e"][:, t - 1] + de), ("de", de), ("q", q), ("y", y), ("R", R),
                      ("d", dd), ("lam", lam), ("i", i), ("r", r), ("s", s), ("vendas", vendas), ("w_real", w_real)):
             X[k][:, t] = v
+        X["sub"][:, t] = subsidio
         i_prev = i
     X["ly"] = ly
     X["kkm"] = np.asarray(pol["kkm"], dtype=float)
