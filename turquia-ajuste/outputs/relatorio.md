@@ -80,8 +80,40 @@ hiperinflação na mediana); de 2% a 5%: 5% / 21%; de 5% a 8%: 11% / 39%; de 8% 
    administrados pela meta, sem ajuste fiscal.
 5. **O custo:** as alternativas bem-sucedidas custam de 3 a 4 pontos do PIB de um ano, acumulados em cinco anos,
    em relação à política observada, que produziu um boom em 2021–22 à custa de inflação de 85% e do salário real.
-   A regra do salário mínimo pode preservar o poder de compra: nas finalistas com ganho real de 3% a 4% por reajuste,
-   o mínimo real termina 2026 igual ao observado.
+   O salário mínimo real termina 2026 abaixo do observado na maior parte das finalistas (20% abaixo no melhor
+   cenário); só fica no mesmo nível com ganho real de 4% ou mais por reajuste e pouca indexação à meta.
+
+## Reservas (`src/turmodel/reservas.py`, `outputs/reservas/`)
+
+A variável de reservas da busca original não serve para comparar alternativas: a entrada autônoma calibrada
+(US$ 5,5 bi por mês) reflete o regime observado e faria as reservas subirem US$ 330 bi em qualquer cenário. Aqui as
+reservas seguem a regra do câmbio flutuante: só mudam quando o banco central compra. O banco central compra para
+impedir que a lira se aprecie além de um piso em relação à trajetória da âncora; compra mais quem atrai capital
+(juro real acima do neutro) e quem aceita menos apreciação, ao custo de menos desinflação pelo câmbio. As 6.000
+combinações foram reavaliadas e 3.000 novas foram sorteadas na região de juro real positivo, com piso de −1% a +1%
+ao mês (negativo = compra mesmo sem pressão de apreciação). Ponto de partida: −US$ 35 bi. Referência observada
+(dados aproximados): −60 em 2023, +55 no fim de 2025.
+
+| Cenário (inércia baixa / alta) | Sucesso | Reservas dez/23 | Reservas set/26 | Positivas em set/26 | Meses até positivas | Sucesso e reservas ≥ 50 | Inflação set/26 | PIB vs. observado |
+|---|---|---|---|---|---|---|---|---|
+| Juro real zero + ajuste de qualidade + rendas | 2% / 5% | −24 / −24 | −9 / −9 | 29% / 22% | nunca | 0% | 27% / 22% | −1,4 / −1,5 |
+| Heterodoxa (juro real de 3% a 2%) | 5% / 16% | −21 / −20 | +1 / −1 | 53% / 46% | 60 / nunca | 0% | 10% / 10% | −3,0 / −2,9 |
+| Aperto tradicional (juro real de 10% a 6%) | 9% / 21% | −16 / −14 | +9 / +9 | 78% / 86% | 50 | 1% / 0% | 7% / 9% | −3,3 / −3,2 |
+| Melhor da busca original (c03002) | 25% / 57% | +6 / +10 | +46 / +50 | 100% | 24 / 21 | 8% / 28% | 6% / 6% | −4,2 / −4,0 |
+| Melhor com reservas ≥ 50 (r01540): juro real de 16% a 10,5%, meta de 5% imediata, θ = 0,31, sem ajuste fiscal, compra de reservas mais agressiva (piso de −0,5% ao mês) | 18% / 44% | +11 / +17 | +58 / +67 | 100% | 21 / 18 | 16% / 44% | 10% / 9% | −4,2 / −4,1 |
+
+1. **O melhor cenário recompõe as reservas**: positivas em cerca de dois anos (meados de 2023, quando as observadas
+   estavam em −60) e perto de +50 em set/2026, sem controles nem swaps.
+2. **Quem recompõe reservas é o juro real**: correlação de 0,7 entre o juro real final e as reservas de 2026. Com
+   juro real perto do neutro ou abaixo, não há entrada de capital para comprar: as reservas ficam em torno de zero
+   ou negativas.
+3. **Há uma troca entre reservas e desinflação**: comprar mais agressivamente leva as reservas a +60/+65, mas a
+   inflação termina em 9%–10% em vez de 6%, e o sucesso cai de 25%/57% para 18%/44%. O custo de PIB é o mesmo.
+4. O ajuste fiscal não ajuda as reservas (correlação de −0,1).
+
+Limitações específicas: não há custo de esterilização das compras; a eficácia da intervenção (ν) foi calibrada
+nas vendas de 2022–23 e aplicada de forma simétrica às compras; o modelo não tem prêmio de risco que caia com as
+reservas, o que subestima o ganho de recompô-las.
 
 ## Comparação com Brasil e Argentina
 
