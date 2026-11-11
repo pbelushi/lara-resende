@@ -110,8 +110,8 @@ def _objective(x, base, x0, span):
     return np.concatenate([r, prior])
 
 
-def calibrate(verbose: int = 1) -> tuple[dict, pd.DataFrame]:
-    base = load_params()
+def calibrate(verbose: int = 1, base: dict | None = None) -> tuple[dict, pd.DataFrame]:
+    base = base or load_params()
     x0 = np.array([_get(base, k) for k in FREE])
     lo = np.array([v[0] for v in FREE.values()])
     hi = np.array([v[1] for v in FREE.values()])

@@ -1,0 +1,19 @@
+{
+ "regra": {
+  "true": false,
+  "periodo": 3,
+  "tol_frac": 0.5,
+  "tol_min": 0.005,
+  "g_min": -4.0,
+  "b_up": 0.0105,
+  "b_dn": 0.0266,
+  "b_f": 0.025,
+  "on": true
+ },
+ "variantes": {
+  "central": "{}",
+  "simetrica": "{'b_up': 0.0266}",
+  "metade": "x0.5",
+  "dobro": "x2"
+ }
+}

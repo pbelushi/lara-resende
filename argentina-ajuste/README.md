@@ -338,6 +338,13 @@ atribui à credibilidade pode vir de canais de demanda que ele não separa. Para
 separar, seria preciso disciplinar as expectativas pelo REM e recalibrar com um canal
 de demanda/saldos reais explícito.
 
+## Versão 2: λ endógeno (`python -m argmodel.dinamico`)
+
+A cada trimestre, os λ de câmbio, juros e troca de dívida são revistos pelos resultados, com a regra estimada no
+modelo brasileiro convertida para unidades de tolerância (50% da âncora) e truncada em quatro tolerâncias. O modelo
+é recalibrado com a regra ligada (7 de 8 alvos dentro das tolerâncias). Relatório, cenários e sensibilidade da regra
+(simétrica, coeficientes pela metade e em dobro) em `outputs/v2_lambda_endogeno/`.
+
 ## Limites que importam
 
 - **A credibilidade do modelo é efetiva, não a das pesquisas** (ver "Credibilidade das

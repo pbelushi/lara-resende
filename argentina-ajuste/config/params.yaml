@@ -54,6 +54,17 @@ credibility:
   flight_slope: 0.50        # US$ bi/mês de fuga adicional por unidade de (λ_ref − λ_fx)
   pt_slope: 0.60            # repasse do salto ×(1 + pt_slope·(λ_ref − λ_fx)) (Taylor 2000)
   rate_prem_slope: 0.010    # juro nominal mensal extra exigido por unidade de (λ_ref − λ_rate)
+  # λ endógeno (v2): revisão trimestral pelos resultados, regra estimada no Brasil (Focus, 2005–2025)
+  # convertida para unidades de tolerância e para revisão trimestral (anual/4). Desligada por padrão.
+  dinamica:
+    on: false
+    periodo: 3                # meses entre revisões
+    tol_frac: 0.5             # tolerância = 50% da âncora (Brasil: 1,5 p.p. em torno de 3%)
+    tol_min: 0.005            # piso da tolerância (0,5% ao mês)
+    g_min: -4.0               # suporte da estimação brasileira (máximo observado ≈ 3,2 tolerâncias)
+    b_up: 0.0105              # 0,028 × 1,5 / 4: folga dentro da tolerância
+    b_dn: 0.0266              # 0,071 × 1,5 / 4: erro além da tolerância
+    b_f: 0.025                # 0,10 / 4 por p.p. do PIB de primário contra a meta (λ_fiscal da troca)
 
 # ---------------------------------------------------------------- atividade
 activity:

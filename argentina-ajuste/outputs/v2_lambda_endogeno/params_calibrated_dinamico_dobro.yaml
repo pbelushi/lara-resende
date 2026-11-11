@@ -1,0 +1,271 @@
+# Gerado por argmodel.dinamico — λ endógeno, variante dobro
+horizon_months: 25
+n_sims: 400
+seed: 42
+init:
+  pi: 0.128
+  y_gap: -0.01
+  embi: 1950
+  reserves: -10.5
+  popularity: 0.55
+  base_gdp: 0.047
+  ql_gdp: 0.115
+  brecha_log: 0.95
+  d_fx_gdp: 0.55
+  d_peso_gdp: 0.25
+  gdp_index: 99.0
+inflation:
+  lambda_inertia: 0.34538935222017536
+  beta_fx: 0.3273634246865469
+  beta_fx_down: 0.07067931517591072
+  passthrough_weights:
+  - 0.3
+  - 0.25
+  - 0.18
+  - 0.12
+  - 0.09
+  - 0.06
+  phi_money: 0.08
+  gamma_gap: 0.05
+  reg_per_pp_subsidy: 0.06
+  w_official: 0.75
+  money_demand_semi: 0.6
+  sd_shock: 0.004
+credibility:
+  c0: 3.418936019054413
+  c_pb: 0.35
+  c_res: 0.25
+  c_rate: 0.6
+  c_embi: 0.6080593695738803
+  c_peso_debt: 4.0
+  target_path_start: 0.12
+  target_decay: 0.8
+  target_floor: 0.015
+  lambda_ref: 0.75
+  lambda_fx: 0.75
+  lambda_rate: 0.75
+  k_fx: 4.0
+  k_rate: 4.0
+  brecha_slope: 0.4
+  flight_slope: 0.5
+  pt_slope: 0.6
+  rate_prem_slope: 0.01
+  dinamica:
+    true: false
+    periodo: 3
+    tol_frac: 0.5
+    tol_min: 0.005
+    g_min: -4.0
+    b_up: 0.021
+    b_dn: 0.0532
+    b_f: 0.05
+    'on': true
+activity:
+  rho_y: 0.85
+  rho_fiscal: 0.96676870974678
+  alpha_wage: 0.12303853266574198
+  alpha_rate: 0.1
+  alpha_rer: 0.03717882671854107
+  alpha_conf: 0.016595844441609338
+  alpha_crowd: 0.25
+  potential_growth_annual: 0.02
+  capex_potential_drag: 0.1
+  agri_rebound: 0.016
+  okun: 0.45
+  alpha_high_infl: 0.01
+  sd_shock: 0.003
+external:
+  tb_base: 0.40547335171094767
+  tb_rer: 1.3
+  tb_gap: 6.0
+  tb_energy_trend: 0.012
+  tb_harvest_season:
+  - 0.0
+  - -0.3
+  - -0.2
+  - 0.4
+  - 0.8
+  - 0.8
+  - 0.6
+  - 0.2
+  - -0.1
+  - -0.3
+  - -0.4
+  - -0.3
+  tb_agri_2024: 0.6
+  cepo_leak: 0.4
+  fx_debt_service:
+    1: 4.3
+    7: 4.3
+    other: 0.35
+  imf_tranche:
+    16: 12.0
+    20: 2.0
+  imf_pb_threshold: 0.005
+  sd_shock: 0.35
+  sterilization: 0.7
+  gdp_usd_bn: 640.0
+  flight_coef: 2.5
+  q_neutral: 0.3
+exchange:
+  jump_log: 0.78
+  crawl_actual:
+    default: 0.02
+    14: 0.01
+    15: 0.01
+    16: 0.03
+  screr_index: 0.7
+  screr_floor: 0.02
+  screr_correction: 0.1
+  screr_target_q: 0.45
+  brecha_rho: 0.7
+  brecha_rer: 1.2
+  brecha_res: 0.02
+  brecha_floor: 0.0
+  cepo_exit_month: 16
+  q_break: -0.15
+  break_adj: 0.5
+country_risk:
+  e0: 6.655556561079265
+  e_debt: 1.2
+  e_debt_peso: 0.6
+  e_res: 0.18
+  e_pb: 0.12
+  e_infl: 0.25
+  e_leg: 0.35
+  kappa: 0.24631965231240285
+  debt_rer_weight: 0.4
+  events:
+    21: 0.45
+    22: -0.55
+  event_vulnerability: 0.08
+  sd_shock: 0.05
+fiscal:
+  revenue_base: 0.16799046094351733
+  pais_tax: 0.006
+  revenue_gap: 0.15
+  olivera_tanzi: 0.03
+  ext_interest: 0.01
+  dom_spread_annual: 0.06
+  dom_real_cost_share: 0.5
+  market_financing: 0.01
+  fiscalize_ql_month: 7
+  spending_2023:
+    pensions: 0.076
+    targeted_transfers: 0.015
+    subsidies: 0.022
+    capex: 0.013
+    provinces: 0.01
+    payroll_operating: 0.035
+    other: 0.025
+  multipliers:
+    pensions: 0.7
+    targeted_transfers: 1.0
+    subsidies: 0.3
+    capex: 1.0
+    provinces: 0.5
+    payroll_operating: 0.5
+    other: 0.4
+  modes:
+    motosserra:
+      pensions: 0.01
+      targeted_transfers: 0.0
+      subsidies: 0.0115
+      capex: 0.01
+      provinces: 0.005
+      payroll_operating: 0.006
+      other: 0.005
+    baixo_multiplicador:
+      pensions: 0.0025
+      targeted_transfers: -0.001
+      subsidies: 0.016
+      capex: 0.0
+      provinces: 0.008
+      payroll_operating: 0.012
+      other: 0.01
+    gradual:
+      pensions: 0.003
+      targeted_transfers: 0.0
+      subsidies: 0.007
+      capex: 0.003
+      provinces: 0.002
+      payroll_operating: 0.003
+      other: 0.002
+  gradual_months: 24
+  targeted_transfer_boost_actual: 0.25
+privatization:
+  full_value_usd_bn: 10.0
+  price_embi_elast: 0.5
+  fx_share: 0.6
+  soe_transfer_savings: 0.004
+  exec_lag: 6
+  exec_months: 12
+  force_actual:
+    month: 6
+    scope: 0.2
+debt_swap:
+  flow_share: 0.5
+  stock_swap_gdp: 0.04
+  exec_only_share: 0.3
+  lambda_ref: 0.75
+  lambda_fiscal: 0.75
+  lambda_pi: 0.75
+  adh_floor: 0.25
+  prem_slope: 0.16
+  e_slope: 4.0
+  roll_max: 0.03
+  c_slope: 4.0
+  ext_coupon_annual: 0.03
+legislative:
+  coalition_share: 0.3
+  h0: -1.55
+  h_coal: 6.0
+  h_pop: 3.0
+  h_crisis: 1.2
+  h_bundle: 0.5
+  h_gov: 0.6
+  first_vote_fail_prob: 0.5
+  fail_delay: 2
+  m0: -1.5
+  m_coal: 6.0
+  m_pop: 2.0
+  m_crisis: 0.8
+  scope_concentration: 8.0
+  h_rad: 1.5
+  m_rad: 1.0
+  radicalness:
+    privatization: 1.0
+    debt_swap: 0.3
+popularity:
+  speed: 0.15
+  p0: 0.45
+  p_infl: 1.5
+  p_income: 0.8
+income:
+  theta_index: 0.7464759224833376
+  sawtooth: 0.5
+  rw_rer: 0.4
+  benefit_lag: 1.5
+  catchup: 0.010000000000000002
+  kappa_gap: 0.25
+  shares_mean:
+    labor: 0.7
+    pensions: 0.2
+    transfers: 0.05
+    other: 0.05
+  shares_poor:
+    labor: 0.62
+    pensions: 0.1
+    transfers: 0.28
+  poor_wage_elast: 1.5
+  poor_activity_elast: 1.8200556773131256
+  pension_initial_liquefaction: 0.7
+  payroll_wage_share: 0.6
+  public_emp_share_mean: 0.18
+  public_emp_share_poor: 0.08
+poverty:
+  sigma: 0.4302373995650795
+  zeta_rer: 0.0467927885987596
+  eta_reg: 0.5
+  rho_line: 0.7
+  sd_shock: 0.0

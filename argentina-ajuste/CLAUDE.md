@@ -31,6 +31,8 @@ Experimento contrafactual sobre o ajuste argentino 2023–2025. Leia o README an
 - Credibilidade das âncoras: `credibility.lambda_fx` e `lambda_rate` (0,75 = calibração). O `cred` do modelo é uma âncora efetiva, não a credibilidade das pesquisas: o REM dá ~0 e, imposto ao modelo, leva a inflação de 2024 a 254%. Não ponha o REM no mapa de λ como se fosse a mesma unidade.
 - O crawl é abandonado se o câmbio real cair abaixo de `exchange.q_break` (−0,15). Se mudar o modelo, confira que o gatilho continua sem disparar no caminho calibrado.
 
+- λ endógeno (v2): `credibility.dinamica` (desligada por padrão; `on: true` liga). `PYTHONPATH=src python -m argmodel.dinamico` recalibra com a regra, roda os 48 cenários, as trajetórias de λ, o mapa de λ inicial e a sensibilidade (simétrica, metade, dobro); saídas em `outputs/v2_lambda_endogeno/`. Coeficientes transportados do Brasil em unidades de tolerância, truncados em −4 tolerâncias (suporte da estimação).
+
 ## Extensões sugeridas
 - Substituir os valores mensais marcados "conferir" em `data/` pelas séries oficiais.
 - Reação endógena de política (abandono da regra de câmbio se inflação > X).

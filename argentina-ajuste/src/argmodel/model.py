@@ -140,10 +140,16 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
     l0 = ds.get("lambda_ref", 0.75)
     lf = ds.get("lambda_fiscal", l0)
     lp = ds.get("lambda_pi", l0)
-    sw_adh = float(np.clip(ds.get("adh_floor", 0.25) + (1 - ds.get("adh_floor", 0.25)) * lf / l0, 0, 1))
-    sw_prem = ds.get("prem_slope", 0.0) * (l0 - lf)
-    sw_e = max(-crk["e_debt_peso"], ds.get("e_slope", 0.0) * (l0 - lf))
-    sw_roll = ds.get("roll_max", 0.0) * max(0.0, (l0 - lf) / l0)
+    def _canais_troca(lf_):
+        """Canais da troca de dívida para um λ_fiscal (escalar ou vetor n)."""
+        lf_ = np.asarray(lf_, dtype=float)
+        adh = np.clip(ds.get("adh_floor", 0.25) + (1 - ds.get("adh_floor", 0.25)) * lf_ / l0, 0, 1)
+        prem = ds.get("prem_slope", 0.0) * (l0 - lf_)
+        e = np.maximum(-crk["e_debt_peso"], ds.get("e_slope", 0.0) * (l0 - lf_))
+        roll = ds.get("roll_max", 0.0) * np.maximum(0.0, (l0 - lf_) / l0)
+        return adh, prem, e, roll
+
+    sw_adh, sw_prem, sw_e, sw_roll = _canais_troca(lf)
     sw_c = max(-1.0, ds.get("c_slope", 0.0) * (l0 - lp)) * cr["c_peso_debt"]
     swap_stock = np.zeros(n)
     # --- credibilidade das âncoras (λ). lambda_ref reproduz a calibração.
@@ -152,8 +158,15 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
     # λ_juros: crença na meta do BC (só JUROS+) → peso da meta nas expectativas, bônus de
     #   credibilidade do juro real positivo e prêmio no juro nominal necessário.
     lr0 = cr.get("lambda_ref", 0.75)
-    dx = lr0 - cr.get("lambda_fx", lr0)
-    di = lr0 - cr.get("lambda_rate", lr0)
+    lam_fx = np.full(n, float(cr.get("lambda_fx", lr0)))
+    lam_rate = np.full(n, float(cr.get("lambda_rate", lr0)))
+    lam_f = np.full(n, float(lf))
+    dx = lr0 - lam_fx
+    di = lr0 - lam_rate
+    # λ endógeno (opcional): revisão trimestral das credibilidades pelos resultados (ver _revisar_lambda)
+    din = cr.get("dinamica") or {}
+    din_on = bool(din.get("on", False))
+    jan_pi, jan_fx, jan_alvo, jan_pb = [], [], [], []
     dfx_usd = np.full(n, I0["d_fx_gdp"] * ex["gdp_usd_bn"])
     lnW = np.zeros(n)
     lnYpot = 0.0
@@ -193,7 +206,8 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
     out = {k: np.zeros((n, T)) for k in [
         "pi", "pie", "cred", "cred_x", "cred_i", "i", "r_ann", "q", "brecha", "reserves", "embi", "y",
         "gdp_idx", "rw", "inc_mean", "inc_poor", "poverty", "pb", "overall",
-        "dfx_gdp", "dpeso", "pop", "leg", "priv_proceeds", "mu", "tb", "lnz"]}
+        "dfx_gdp", "dpeso", "pop", "leg", "priv_proceeds", "mu", "tb", "lnz",
+        "lam_fx", "lam_rate", "lam_f"]}
     out["priv_t"] = np.full(n, -1)
     out["priv_scope"] = np.zeros(n)
     out["swap_auth_t"] = np.full(n, -1)
@@ -251,7 +265,7 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
 
         # ---------- juros
         if sc.rate:
-            i = pie + max(0.002, 0.008 + cr.get("rate_prem_slope", 0.0) * di)
+            i = pie + np.maximum(0.002, 0.008 + cr.get("rate_prem_slope", 0.0) * di)
         else:
             i = np.full(n, _actual_rate_tna(t, act) / 12)
         r = i - pie
@@ -325,7 +339,7 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
         issuance = swapped / gdp_usd + stock_swap
         dpeso = dpeso + issuance
         swap_stock = swap_stock + issuance
-        if sc.swap and sw_roll > 0:
+        if sc.swap and np.any(sw_roll > 0):
             # na rolagem, parte dos detentores exige dólares (2019): sai de reservas, sai da dívida em pesos
             roll_out = swap_stock * sw_roll
             R = R - roll_out * gdp_usd
@@ -357,7 +371,7 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
         pt_hist = [de_eff - np.log1p(pie)] + pt_hist[:-1]
         # repasse assimétrico: desvalorização acima da inflação esperada (beta_fx) vs. crawl abaixo dela,
         # que funciona como âncora (beta_fx_down); um coeficiente único ficava preso entre os dois
-        beta_up = inf["beta_fx"] * max(0.0, 1 + cr.get("pt_slope", 0.0) * dx)
+        beta_up = inf["beta_fx"] * np.maximum(0.0, 1 + cr.get("pt_slope", 0.0) * dx)
         passthrough = sum(w * (beta_up * np.maximum(h, 0) + inf["beta_fx_down"] * np.minimum(h, 0))
                           for w, h in zip(pt_w, pt_hist))
         reg = inf["reg_per_pp_subsidy"] * dcut["subsidies"] * 100
@@ -484,8 +498,22 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
         if sc.swap:
             leg += 0.3 * approved["debt_swap"]
 
+        # ---------- revisão das credibilidades (λ endógeno)
+        if din_on and t >= 1:
+            jan_pi.append(pi)
+            jan_fx.append(np.expm1(de))
+            jan_alvo.append(max(cr["target_floor"], cr["target_path_start"] * cr["target_decay"] ** t))
+            jan_pb.append(pb)
+            if t % int(din.get("periodo", 3)) == 0:
+                lam_fx, lam_rate, lam_f = _revisar_lambda(din, lam_fx, lam_rate, lam_f, jan_pi, jan_fx,
+                                                          jan_alvo, jan_pb, sc.rate, p)
+                dx, di = lr0 - lam_fx, lr0 - lam_rate
+                if sc.swap:
+                    sw_adh, sw_prem, sw_e, sw_roll = _canais_troca(lam_f)
+                jan_pi, jan_fx, jan_alvo, jan_pb = [], [], [], []
+
         # ---------- registra
-        for k_, v_ in [("pi", pi), ("pie", pie), ("cred", cred), ("cred_x", cred_x), ("cred_i", cred_i), ("i", i), ("r_ann", r_ann),
+        for k_, v_ in [("lam_fx", lam_fx), ("lam_rate", lam_rate), ("lam_f", lam_f),("pi", pi), ("pie", pie), ("cred", cred), ("cred_x", cred_x), ("cred_i", cred_i), ("i", i), ("r_ann", r_ann),
                        ("q", q), ("brecha", b), ("reserves", R), ("embi", np.exp(lembi)),
                        ("y", y), ("gdp_idx", gdp_idx), ("rw", np.exp(lnrw)),
                        ("inc_mean", inc_mean), ("inc_poor", inc_poor), ("poverty", poverty),
@@ -506,6 +534,35 @@ def simulate(p: dict, sc: Scenario, n: int | None = None, seed: int | None = Non
 
 
 # --------------------------------------------------------------------- métricas
+def _revisar_lambda(din, lam_fx, lam_rate, lam_f, jan_pi, jan_fx, jan_alvo, jan_pb, rate_on, p):
+    """Regra do experimento brasileiro (lambda_dinamico_estimacao.py), em unidades de tolerância.
+
+    g = (tol − |π média − âncora média|) / tol, com tol = tol_frac · âncora (no Brasil, 1,5/3 = 0,5) e piso
+    tol_min; g truncado em [g_min, 1] (g_min = −4: o Brasil nunca passou de ~3,2 tolerâncias fora da meta, e a
+    regra não é extrapolada além do suporte da estimação).
+    Δλ = b_up·max(g, 0) + b_dn·min(g, 0) por revisão. λ_câmbio usa a depreciação anunciada (crawl/bandas ou
+    regra SCRER) como âncora; λ_juros, a meta do BC (só JUROS+). λ_fiscal da troca de dívida reage ao primário
+    contra a meta (p.p. do PIB): Δ = b_f·(primário médio − meta).
+    """
+    pi_m = np.mean(jan_pi, axis=0)
+
+    def g_de(ancora):
+        tol = np.maximum(din.get("tol_frac", 0.5) * np.abs(ancora), din.get("tol_min", 0.005))
+        g = (tol - np.abs(pi_m - ancora)) / tol
+        return np.clip(g, din.get("g_min", -4.0), 1.0)
+
+    def passo(g):
+        return din["b_up"] * np.maximum(g, 0) + din["b_dn"] * np.minimum(g, 0)
+
+    lo, hi = din.get("min", 0.0), din.get("max", 1.0)
+    lam_fx = np.clip(lam_fx + passo(g_de(np.mean(jan_fx, axis=0))), lo, hi)
+    if rate_on:
+        lam_rate = np.clip(lam_rate + passo(g_de(np.mean(jan_alvo))), lo, hi)
+    gap_pb = (np.mean(jan_pb, axis=0) - din.get("pb_meta", p["external"]["imf_pb_threshold"])) * 100
+    lam_f = np.clip(lam_f + din.get("b_f", 0.0) * gap_pb, lo, hi)
+    return lam_fx, lam_rate, lam_f
+
+
 def metrics(out: dict[str, np.ndarray]) -> pd.DataFrame:
     """Indicadores-resumo por simulação (linhas = simulações)."""
     pi = out["pi"]
