@@ -1,0 +1,267 @@
+# Parâmetros do modelo. Frequência MENSAL; taxas em decimal (0.02 = 2% a.m.).
+# Cada parâmetro marcado com "fit" entra na calibração (com prior = valor
+# abaixo e limites em `bounds`). Os demais são fixos e vêm de dados ou
+# literatura — a justificativa está no comentário ao lado.
+
+horizon_months: 25          # t=0 dez/2023 ... t=24 dez/2025
+n_sims: 400
+seed: 42
+
+# ---------------------------------------------------------------- estado inicial (nov/2023)
+init:
+  pi: 0.128                 # inflação de nov/23 (INDEC)
+  y_gap: -0.010             # hiato do produto (economia já em queda, seca de 2023)
+  embi: 1950                # risco país, pb
+  reserves: -10.5           # reservas líquidas, US$ bi (-9,6 a -11,3 conforme a consultoria)
+  popularity: 0.55          # votação de Milei no 2º turno
+  base_gdp: 0.047           # base monetária, % PIB
+  ql_gdp: 0.115             # passivos remunerados do BCRA (Leliq+passes), % PIB
+  brecha_log: 0.95          # ln(paralelo/oficial) ~ brecha de 160%
+  d_fx_gdp: 0.55            # dívida pública em moeda estrangeira / PIB (câmbio pré-salto)
+  d_peso_gdp: 0.25          # dívida em pesos / PIB
+  gdp_index: 99.0           # PIB nov/23, média 2023 = 100
+
+# ---------------------------------------------------------------- inflação
+inflation:
+  lambda_inertia: 0.55      # fit — peso da inflação passada
+  beta_fx: 0.45             # fit — repasse de Δcâmbio efetivo ACIMA de πe (salto, desvalorização)
+  beta_fx_down: 0.45        # fit — efeito de um crawl ABAIXO de πe (âncora nominal); separado do repasse do salto
+  passthrough_weights: [0.30, 0.25, 0.18, 0.12, 0.09, 0.06]   # repasse distribuído em 6 meses
+  phi_money: 0.08           # FIXO (não identificável só com o caminho observado) — excesso de emissão (μ − πe) → inflação; ver sensibilidade
+  gamma_gap: 0.05           # hiato → inflação
+  reg_per_pp_subsidy: 0.06  # log CPI por 1 p.p. PIB de subsídio cortado (tarifas)
+  w_official: 0.75          # peso do câmbio oficial no câmbio efetivo de repasse
+  money_demand_semi: 0.6    # remonetização quando juro real > 0
+  sd_shock: 0.004
+
+credibility:
+  c0: -0.6                  # fit — intercepto (logit)
+  c_pb: 0.35                # por p.p. de superávit primário
+  c_res: 0.25               # por US$10 bi de reservas
+  c_rate: 0.6               # juro real positivo
+  c_embi: 0.8               # por log(EMBI/1000)
+  c_peso_debt: 4.0          # penalidade por dívida em pesos adicional (% PIB) — tentação de inflacionar
+  target_path_start: 0.12   # meta implícita do BC quando RATE=ON
+  target_decay: 0.80
+  target_floor: 0.015
+  # credibilidade das âncoras (λ ∈ [0,1]); lambda_ref reproduz a calibração. Hipóteses, não estimativas:
+  lambda_ref: 0.75
+  lambda_fx: 0.75           # crença no caminho anunciado do câmbio
+  lambda_rate: 0.75         # crença na meta do BC (só JUROS+)
+  k_fx: 4.0                 # logit da credibilidade do câmbio por unidade de (λ_ref − λ_fx)
+  k_rate: 4.0               # idem, meta do BC
+  brecha_slope: 0.40        # log da brecha-alvo por unidade de (λ_ref − λ_fx), antes da unificação
+  flight_slope: 0.50        # US$ bi/mês de fuga adicional por unidade de (λ_ref − λ_fx)
+  pt_slope: 0.60            # repasse do salto ×(1 + pt_slope·(λ_ref − λ_fx)) (Taylor 2000)
+  rate_prem_slope: 0.010    # juro nominal mensal extra exigido por unidade de (λ_ref − λ_rate)
+  # λ endógeno (v2): revisão trimestral pelos resultados, regra estimada no Brasil (Focus, 2005–2025)
+  # convertida para unidades de tolerância e para revisão trimestral (anual/4). Desligada por padrão.
+  dinamica:
+    on: false
+    periodo: 3                # meses entre revisões
+    tol_frac: 0.5             # tolerância = 50% da âncora (Brasil: 1,5 p.p. em torno de 3%)
+    tol_min: 0.005            # piso da tolerância (0,5% ao mês)
+    g_min: -4.0               # suporte da estimação brasileira (máximo observado ≈ 3,2 tolerâncias)
+    b_up: 0.0105              # 0,028 × 1,5 / 4: folga dentro da tolerância
+    b_dn: 0.0266              # 0,071 × 1,5 / 4: erro além da tolerância
+    b_f: 0.025                # 0,10 / 4 por p.p. do PIB de primário contra a meta (λ_fiscal da troca)
+
+# ---------------------------------------------------------------- atividade
+activity:
+  rho_y: 0.85               # persistência do componente cíclico
+  rho_fiscal: 0.96          # fit — decaimento mensal do arrasto fiscal (meia-vida ~17 meses)
+  alpha_wage: 0.25          # fit — ln salário real → hiato (desvalorização contracionista)
+  alpha_rate: 0.10          # hiato de estado estacionário por 1.0 de juro real anual (10% a.a. → −1% PIB)
+  alpha_rer: 0.03           # fit — câmbio real (log) → hiato via exportações líquidas
+  alpha_conf: 0.025         # fit — −ln(EMBI/EMBI0) → hiato (confiança/crédito)
+  alpha_crowd: 0.25         # emissão doméstica (% PIB) → hiato (crowding out)
+  potential_growth_annual: 0.020
+  capex_potential_drag: 0.10 # perda de crescimento potencial anual por p.p. de capex cortado
+  agri_rebound: 0.016       # FIXO (calibração livre zerava; não identificável junto com o hiato) — volta da safra pós-seca 2023 (nível), a partir de abr/24; seca custou ~1,5–2% do PIB; ver sensibilidade
+  okun: 0.45
+  alpha_high_infl: 0.010    # custo de atividade por unidade de log-inflação anual acima de ~170% a.a.
+  sd_shock: 0.003
+
+# ---------------------------------------------------------------- setor externo
+external:
+  tb_base: 0.35             # saldo comercial mensal base, US$ bi
+  tb_rer: 1.3               # US$ bi/mês por 1.0 de log câmbio real
+  tb_gap: 6.0               # importações: US$ bi/mês por 1.0 de hiato
+  tb_energy_trend: 0.012    # Vaca Muerta: + US$ bi/mês a cada mês
+  tb_harvest_season: [0.0, -0.3, -0.2, 0.4, 0.8, 0.8, 0.6, 0.2, -0.1, -0.3, -0.4, -0.3]  # jan..dez
+  tb_agri_2024: 0.6         # safra normal pós-seca, US$ bi/mês a partir de abr/24
+  cepo_leak: 0.4            # vazamento mensal (US$ bi) por 1.0 de brecha em log
+  fx_debt_service: {1: 4.3, 7: 4.3, other: 0.35}   # US$ bi por mês do ano
+  imf_tranche: {16: 12.0, 20: 2.0}                 # t → US$ bi; condicionado a superávit
+  imf_pb_threshold: 0.005
+  sd_shock: 0.35
+  sterilization: 0.70       # fração das compras de divisas esterilizada (vira dívida em pesos)
+  gdp_usd_bn: 640.0         # PIB em US$ a câmbio real "normal"
+  flight_coef: 2.5          # fuga/dolarização (US$ bi/mês) por 1.0 de apreciação abaixo do neutro
+  q_neutral: 0.30           # câmbio real neutro (log, relativo ao oficial de nov/23)
+
+exchange:
+  jump_log: 0.780           # salto de 118% em dez/23 (366→800)
+  crawl_actual: {default: 0.02, 14: 0.01, 15: 0.01, 16: 0.03}  # t→crawl; 16+ = banda
+  # DEV=ON — regra de câmbio real competitivo e estável (SCRER, Frenkel–Rapetti):
+  # crawl = screr_index·π(t−1) + (1−screr_index)·screr_floor + screr_correction·(q* − q)
+  screr_index: 0.70
+  screr_floor: 0.02
+  screr_correction: 0.10
+  screr_target_q: 0.45      # ~ câmbio real de jan/24, ≈40% acima do efetivamente observado em dez/24
+  brecha_rho: 0.70
+  brecha_rer: 1.2
+  brecha_res: 0.02
+  brecha_floor: 0.0
+  cepo_exit_month: 16       # abr/25: unificação (comum a todos os cenários)
+  q_break: -0.15            # câmbio real (log, nov/23 = 0) abaixo do qual o crawl é abandonado
+  break_adj: 0.5            # fração do desalinhamento fechada por mês após o abandono
+
+# ---------------------------------------------------------------- risco país
+country_risk:
+  e0: 6.55                  # fit — ln(EMBI*) no estado de referência
+  e_debt: 1.2               # por 1.0 de dívida FX/PIB (câmbio normalizado)
+  e_debt_peso: 0.6          # por 1.0 de dívida NOVA em pesos/PIB (risco de rolagem; reperfilamento de 2019)
+  e_res: 0.18               # por US$10 bi de reservas líquidas
+  e_pb: 0.12                # por p.p. de resultado primário
+  e_infl: 0.25              # por log(1+π anualizada)
+  e_leg: 0.35               # sinal de reformas aprovadas (0–1)
+  kappa: 0.25               # fit — velocidade de ajuste ao fundamental
+  debt_rer_weight: 0.4      # quanto do salto do câmbio real o mercado "enxerga" na dívida/PIB
+  events: {21: 0.45, 22: -0.55}   # choques políticos comuns (eleição PBA, legislativas)
+  event_vulnerability: 0.08 # amplificação por US$1 bi de reservas negativas
+  sd_shock: 0.05
+
+# ---------------------------------------------------------------- fiscal
+fiscal:
+  revenue_base: 0.167       # fit — receita SPN 2023, % PIB (déficit primário 2,9)
+  pais_tax: 0.006           # imposto PAIS incremental em 2024 (comum a todos os cenários)
+  revenue_gap: 0.15         # Δreceita/PIB por 1.0 de hiato
+  olivera_tanzi: 0.03       # ganho de receita por queda de 1.0 de inflação mensal
+  ext_interest: 0.010       # juros dívida FX (cupons baixos pós-2020), % PIB a câmbio normal
+  dom_spread_annual: 0.06   # prêmio real da dívida doméstica em pesos
+  dom_real_cost_share: 0.5  # fração do estoque em pesos que paga custo real pleno (CER/taxa real); o resto é liquefeito
+  market_financing: 0.010   # financiamento de mercado disponível (% PIB/ano) com EMBI=1000
+  fiscalize_ql_month: 7     # passivos do BCRA migram ao Tesouro (LEFI) — comum
+  spending_2023:            # gasto primário SPN 2023 = 19,6% PIB
+    pensions: 0.076
+    targeted_transfers: 0.015
+    subsidies: 0.022
+    capex: 0.013
+    provinces: 0.010
+    payroll_operating: 0.035
+    other: 0.025
+  multipliers:              # multiplicador de pico (literatura EM: Ilzetzki-Mendoza-Végh; FMI)
+    pensions: 0.70
+    targeted_transfers: 1.00
+    subsidies: 0.30
+    capex: 1.00
+    provinces: 0.50
+    payroll_operating: 0.50
+    other: 0.40
+  # Composição dos cortes (p.p. do PIB, nível pleno em dez/24; 70% até jun/24)
+  modes:
+    motosserra:             # composição efetivamente executada (≈4,75 p.p.)
+      pensions: 0.010
+      targeted_transfers: 0.0
+      subsidies: 0.0115
+      capex: 0.010
+      provinces: 0.005
+      payroll_operating: 0.006
+      other: 0.005
+    baixo_multiplicador:    # mesmo tamanho, concentrado onde o multiplicador é baixo
+      pensions: 0.0025
+      targeted_transfers: -0.001   # reforço AUH/Tarjeta financiado no pacote
+      subsidies: 0.016
+      capex: 0.0
+      provinces: 0.008
+      payroll_operating: 0.012
+      other: 0.0100
+    gradual:                # 2 p.p. em 24 meses
+      pensions: 0.003
+      targeted_transfers: 0.0
+      subsidies: 0.007
+      capex: 0.003
+      provinces: 0.002
+      payroll_operating: 0.003
+      other: 0.002
+  gradual_months: 24
+  targeted_transfer_boost_actual: 0.25  # aumento real da AUH/Tarjeta em todos os modos exceto gradual
+
+# ---------------------------------------------------------------- privatizações
+privatization:
+  full_value_usd_bn: 10.0   # 41 empresas da lista original (YPF incl.) a preços "normais"
+  price_embi_elast: 0.5     # desconto de preço por log(EMBI/600)
+  fx_share: 0.6             # parcela paga em divisas (entra em reservas)
+  soe_transfer_savings: 0.004   # % PIB de transferências a estatais eliminável com escopo total
+  exec_lag: 6               # meses entre aprovação e primeira venda
+  exec_months: 12           # vendas distribuídas ao longo de N meses
+  force_actual: {month: 6, scope: 0.20}   # usado só no cenário de validação
+
+# ---------------------------------------------------------------- troca de dívida externa por interna
+debt_swap:
+  flow_share: 0.5           # parcela do serviço FX refinanciada em pesos
+  stock_swap_gdp: 0.04      # troca voluntária de estoque no mês 3
+  exec_only_share: 0.3      # sem autorização do Congresso, só 30% do programa
+  # adesão do mercado (λ de 0 a 1). lambda_ref = valor que reproduz a calibração; abaixo dele o mercado
+  # resiste à troca, acima aceita melhor. Canais (todos zero ou neutros em λ = lambda_ref):
+  lambda_ref: 0.75
+  lambda_fiscal: 0.75       # adesão, prêmio, risco de rolagem e dolarização na rolagem
+  lambda_pi: 0.75           # efeito da dívida trocada sobre as expectativas de inflação
+  adh_floor: 0.25           # adesão com λ_fiscal = 0 (bancos e FGS cativos)
+  prem_slope: 0.16          # prêmio real extra da dívida trocada: 0,16·(λ_ref − λ) → +12 p.p. a.a. com λ = 0
+  e_slope: 4.0              # EMBI: log-pontos por 1.0 de dívida trocada/PIB, ·(λ_ref − λ)
+  roll_max: 0.03            # fração mensal da dívida trocada que vira saída de dólares com λ = 0
+  c_slope: 4.0              # multiplica a penalidade de credibilidade da dívida trocada, ·(λ_ref − λ_π)
+  ext_coupon_annual: 0.03
+
+# ---------------------------------------------------------------- Congresso
+legislative:
+  coalition_share: 0.30     # LLA+PRO na Câmara 2023 (75/257 ≈ 0,29); Senado ainda menor
+  h0: -1.55                 # fit (via historical_check) — logit do hazard mensal
+  h_coal: 6.0
+  h_pop: 3.0
+  h_crisis: 1.2             # hipótese da crise (Drazen): inflação alta destrava reformas
+  h_bundle: 0.5             # cada lei adicional no pacote reduz chance (efeito "ómnibus")
+  h_gov: 0.6                # por p.p. de corte de transferências às províncias (governadores)
+  first_vote_fail_prob: 0.5 # Ómnibus caiu em fev/24
+  fail_delay: 2
+  m0: -1.5                  # logit do escopo aprovado (Lei Bases: 41 → 6–8 empresas ≈ 0,2)
+  m_coal: 6.0
+  m_pop: 2.0
+  m_crisis: 0.8
+  scope_concentration: 8.0
+  h_rad: 1.5
+  m_rad: 1.0
+  radicalness: {privatization: 1.0, debt_swap: 0.3}
+
+# ---------------------------------------------------------------- popularidade
+popularity:
+  speed: 0.15
+  p0: 0.45
+  p_infl: 1.5               # por queda de 1.0 de log(1+π) anualizada
+  p_income: 0.8
+
+# ---------------------------------------------------------------- renda e pobreza
+income:
+  theta_index: 0.25         # fit — indexação salarial à inflação de t−2 (paritárias)
+  sawtooth: 0.50            # perda média do salário real entre reajustes, por log(1+π) mensal
+  rw_rer: 0.40              # salário real de equilíbrio cai 0,4% por 1% de câmbio real mais depreciado (peso dos comerciáveis)
+  benefit_lag: 1.5          # aposentadorias/AUH indexadas ao IPC com ~2 meses de defasagem
+  catchup: 0.06             # fit (alvo: salário real registrado privado, Índice de Salarios INDEC) — recuperação mensal do salário real ao nível de referência; ver sensibilidade
+  kappa_gap: 0.25
+  shares_mean: {labor: 0.70, pensions: 0.20, transfers: 0.05, other: 0.05}
+  shares_poor: {labor: 0.62, pensions: 0.10, transfers: 0.28}
+  poor_wage_elast: 1.5       # renda do trabalho dos pobres (informal) oscila mais que o salário médio
+  poor_activity_elast: 0.8   # fit — renda/ocupação informal acompanha o nível de atividade
+  pension_initial_liquefaction: 0.7
+  payroll_wage_share: 0.60  # fração de 'folha e custeio' que é salário
+  public_emp_share_mean: 0.18  # peso do emprego público na renda do trabalho média
+  public_emp_share_poor: 0.08  # fração do corte de aposentadorias que ocorre via inflação no 1º tri
+
+poverty:
+  sigma: 0.80               # fit — dispersão log-normal da renda
+  zeta_rer: 0.10            # fit (alvo: CBT/IPC, INDEC) — cesta básica (alimentos, comerciáveis) reage mais ao câmbio real que o IPC; ver sensibilidade
+  eta_reg: 0.50             # FIXO (calibração livre ia ao teto 1,0) — fração da alta de tarifas no IPC que não entra na linha: a CBT do INDEC acompanha o não alimentar do IPC via coef. de Engel, mas pesa serviços regulados ~metade; ver sensibilidade
+  rho_line: 0.70            # FIXO — persistência do repasse do câmbio real à cesta básica (defasagem média ~2 meses; CBT/IPC atingiu o pico em mar/24, 3 meses após o salto)
+  sd_shock: 0.0

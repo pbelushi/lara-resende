@@ -1,0 +1,7 @@
+ajuste,n_vencem_3_frentes,n_com_troca,menor_pobreza,d_pobreza_melhor,d_infl_melhor
+"λ = 0,75 (calibração)",11,6,"Scenario(dev=False, rate=True, fiscal='baixo_multiplicador', priv=True, swap=True, validation=False, name='')",-3.787267828497031,-6.60140149988786
+"λ = 0,5",11,6,"Scenario(dev=False, rate=True, fiscal='baixo_multiplicador', priv=True, swap=True, validation=False, name='')",-3.6128878912027886,-6.34016932585827
+"λ = 0,25",10,5,"Scenario(dev=False, rate=True, fiscal='baixo_multiplicador', priv=True, swap=True, validation=False, name='')",-3.5470813559696097,-6.251911458789358
+λ = 0,10,5,"Scenario(dev=False, rate=True, fiscal='baixo_multiplicador', priv=True, swap=True, validation=False, name='')",-3.5685401769343645,-6.3115648057640765
+"λ = 0, medo ×3",11,6,"Scenario(dev=False, rate=True, fiscal='baixo_multiplicador', priv=True, swap=True, validation=False, name='')",-3.514912136583259,-6.227496195709493
+"λ = 0,25, medo ×6",12,7,"Scenario(dev=False, rate=True, fiscal='baixo_multiplicador', priv=True, swap=False, validation=False, name='')",-3.495637138620811,-6.229560372079154

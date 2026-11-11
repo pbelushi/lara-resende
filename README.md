@@ -29,6 +29,9 @@ modelo-credibilidade/    código, configuração, testes, dados e resultados (RE
   data/raw/              dados brutos baixados (ver data/README.md)
   data/processed/        painel trimestral e matriz insumo-produto processada
   outputs/               resultados: v1 (raiz), v2/, v2_1/, v2_2/ (versão final), com relatórios .md e gráficos
+turquia-ajuste/          caso turco (set/2021–set/2026): modelo mensal, busca de políticas e relatório (README próprio)
+argentina-ajuste/        caso argentino (dez/2023–dez/2025): modelo mensal contrafactual, credibilidade das âncoras e
+                         troca de dívida (README próprio)
 CITATION.cff, .zenodo.json   metadados de citação e de depósito
 LICENSE                  licença MIT
 ```
@@ -76,6 +79,18 @@ estimação de ω; o EMBI+ é uma série encerrada em jul/2024, de modo que a es
 Sementes: choques de Monte Carlo com seed 42; bootstrap pareado com seed 2026. A mesma semente gera os mesmos
 resultados (teste `test_mesma_seed_mesmos_resultados`).
 
+## Outros casos: Turquia e Argentina
+
+Os dois casos usam modelos mensais próprios, com a mesma definição de credibilidade (λ: fração das expectativas que
+segue a âncora anunciada) e a regra de revisão do λ estimada no Brasil.
+
+- `turquia-ajuste/`: o que a Turquia poderia ter feito a partir de set/2021; busca aleatória de políticas com λ
+  inicial baixo. Reprodução e resultados no README e em `turquia-ajuste/outputs/relatorio.md`.
+- `argentina-ajuste/`: contrafactuais ao ajuste de dez/2023, calibrados na trajetória observada, com efeitos sobre
+  inflação, pobreza e renda média. Reprodução: `cd argentina-ajuste && pip install -r requirements.txt && python
+  run_all.py`. As fontes de cada dado estão em `argentina-ajuste/data/SOURCES.md`; os valores marcados "conferir"
+  ainda não foram checados na fonte primária.
+
 ## Dados
 
 Fontes públicas: Banco Central do Brasil (SGS e Focus), Tesouro Nacional (Tesouro Direto, Tesouro Transparente,
@@ -96,5 +111,5 @@ terceiros em `modelo-credibilidade/data/raw/` continuam sujeitos aos termos de u
 
 Use o DOI do Zenodo (metadados também em `CITATION.cff`):
 
-> Silva, Paulo Roberto (2026). *Modelo de credibilidade fiscal: Selic, reservas e ajuste fiscal no Brasil*
-> (versão 1.0.0) [software]. Zenodo. https://doi.org/10.5281/zenodo.23934618
+> Silva, Paulo Roberto (2026). *Modelo de credibilidade fiscal: Brasil, Argentina e Turquia*
+> (versão 1.1.0) [software]. Zenodo. https://doi.org/10.5281/zenodo.23934618

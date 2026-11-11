@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "Se usar este software ou os resultados, cite-o com os metadados abaixo (ou com o DOI do Zenodo da versão usada)."
 type: software
-title: "Modelo de credibilidade fiscal: Selic, reservas e ajuste fiscal no Brasil"
-version: "1.0.0"
+title: "Modelo de credibilidade fiscal: Brasil, Argentina e Turquia"
+version: "1.1.0"
 date-released: "2026-11-03"
 license: MIT
 doi: "10.5281/zenodo.23934618"
@@ -24,6 +24,8 @@ keywords:
   - multiplicadores fiscais
   - matriz insumo-produto
   - Brasil
+  - Argentina
+  - Turquia
 abstract: >-
   Modelo semiestrutural trimestral para o Brasil que compara três estratégias de estabilização (A, ortodoxa:
   ajuste fiscal com Selic pela regra de Taylor; B, corte exógeno da Selic com venda de reservas, sem ajuste;
@@ -32,3 +34,5 @@ abstract: >-
   inflação (Phillips híbrida, Phillips achatada e fechamento fiscal/FTPL), Monte Carlo com bootstrap pareado,
   validação histórica, análise de reservas e parada súbita, e um módulo de efeito recessivo com multiplicadores
   por item do pacote fiscal, matriz insumo-produto (MIP 2015) e emprego (PNAD Contínua).
+  A versão 1.1.0 acrescenta os casos da Turquia (set/2021–set/2026) e da Argentina (dez/2023–dez/2025), com
+  modelos mensais próprios, a mesma definição de credibilidade e a regra de revisão estimada no Brasil.
