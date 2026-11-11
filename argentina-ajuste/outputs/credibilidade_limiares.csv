@@ -1,0 +1,7 @@
+combinacao,lambda_cambio_min (juros em λ_ref),lambda_juros_min (câmbio em λ_ref),fração do mapa em que vence
+Juros+ (só),0.375,0.25,0.5061728395061729
+BMULT,0.625,,0.1111111111111111
+BMULT + Juros+,0.5,0.375,0.3950617283950617
+BMULT + Juros+ + Troca,0.375,0.375,0.41975308641975306
+Câmbio comp. + Juros+,,,0.0
+Câmbio comp. + Juros+ + BMULT,0.875,1.0,0.08641975308641975

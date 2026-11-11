@@ -1,0 +1,98 @@
+                      cenario  infl_2025_p50  pobreza_2025S2_p50  renda_media_2025_p50  pib_2025_p50  embi_dez25_p50  priv_aprovada_p50
+DEV- JUROS+ BMULT PRIV+ SWAP+           22.3                26.6                  98.3           5.2           494.7                1.0
+DEV- JUROS+ BMULT PRIV- SWAP+           22.6                26.6                  98.2           5.2           512.4                0.0
+DEV- JUROS+ BMULT PRIV+ SWAP-           22.9                26.8                  98.0           4.9           597.9                1.0
+DEV- JUROS+ BMULT PRIV- SWAP-           22.8                27.0                  98.0           4.8           629.1                0.0
+DEV- JUROS- BMULT PRIV- SWAP+           29.3                27.4                  97.6           5.4           506.3                0.0
+DEV- JUROS- BMULT PRIV+ SWAP+           29.3                27.4                  97.6           5.5           492.0                1.0
+DEV- JUROS- BMULT PRIV+ SWAP-           29.6                27.6                  97.4           5.1           599.4                1.0
+DEV- JUROS- BMULT PRIV- SWAP-           29.2                27.7                  97.4           5.0           630.1                0.0
+ DEV- JUROS+ MOTO PRIV+ SWAP+           22.2                29.1                  97.8           5.1           474.5                1.0
+ DEV- JUROS+ MOTO PRIV- SWAP+           22.4                29.2                  97.7           5.1           495.0                0.0
+ DEV- JUROS+ MOTO PRIV+ SWAP-           22.9                29.4                  97.5           4.8           596.7                1.0
+ DEV- JUROS+ MOTO PRIV- SWAP-           22.6                29.6                  97.5           4.7           629.0                0.0
+ DEV- JUROS- MOTO PRIV+ SWAP+           28.8                30.0                  97.0           5.4           469.5                1.0
+ DEV- JUROS- MOTO PRIV- SWAP+           28.9                30.1                  97.0           5.3           487.7                0.0
+DEV+ JUROS+ BMULT PRIV+ SWAP+           29.2                30.1                  95.1           7.1           384.5                1.0
+ DEV- JUROS- MOTO PRIV+ SWAP-           29.2                30.3                  96.8           5.0           597.4                1.0
+DEV+ JUROS+ BMULT PRIV- SWAP+           29.8                30.4                  95.0           7.1           401.2                0.0
+ DEV- JUROS- MOTO PRIV- SWAP-           28.8                30.4                  96.9           4.9           629.8                0.0
+DEV+ JUROS+ BMULT PRIV+ SWAP-           30.6                30.5                  94.7           6.8           497.2                1.0
+DEV+ JUROS+ BMULT PRIV- SWAP-           30.4                30.6                  94.8           6.6           533.0                0.0
+ DEV+ JUROS+ MOTO PRIV+ SWAP+           25.8                32.3                  95.1           6.9           376.5                1.0
+ DEV+ JUROS+ MOTO PRIV- SWAP+           26.0                32.5                  95.0           6.8           397.1                0.0
+ DEV+ JUROS+ MOTO PRIV+ SWAP-           26.8                32.6                  94.7           6.5           490.6                1.0
+ DEV+ JUROS+ MOTO PRIV- SWAP-           26.7                32.8                  94.8           6.4           528.1                0.0
+DEV+ JUROS- BMULT PRIV+ SWAP+          168.8                34.5                  90.5           8.0           475.6                1.0
+DEV+ JUROS- BMULT PRIV- SWAP-          168.0                34.6                  90.4           7.5           659.9                0.0
+DEV+ JUROS- BMULT PRIV- SWAP+          169.7                34.8                  90.3           7.9           495.8                0.0
+DEV+ JUROS- BMULT PRIV+ SWAP-          170.9                34.9                  90.3           7.5           614.6                1.0
+ DEV- JUROS- GRAD PRIV+ SWAP+           37.7                36.3                  98.1           4.0           772.3                1.0
+ DEV+ JUROS- MOTO PRIV+ SWAP+          143.1                36.3                  91.0           7.7           448.9                1.0
+ DEV+ JUROS- MOTO PRIV- SWAP-          140.6                36.3                  91.0           7.2           633.1                0.0
+ DEV- JUROS+ GRAD PRIV+ SWAP+           31.7                36.3                  98.2           3.9           775.0                1.0
+ DEV- JUROS- GRAD PRIV- SWAP+           38.3                36.5                  98.0           3.9           818.7                0.0
+ DEV+ JUROS- MOTO PRIV- SWAP+          141.8                36.5                  90.9           7.6           476.1                0.0
+ DEV+ JUROS- MOTO PRIV+ SWAP-          143.8                36.5                  90.9           7.2           591.1                1.0
+ DEV- JUROS+ GRAD PRIV- SWAP+           32.2                36.6                  98.1           3.8           820.7                0.0
+ DEV- JUROS- GRAD PRIV+ SWAP-           38.6                36.6                  97.8           3.6           991.5                1.0
+ DEV- JUROS+ GRAD PRIV+ SWAP-           32.5                36.8                  97.9           3.5           996.7                1.0
+ DEV- JUROS- GRAD PRIV- SWAP-           38.5                36.8                  97.9           3.5          1061.4                0.0
+ DEV- JUROS+ GRAD PRIV- SWAP-           32.3                36.9                  98.0           3.4          1067.5                0.0
+ DEV+ JUROS+ GRAD PRIV+ SWAP+           44.1                40.7                  95.1           5.6           681.6                1.0
+ DEV+ JUROS+ GRAD PRIV- SWAP+           43.9                40.9                  95.1           5.6           724.0                0.0
+ DEV+ JUROS+ GRAD PRIV- SWAP-           45.6                41.3                  94.8           5.1           968.9                0.0
+ DEV+ JUROS+ GRAD PRIV+ SWAP-           45.8                41.4                  94.7           5.2           901.4                1.0
+ DEV+ JUROS- GRAD PRIV+ SWAP+          309.4                55.4                  85.2           4.8           956.4                1.0
+ DEV+ JUROS- GRAD PRIV- SWAP+          309.3                55.9                  85.2           4.7          1030.3                0.0
+ DEV+ JUROS- GRAD PRIV+ SWAP-          315.8                56.0                  84.9           4.3          1223.9                1.0
+ DEV+ JUROS- GRAD PRIV- SWAP-          318.5                56.5                  84.9           4.1          1321.5                0.0
+       resultado                                    alavanca  efeito  ic95_lo  ic95_hi
+       infl_2025 fiscal: baixo_multiplicador (vs motosserra)    7.98     6.08     9.88
+       infl_2025             fiscal: gradual (vs motosserra)   52.99    51.09    54.89
+       infl_2025                                         dev   93.22    91.67    94.77
+       infl_2025                                       juros  -91.51   -93.06   -89.96
+       infl_2025                                        priv   -0.48    -2.03     1.07
+       infl_2025                                        swap   -1.31    -2.86     0.24
+  pobreza_2024S1 fiscal: baixo_multiplicador (vs motosserra)   -0.39    -0.45    -0.32
+  pobreza_2024S1             fiscal: gradual (vs motosserra)    1.30     1.24     1.37
+  pobreza_2024S1                                         dev   14.84    14.79    14.89
+  pobreza_2024S1                                       juros   -1.77    -1.82    -1.72
+  pobreza_2024S1                                        priv   -0.01    -0.06     0.04
+  pobreza_2024S1                                        swap    0.24     0.19     0.29
+  pobreza_2025S2 fiscal: baixo_multiplicador (vs motosserra)   -2.29    -2.41    -2.17
+  pobreza_2025S2             fiscal: gradual (vs motosserra)   10.42    10.30    10.54
+  pobreza_2025S2                                         dev    7.40     7.30     7.49
+  pobreza_2025S2                                       juros   -4.13    -4.23    -4.03
+  pobreza_2025S2                                        priv   -0.17    -0.27    -0.08
+  pobreza_2025S2                                        swap   -0.37    -0.46    -0.27
+renda_media_2025 fiscal: baixo_multiplicador (vs motosserra)    0.12     0.05     0.19
+renda_media_2025             fiscal: gradual (vs motosserra)   -1.10    -1.18    -1.03
+renda_media_2025                                         dev   -5.84    -5.90    -5.78
+renda_media_2025                                       juros    3.30     3.24     3.36
+renda_media_2025                                        priv    0.06     0.00     0.12
+renda_media_2025                                        swap    0.25     0.19     0.31
+        pib_2024 fiscal: baixo_multiplicador (vs motosserra)    0.10     0.08     0.13
+        pib_2024             fiscal: gradual (vs motosserra)    1.18     1.16     1.20
+        pib_2024                                         dev   -1.70    -1.72    -1.68
+        pib_2024                                       juros    0.63     0.61     0.65
+        pib_2024                                        priv    0.03     0.01     0.04
+        pib_2024                                        swap   -0.16    -0.18    -0.15
+        pib_2025 fiscal: baixo_multiplicador (vs motosserra)    0.16     0.14     0.19
+        pib_2025             fiscal: gradual (vs motosserra)   -1.73    -1.75    -1.70
+        pib_2025                                         dev    1.79     1.77     1.81
+        pib_2025                                       juros   -0.20    -0.22    -0.18
+        pib_2025                                        priv    0.08     0.06     0.10
+        pib_2025                                        swap    0.44     0.42     0.46
+      embi_dez25 fiscal: baixo_multiplicador (vs motosserra)   12.88     9.57    16.19
+      embi_dez25             fiscal: gradual (vs motosserra)  425.70   422.39   429.02
+      embi_dez25                                         dev  -12.69   -15.40    -9.99
+      embi_dez25                                       juros  -83.44   -86.14   -80.73
+      embi_dez25                                        priv  -40.57   -43.27   -37.86
+      embi_dez25                                        swap -167.18  -169.88  -164.47
+  reservas_dez25 fiscal: baixo_multiplicador (vs motosserra)   -2.51    -2.60    -2.41
+  reservas_dez25             fiscal: gradual (vs motosserra)  -17.15   -17.25   -17.05
+  reservas_dez25                                         dev   19.67    19.59    19.75
+  reservas_dez25                                       juros    1.66     1.58     1.74
+  reservas_dez25                                        priv    0.44     0.36     0.52
+  reservas_dez25                                        swap   10.35    10.27    10.43

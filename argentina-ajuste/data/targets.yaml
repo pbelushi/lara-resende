@@ -1,0 +1,28 @@
+# Alvos de validação (cenário efetivamente executado, dez/2023–dez/2025).
+# Valores conferidos em fontes públicas em 06/11/2026 — ver data/SOURCES.md.
+# O calibrador (src/argmodel/calibrate.py) tenta reproduzir estes números com
+# o cenário "milei_efetivo" antes de qualquer contrafactual ser rodado.
+
+inflation_dec_dec:        # % a/a, INDEC
+  2023: 211.4
+  2024: 117.8
+  2025: 31.5
+
+gdp_growth:               # % média anual, INDEC (2024 revisado)
+  2024: -1.7
+  2025: 4.4
+
+poverty_rate:             # % de pessoas, EPH/INDEC 31 aglomerados
+  "2023H2": 41.7          # ponto de partida
+  "2024H1": 52.9
+  "2024H2": 38.1
+  "2025H1": 31.6
+  "2025H2": 28.2
+
+primary_balance_pct_gdp:  # Setor Público Nacional
+  2023: -2.9
+  2024: 1.8
+
+net_reserves_usd_bn:      # BCRA, metodologia de mercado (aprox.)
+  "2023-11": -10.5
+  "2024-12": -10.0        # ~-9,6 a -10,4 (PPI/consultorias); só checagem frouxa
