@@ -13,3 +13,9 @@
 
 O shell da sessão não alcança as fontes; as séries do FRED foram lidas por WebFetch e transcritas. Conferir antes
 de publicar.
+
+Conferência de 11/11/2026: a inflação em 12 meses de 2022 a 2025 (pico de 85,5% em out/2022; 64,3% em dez/2022;
+64,8% em dez/2023; 44,4% em dez/2024; mai–dez/2025) e os reajustes do salário mínimo de 2022 a 2026 (inclusive +27%
+para 2026, net de 28.075 liras; Hürriyet Daily News, 31/12/2025) batem com o publicado. Reservas líquidas sem swaps:
+−65 bi em ago/2023 e −57 bi em nov/2023 (bne IntelliNews), coerentes com os pontos do arquivo; os demais pontos, o
+primário e a dívida continuam aproximados.
