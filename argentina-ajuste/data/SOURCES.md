@@ -28,9 +28,10 @@ justificados linha a linha em `config/params.yaml`.
 ## REM (BCRA) — `rem_medianas.csv`
 
 Medianas do Relevamiento de Expectativas de Mercado, pesquisas de nov/23 a dez/25 (inflação do mês, dos dois seguintes,
-12 meses; câmbio médio mensal esperado do mês seguinte e de dezembro). Montado em nov/2026 a partir dos relatórios e PDFs
-mensais do BCRA (https://www.bcra.gob.ar/PublicacionesEstadisticas/Relevamiento_Expectativas_de_Mercado.asp) e, para os
-meses sem tabela legível, da imprensa (El Cronista, Ámbito, La Nación, Bloomberg Línea, C5N e outros), com conferência
-cruzada pela revisão que cada relatório informa ("+0,3 p.p. respecto del REM previo"). Fonte por linha em `source_url`;
-dúvidas em `notes` (ex.: set/25 sem inflação do mês seguinte por fontes divergentes). **Conferir**: substituir pela planilha
-histórica do BCRA (historico-relevamiento-expectativas-mercado.xlsx) quando baixada localmente.
+12 meses; câmbio médio mensal esperado do mês seguinte e de dezembro), extraídas da planilha histórica do BCRA
+(https://www.bcra.gob.ar/archivos/Pdfs/PublicacionesEstadisticas/informes/relevamiento-expectativas-mercado-historico.xlsx;
+cópia em `raw/`, baixada em 11/11/2026) por `scripts/build_rem_from_bcra.py`. A versão anterior, montada a partir dos
+relatórios mensais e da imprensa, está em `rem_medianas_v1_imprensa.csv`, com fonte por linha; as medianas coincidem
+(até 0,04 p.p. na inflação e 0,8 peso no câmbio), salvo a inflação de jan/24 na pesquisa de nov/23 (19,0 contra 19,7).
+A planilha completa as lacunas da versão anterior (inflação de dois meses à frente, inflação em 12 meses e câmbio de
+dezembro em todas as pesquisas).

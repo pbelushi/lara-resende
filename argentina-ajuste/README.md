@@ -298,11 +298,11 @@ Leituras:
 
 ### Parte 2 — credibilidade medida pelo REM (`python -m argmodel.credibility_measure`)
 
-Fonte: `data/rem_medianas.csv`, medianas do REM (BCRA) de nov/23 a dez/25, montadas a
-partir dos relatórios e PDFs mensais do BCRA e da imprensa. A coluna `notes` marca os
-valores menos seguros. A planilha histórica do BCRA (`historico-relevamiento-
-expectativas-mercado.xlsx`) fecha as lacunas e deve substituir este arquivo quando
-baixada localmente. Figura: `outputs/fig_credibilidade_rem.png`.
+Fonte: `data/rem_medianas.csv`, medianas do REM (BCRA) de nov/23 a dez/25, extraídas da
+planilha histórica do BCRA (`data/raw/relevamiento-expectativas-mercado-historico.xlsx`, baixada
+em 11/11/2026) por `scripts/build_rem_from_bcra.py`. A versão anterior, montada a partir dos
+relatórios mensais e da imprensa, está em `data/rem_medianas_v1_imprensa.csv`; as medianas
+coincidem, salvo arredondamentos e a inflação de jan/24 na pesquisa de nov/23 (19,0 contra 19,7). Figura: `outputs/fig_credibilidade_rem.png`.
 
 A medida usa a mesma fórmula do modelo:
 c = (inflação passada − esperada) / (inflação passada − âncora), agregada por período
@@ -310,17 +310,17 @@ com mínimos quadrados e só nos meses em que âncora e inércia diferem em ≥ 
 
 | Período | Modelo calibrado | REM: inflação esperada | REM: câmbio esperado × crawl |
 |---|---|---|---|
-| 1º tri/24 | 0,75 | 0,05 (0,10 com o nowcast do REM) | 0,39 (pesquisa de dez/23) |
-| abr–dez/24 | 0,89 | 0,06 (0,16) | ~0 em jun–jul, 0,9–1,0 em ago–set |
-| jan–abr/25 | 0,93 | 0,12 | 0,7–0,95 em jan–fev, 0,3–0,5 em mar–abr |
-| mai–dez/25 | 0,95 | ~0 | não informativo (banda, inflação ≈ deriva) |
+| 1º tri/24 | 0,75 | 0,05 (0,12 com o nowcast do REM) | 0,4–0,6 (pesquisas de dez/23 a fev/24) |
+| abr–dez/24 | 0,89 | 0,06 (0,16) | 0,3 em abr–mai, ~0 em jun–jul, 0,9–1,0 em ago–set |
+| jan–abr/25 | 0,93 | 0,12 | 0,7–0,95 em jan–fev, 0,2–0,5 em mar–abr |
+| mai–dez/25 | 0,95 | ~0 (0,07) | não informativo (banda, inflação ≈ deriva) |
 
 - **Pelas pesquisas, a inflação esperada quase não seguiu a âncora.** Os analistas
   projetavam a última inflação. Erraram para cima em −4,2 p.p. por mês no 1º tri/24 e
   em −0,9 p.p. em abr–dez/24: a inflação caiu mais rápido do que esperavam.
-- **A credibilidade do câmbio foi conquistada, não dada.** Ela ficou perto de zero até
-  julho/24, quando o mercado esperava depreciação igual à inflação, e subiu para
-  ~1 em agosto–setembro/24. Ela voltou a cair antes das bandas de abril/25.
+- **A credibilidade do câmbio foi conquistada, não dada.** Ela ficou entre 0,3 e 0,6 no
+  1º semestre de 2024, caiu para perto de zero em junho–julho/24, quando o mercado esperava
+  depreciação igual à inflação, e subiu para ~1 em agosto–setembro/24. Ela voltou a cair antes das bandas de abril/25.
 - **O modelo não reproduz 2024 com as expectativas do REM.** Com as expectativas do
   REM no lugar das do modelo (`inflation.pie_override`), a inflação de 2024 iria a
   254%, contra 118% observado. Logo, o `cred` do modelo não é a credibilidade das
@@ -378,7 +378,7 @@ src/argmodel/report.py         gráficos
 src/argmodel/lambda_swap.py    troca de dívida × adesão do mercado (--combos: combinações)
 src/argmodel/credibility.py    mapa λ câmbio × λ juros (parte 1)
 src/argmodel/credibility_measure.py  credibilidade medida pelo REM (parte 2)
-data/rem_medianas.csv          medianas do REM nov/23–dez/25 (fontes por linha)
+data/rem_medianas.csv          medianas do REM nov/23–dez/25 (planilha histórica do BCRA)
 scripts/fetch_data.py          puxa séries do INDEC/BCRA (rodar localmente)
 outputs/                       resultados e figuras
 ```
