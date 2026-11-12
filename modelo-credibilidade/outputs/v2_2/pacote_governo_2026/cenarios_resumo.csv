@@ -1,0 +1,31 @@
+grupo,especificacao,pacote,p_banda,p_teto,atividade_ate_2030,divida_t0,divida_2030T4
+"baixa, regra central",P2,"governo (R$ 53,5 bi; 0,37% do PIB)",0.0,0.001,-0.005,82.93,99.549
+"baixa, regra central",P2,"governo, piso (R$ 43 bi)",0.0,0.0,-0.003,82.93,99.956
+"baixa, regra central",P2,"governo, teto (R$ 60 bi)",0.0,0.001,-0.007,82.93,99.306
+"baixa, regra central",P2,"estratégia A (2,7% do PIB)",0.203,0.353,-0.683,82.93,91.166
+"baixa, regra central",P2,"híbrido 5,5% (pacote do paper, sem θ)",0.351,0.701,0.224,82.93,71.824
+"baixa, regra central",P2,sem ajuste (S),0.0,0.0,0.0,82.93,101.593
+"baixa, regra central, salto +0,8",P2,"governo (R$ 53,5 bi; 0,37% do PIB)",0.0,0.0,0.29,82.93,98.004
+hostil,P2,"governo (R$ 53,5 bi; 0,37% do PIB)",0.0,0.0,-0.06,82.93,104.274
+hostil,P2,"governo, piso (R$ 43 bi)",0.0,0.0,-0.047,82.93,104.709
+hostil,P2,"governo, teto (R$ 60 bi)",0.0,0.001,-0.068,82.93,104.005
+hostil,P2,"estratégia A (2,7% do PIB)",0.053,0.141,-1.444,82.93,95.93
+hostil,P2,"híbrido 5,5% (pacote do paper, sem θ)",0.211,0.628,-0.403,82.93,74.59
+hostil,P2,sem ajuste (S),0.0,0.0,0.0,82.93,106.521
+"hostil, θ = 0,32",P2,"governo (R$ 53,5 bi; 0,37% do PIB)",0.001,0.001,-0.073,82.93,101.897
+"hostil, θ = 0,32",P2,"híbrido 5,5% (pacote do paper, sem θ)",0.613,0.825,0.14,82.93,73.149
+"baixa, regra central",P1,"governo (R$ 53,5 bi; 0,37% do PIB)",0.0,0.0,0.031,82.93,98.73
+"baixa, regra central",P1,"governo, piso (R$ 43 bi)",0.0,0.0,0.026,82.93,99.098
+"baixa, regra central",P1,"governo, teto (R$ 60 bi)",0.001,0.001,0.034,82.93,98.488
+"baixa, regra central",P1,"estratégia A (2,7% do PIB)",0.242,0.45,-0.65,82.93,90.668
+"baixa, regra central",P1,"híbrido 5,5% (pacote do paper, sem θ)",0.342,0.794,0.579,82.93,71.178
+"baixa, regra central",P1,sem ajuste (S),0.0,0.0,0.0,82.93,100.753
+"baixa, regra central, salto +0,8",P1,"governo (R$ 53,5 bi; 0,37% do PIB)",0.001,0.001,0.294,82.93,96.962
+hostil,P1,"governo (R$ 53,5 bi; 0,37% do PIB)",0.001,0.001,0.014,82.93,103.008
+hostil,P1,"governo, piso (R$ 43 bi)",0.0,0.0,0.012,82.93,103.45
+hostil,P1,"governo, teto (R$ 60 bi)",0.001,0.001,0.014,82.93,102.729
+hostil,P1,"estratégia A (2,7% do PIB)",0.092,0.23,-1.264,82.93,94.939
+hostil,P1,"híbrido 5,5% (pacote do paper, sem θ)",0.216,0.784,0.553,82.93,74.012
+hostil,P1,sem ajuste (S),0.0,0.0,0.0,82.93,105.299
+"hostil, θ = 0,32",P1,"governo (R$ 53,5 bi; 0,37% do PIB)",0.0,0.0,-0.045,82.93,100.795
+"hostil, θ = 0,32",P1,"híbrido 5,5% (pacote do paper, sem θ)",0.615,0.878,0.305,82.93,72.057
