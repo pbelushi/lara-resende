@@ -1,0 +1,31 @@
+grupo,especificacao,pacote,p_banda,p_teto,atividade_ate_2030,divida_t0,divida_2030T4
+"baixa, regra central",P2,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.0,-0.017,82.93,99.665
+"baixa, regra central",P2,"aprovado, piso (R$ 45,1 bi)",0.0,0.0,-0.014,82.93,99.878
+"baixa, regra central",P2,"aprovado, teto (R$ 56,1 bi)",0.0,0.001,-0.019,82.93,99.459
+"baixa, regra central",P2,"aprovado, contenção devolvida em 2028",0.0,0.0,0.086,82.93,100.024
+"baixa, regra central",P2,"proposta original (R$ 53,5 bi)",0.0,0.001,-0.005,82.93,99.549
+"baixa, regra central",P2,sem ajuste (S),0.0,0.0,0.0,82.93,101.593
+"baixa, regra central, salto +0,8",P2,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.0,0.262,82.93,98.126
+hostil,P2,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.0,-0.069,82.93,104.402
+hostil,P2,"aprovado, piso (R$ 45,1 bi)",0.0,0.0,-0.061,82.93,104.629
+hostil,P2,"aprovado, teto (R$ 56,1 bi)",0.0,0.0,-0.077,82.93,104.176
+hostil,P2,"aprovado, contenção devolvida em 2028",0.0,0.0,0.079,82.93,104.728
+hostil,P2,"proposta original (R$ 53,5 bi)",0.0,0.0,-0.06,82.93,104.274
+hostil,P2,sem ajuste (S),0.0,0.0,0.0,82.93,106.521
+"hostil, θ = 0,32",P2,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.001,0.001,-0.082,82.93,102.014
+"hostil, θ = 0,32",P2,"aprovado, contenção devolvida em 2028",0.001,0.001,0.069,82.93,102.341
+"baixa, regra central",P1,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.0,0.019,82.93,98.833
+"baixa, regra central",P1,"aprovado, piso (R$ 45,1 bi)",0.0,0.0,0.018,82.93,99.03
+"baixa, regra central",P1,"aprovado, teto (R$ 56,1 bi)",0.0,0.0,0.02,82.93,98.639
+"baixa, regra central",P1,"aprovado, contenção devolvida em 2028",0.0,0.0,0.119,82.93,99.159
+"baixa, regra central",P1,"proposta original (R$ 53,5 bi)",0.0,0.0,0.031,82.93,98.73
+"baixa, regra central",P1,sem ajuste (S),0.0,0.0,0.0,82.93,100.753
+"baixa, regra central, salto +0,8",P1,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.001,0.001,0.268,82.93,97.085
+hostil,P1,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.0,0.002,82.93,103.135
+hostil,P1,"aprovado, piso (R$ 45,1 bi)",0.0,0.0,0.002,82.93,103.364
+hostil,P1,"aprovado, teto (R$ 56,1 bi)",0.0,0.0,0.001,82.93,102.903
+hostil,P1,"aprovado, contenção devolvida em 2028",0.001,0.001,0.145,82.93,103.468
+hostil,P1,"proposta original (R$ 53,5 bi)",0.001,0.001,0.014,82.93,103.008
+hostil,P1,sem ajuste (S),0.0,0.0,0.0,82.93,105.299
+"hostil, θ = 0,32",P1,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.0,-0.054,82.93,100.915
+"hostil, θ = 0,32",P1,"aprovado, contenção devolvida em 2028",0.0,0.0,0.094,82.93,101.229

@@ -1,0 +1,13 @@
+especificacao,pacote,criterio,p_max,lambda_star_80,lambda_star_50
+P2,"aprovado (R$ 50,6 bi; 0,35% do PIB)",banda,0.001,,
+P2,"aprovado (R$ 50,6 bi; 0,35% do PIB)",teto,0.001,,
+P2,"aprovado, contenção devolvida em 2028",banda,0.001,,
+P2,"aprovado, contenção devolvida em 2028",teto,0.001,,
+P1,"aprovado (R$ 50,6 bi; 0,35% do PIB)",banda,0.002,,
+P1,"aprovado (R$ 50,6 bi; 0,35% do PIB)",teto,0.002,,
+P1,"aprovado, contenção devolvida em 2028",banda,0.002,,
+P1,"aprovado, contenção devolvida em 2028",teto,0.002,,
+P3_theta05,"aprovado (R$ 50,6 bi; 0,35% do PIB)",banda,0.0,,
+P3_theta05,"aprovado (R$ 50,6 bi; 0,35% do PIB)",teto,0.0,,
+P3_theta05,"aprovado, contenção devolvida em 2028",banda,0.0,,
+P3_theta05,"aprovado, contenção devolvida em 2028",teto,0.0,,

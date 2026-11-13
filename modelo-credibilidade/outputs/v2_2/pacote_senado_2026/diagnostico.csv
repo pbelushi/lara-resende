@@ -1,0 +1,10 @@
+grupo,pacote,p_banda,falha_inflacao_explosiva,falha_divida_inclinacao,falha_divida_nivel,falha_inflacao,falha_reservas,primario_2027,primario_2030,divida_2030T4,inflacao_final
+"baixa, regra central","aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.365,0.555,0.079,0.0,0.0,-0.297,0.21,99.665,7.029
+"baixa, regra central","aprovado, contenção devolvida em 2028",0.0,0.375,0.555,0.07,0.0,0.0,-0.3,0.109,100.024,7.288
+"baixa, regra central","proposta original (R$ 53,5 bi)",0.0,0.361,0.557,0.081,0.001,0.0,-0.278,0.233,99.549,6.909
+hostil,"aprovado (R$ 50,6 bi; 0,35% do PIB)",0.0,0.671,0.283,0.046,0.0,0.0,-0.336,-0.301,104.402,18.299
+hostil,"aprovado, contenção devolvida em 2028",0.0,0.687,0.272,0.041,0.0,0.0,-0.337,-0.4,104.728,18.841
+hostil,"proposta original (R$ 53,5 bi)",0.0,0.667,0.286,0.046,0.0,0.0,-0.317,-0.277,104.274,18.119
+"hostil, θ = 0,32","aprovado (R$ 50,6 bi; 0,35% do PIB)",0.001,0.003,0.936,0.06,0.0,0.0,-0.336,0.05,102.014,5.118
+"hostil, θ = 0,32","aprovado, contenção devolvida em 2028",0.001,0.004,0.94,0.055,0.0,0.0,-0.337,-0.048,102.341,5.245
+"hostil, θ = 0,32","proposta original (R$ 53,5 bi)",0.001,0.003,0.934,0.062,0.0,0.0,-0.318,0.073,101.897,5.095
